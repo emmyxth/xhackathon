@@ -25,12 +25,25 @@ const EditableComponent: React.FC = () => {
     // Add more elements as needed
   ]);
 
+  const getRandomColor = () => {
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  };
   const addElement = (element: Element) => {
     setElements([...elements, element]);
   };
 
+  const backgroundColor = getRandomColor();
+
   return (
-    <div className="relative w-full h-full bg-black text-white p-4">
+    <div
+      className="relative w-full h-full text-white p-4"
+      style={{ backgroundColor }}
+    >
       {/* ...header content */}
 
       {/* Container for base image and draggable elements */}

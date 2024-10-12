@@ -1,6 +1,6 @@
 "use client";
 // EditableComponent.tsx
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useMemo } from "react";
 import Draggable from "react-draggable";
 import Image from "next/image";
 
@@ -19,6 +19,7 @@ const EditableComponent: React.FC = () => {
     width: 0,
     height: 0,
   });
+  const [elementsInitialized, setElementsInitialized] = useState(false);
 
   useEffect(() => {
     const updateWindowDimensions = () => {
@@ -37,16 +38,14 @@ const EditableComponent: React.FC = () => {
   }, []);
 
   // Define positions for each category
-  const categoryPositions: {
-    [key in Element["category"]]: { x: number; y: number };
-  } = {
+  const categoryPositions = {
     PETS: { x: 100, y: 200 },
     FOOD: { x: 150, y: 250 },
     SHELF_1: { x: 400, y: 100 },
     SHELF_2: { x: 500, y: 150 },
     CHAIR: {
-      x: windowDimensions.width ? windowDimensions.width - 150 : 200, // Default value if width is not available
-      y: windowDimensions.height ? windowDimensions.height / 2 : 100, // Default value if height is not available
+      x: windowDimensions.width ? windowDimensions.width - 150 : 150,
+      y: windowDimensions.height ? windowDimensions.height / 2 : 100,
     },
     RUG: { x: 200, y: 300 },
     POSTER1: { x: 100, y: 100 },
@@ -57,7 +56,7 @@ const EditableComponent: React.FC = () => {
     GROUND1: { x: 90, y: 90 },
     CEILING: { x: 100, y: 100 },
   };
-  console.log(categoryPositions);
+
   const getRandomColor = () => {
     const letters = "0123456789ABCDEF";
     let color = "#";
@@ -69,9 +68,8 @@ const EditableComponent: React.FC = () => {
 
   const addElement = (element: Omit<Element, "initialX" | "initialY">) => {
     setElements((prevElements) => {
-      // Check if an element with the same id already exists
       if (prevElements.some((el) => el.id === element.id)) {
-        return prevElements; // Do not add duplicate
+        return prevElements;
       }
       const position = categoryPositions[element.category];
 
@@ -86,16 +84,33 @@ const EditableComponent: React.FC = () => {
   };
   let backgroundColor = getRandomColor();
 
-  // Initialize elements on component mount
+  // Initialize elements when windowDimensions are available
   useEffect(() => {
-    addElement({
-      id: "2",
-      type: "chair",
-      src: "/assets/chair.webp",
-      category: "CHAIR",
-    });
-    // Add more elements as needed
-  }, []); // Empty dependency array to run only once on mount
+    if (
+      !elementsInitialized &&
+      windowDimensions.width &&
+      windowDimensions.height
+    ) {
+      addElement({
+        id: "1",
+        type: "poster",
+        src: "/assets/posters/american_flag.png",
+        category: "POSTER1",
+      });
+      addElement({
+        id: "2",
+        type: "poster",
+        src: "/assets/posters/doge.png",
+        category: "POSTER1",
+      });
+      //   id: "2",
+      //   type: "chair",
+      //   src: "/assets/chair.webp",
+      //   category: "CHAIR",
+      // });
+      setElementsInitialized(true);
+    }
+  }, [windowDimensions, elementsInitialized]);
 
   return (
     <div
@@ -157,22 +172,21 @@ const DraggableElement: React.FC<Element> = ({
 
   const desiredHeight = categoryHeights[category];
 
-  const handleImageLoad = (event) => {
-    const { naturalWidth, naturalHeight } = event.target;
+  const handleImageLoad = (event: React.SyntheticEvent<HTMLImageElement>) => {
+    const { naturalWidth, naturalHeight } = event.currentTarget;
 
-    // Calculate the scaling factor
-    let scaleFactor = desiredHeight / naturalHeight;
+    if (naturalWidth && naturalHeight) {
+      let scaleFactor = desiredHeight / naturalHeight;
 
-    // Prevent scaling beyond natural size
-    if (scaleFactor > 1) {
-      scaleFactor = 1;
+      if (scaleFactor > 1) {
+        scaleFactor = 1;
+      }
+
+      const finalWidth = naturalWidth * scaleFactor;
+      const finalHeight = naturalHeight * scaleFactor;
+
+      setDimensions({ width: finalWidth, height: finalHeight });
     }
-
-    // Calculate final dimensions
-    const finalWidth = naturalWidth * scaleFactor;
-    const finalHeight = naturalHeight * scaleFactor;
-
-    setDimensions({ width: finalWidth, height: finalHeight });
   };
 
   return (
@@ -186,7 +200,7 @@ const DraggableElement: React.FC<Element> = ({
           height={dimensions ? dimensions.height : undefined}
           style={{
             pointerEvents: "none",
-            display: dimensions ? "block" : "none", // Hide until dimensions are calculated
+            display: dimensions ? "block" : "none",
           }}
           draggable={false}
         />

@@ -1,14 +1,16 @@
 // pages/page1.tsx
-
+import EditableComponent from "@/components/EditableComponent"; // Ensure the path is correct
+import ElementPanel from "@/components/ElementPanel"; // Corrected the path
+import Link from "next/link";
 import React from "react";
-import EditableComponent from "../src/components/EditableComponent";
-import ElementPanel from "../src/components/ElementPanel";
 
 const VersePage: React.FC = () => {
   return (
     <div className="flex flex-col h-screen bg-blue-300">
       <header className="p-4">
-        <h1 className="text-2xl font-bold">My X Bedroom</h1>
+        <Link href={"/hello"}>
+          <h1 className="text-2xl font-bold">My X Bedroom</h1>
+        </Link>
       </header>
 
       <main className="flex-grow flex flex-row gap-12 items-center justify-center space-y-4">

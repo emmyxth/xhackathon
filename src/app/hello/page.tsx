@@ -5,7 +5,7 @@ import React from "react";
 const InternetBedroomPage: React.FC = () => {
   const router = useRouter();
   const generateUserBedroom = () => {
-    router.push("/loading");
+    router.push("/bedroom");
   };
 
   return (

@@ -1,8 +1,8 @@
 // EditableComponent.tsx
-
-import React, { useState, useRef } from "react";
-import Draggable from "react-draggable"; // Import Draggable
+"use client";
 import Image from "next/image"; // Next.js Image component
+import React, { useRef, useState } from "react";
+import Draggable from "react-draggable"; // Import Draggable
 
 interface Element {
   id: string;

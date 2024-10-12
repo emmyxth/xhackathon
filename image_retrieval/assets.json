@@ -387,7 +387,12 @@
             "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_14.webp"
         ]
     },
-    "RUG": {},
+    "RUG": {
+        "ASSET_1": [
+            "Doge",
+            "/manual_images/posters/doge.png"
+        ]
+    },
     "POSTER": {
         "ASSET_1": [
             "Doge",

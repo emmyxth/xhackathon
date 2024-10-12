@@ -1,7 +1,13 @@
+"use client";
+import { useRouter } from "next/navigation";
 import React from "react";
-import Image from "next/image";
 
 const InternetBedroomPage: React.FC = () => {
+  const router = useRouter();
+  const generateUserBedroom = () => {
+    router.push("/loading");
+  };
+
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-black text-white relative overflow-hidden">
       {/* Animated Background */}
@@ -32,7 +38,10 @@ const InternetBedroomPage: React.FC = () => {
               placeholder="your X username"
               className="w-full p-3 mb-4 bg-gray-800 text-white rounded"
             />
-            <button className="w-full p-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+            <button
+              onClick={generateUserBedroom}
+              className="w-full p-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+            >
               Generate Bedroom
             </button>
           </div>

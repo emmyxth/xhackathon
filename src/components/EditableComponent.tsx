@@ -11,25 +11,36 @@ interface Element {
   initialX: number;
   initialY: number;
   category:
-    | "desk1"
-    | "desk2"
-    | "chair"
-    | "rug"
-    | "poster1"
-    | "poster2"
-    | "shelf1"
-    | "shelf2";
+    | "PETS"
+    | "FOOD"
+    | "SHELF_1"
+    | "SHELF_2"
+    | "CHAIR"
+    | "RUG"
+    | "POSTER1"
+    | "SHELF1"
+    | "SHELF2"
+    | "TABLE1"
+    | "TABLE2"
+    | "TABLE3"
+    | "TABLE4"
+    | "GROUND1"
+    | "CEILING";
 }
-
 const categoryHeights: { [key in Element["category"]]: number } = {
-  desk1: 80,
-  desk2: 80,
-  chair: 300,
-  rug: 60,
-  poster1: 70,
-  poster2: 70,
-  shelf1: 50,
-  shelf2: 50,
+  PETS: 80,
+  FOOD: 80,
+  SHELF_1: 50,
+  SHELF_2: 50,
+  CHAIR: 300,
+  RUG: 60,
+  POSTER1: 70,
+  TABLE1: 70,
+  TABLE2: 70,
+  TABLE3: 70,
+  TABLE4: 70,
+  GROUND1: 70,
+  CEILING: 70,
 };
 
 const EditableComponent: React.FC = () => {
@@ -59,17 +70,22 @@ const EditableComponent: React.FC = () => {
   const categoryPositions: {
     [key in Element["category"]]: { x: number; y: number };
   } = {
-    desk1: { x: 100, y: 200 },
-    desk2: { x: 150, y: 250 },
-    chair: {
+    PETS: { x: 100, y: 200 },
+    FOOD: { x: 150, y: 250 },
+    SHELF_1: { x: 400, y: 100 },
+    SHELF_2: { x: 500, y: 150 },
+    CHAIR: {
       x: windowDimensions.width ? windowDimensions.width - 150 : 150, // Default value if width is not available
       y: windowDimensions.height ? windowDimensions.height / 2 : 150, // Default value if height is not available
     },
-    rug: { x: 200, y: 300 },
-    poster1: { x: 10, y: 10 },
-    poster2: { x: 300, y: 50 },
-    shelf1: { x: 400, y: 100 },
-    shelf2: { x: 500, y: 150 },
+    RUG: { x: 200, y: 300 },
+    POSTER1: { x: 10, y: 10 },
+    TABLE1: { x: 50, y: 50 },
+    TABLE2: { x: 60, y: 60 },
+    TABLE3: { x: 70, y: 70 },
+    TABLE4: { x: 80, y: 80 },
+    GROUND1: { x: 90, y: 90 },
+    CEILING: { x: 100, y: 100 },
   };
 
   console.log(categoryPositions);
@@ -101,13 +117,13 @@ const EditableComponent: React.FC = () => {
       id: "1",
       type: "radio",
       src: "/assets/radio.png",
-      category: "poster1",
+      category: "POSTER1",
     });
     addElement({
       id: "2",
       type: "chair",
       src: "/assets/chair.webp",
-      category: "chair",
+      category: "CHAIR",
     });
     // Add more elements as needed
   }, [windowDimensions]);

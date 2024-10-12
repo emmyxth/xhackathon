@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect, useRef } from "react";
 import Draggable from "react-draggable";
 import Image from "next/image";
@@ -22,7 +24,7 @@ interface Element {
 const categoryHeights: { [key in Element["category"]]: number } = {
   desk1: 80,
   desk2: 80,
-  chair: 100,
+  chair: 300,
   rug: 60,
   poster1: 70,
   poster2: 70,
@@ -53,16 +55,6 @@ const EditableComponent: React.FC = () => {
     };
   }, []);
 
-  const categoryHeights: { [key in Element["category"]]: number } = {
-    desk1: 80,
-    desk2: 80,
-    chair: 100,
-    rug: 60,
-    poster1: 70,
-    poster2: 70,
-    shelf1: 50,
-    shelf2: 50,
-  };
   // Define positions for each category
   const categoryPositions: {
     [key in Element["category"]]: { x: number; y: number };
@@ -70,8 +62,8 @@ const EditableComponent: React.FC = () => {
     desk1: { x: 100, y: 200 },
     desk2: { x: 150, y: 250 },
     chair: {
-      x: windowDimensions.width ? windowDimensions.width - 100 : 300, // Default value if width is not available
-      y: windowDimensions.height ? windowDimensions.height / 2 : 200, // Default value if height is not available
+      x: windowDimensions.width ? windowDimensions.width - 150 : 150, // Default value if width is not available
+      y: windowDimensions.height ? windowDimensions.height / 2 : 150, // Default value if height is not available
     },
     rug: { x: 200, y: 300 },
     poster1: { x: 10, y: 10 },
@@ -79,6 +71,8 @@ const EditableComponent: React.FC = () => {
     shelf1: { x: 400, y: 100 },
     shelf2: { x: 500, y: 150 },
   };
+
+  console.log(categoryPositions);
 
   const getRandomColor = () => {
     const letters = "0123456789ABCDEF";

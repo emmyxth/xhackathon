@@ -14,13 +14,12 @@ const EditableComponent: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full h-full bg-black text-white p-4">
-      <h2 className="text-3xl font-bold text-center py-4">DISCO BRAT</h2>
-      <p className="text-center">monemmy's Internet Bedroom</p>
-      {elements.map((element) => (
-        <DraggableElement key={element.id} {...element} />
-      ))}
-      {/* Add more default elements here */}
+    <div className="relative w-full h-full text-white">
+      <img
+        src="https://discz-production-s3-bucket.s3.amazonaws.com/background/1dfe3775-12fb-41d6-98fa-068f7233b59a.png"
+        className="h-full w-full object-cover"
+        alt="Background"
+      />
     </div>
   );
 };

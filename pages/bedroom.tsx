@@ -1,9 +1,8 @@
 // pages/page1.tsx
 
 import React from "react";
-import Image from "next/image";
-import ElementPanel from "../src/components/ElementPanel";
 import EditableComponent from "../src/components/EditableComponent";
+import ElementPanel from "../src/components/ElementPanel";
 
 const VersePage: React.FC = () => {
   return (
@@ -13,7 +12,7 @@ const VersePage: React.FC = () => {
       </header>
 
       <main className="flex-grow flex flex-row gap-12 items-center justify-center space-y-4">
-        <div className="w-[375px] h-full bg-black rounded-3xl overflow-hidden shadow-xl">
+        <div className="w-auto h-full bg-black rounded-3xl overflow-hidden">
           <EditableComponent />
         </div>
         <div className="w-[375px] h-[200px] bg-blue-200 rounded-lg overflow-y-auto">

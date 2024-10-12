@@ -14,7 +14,7 @@ const EditableComponent: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full h-full bg-green-400 rounded-lg overflow-hidden">
+    <div className="relative w-full h-full bg-black text-white p-4">
       <h2 className="text-3xl font-bold text-center py-4">DISCO BRAT</h2>
       <p className="text-center">monemmy's Internet Bedroom</p>
       {elements.map((element) => (

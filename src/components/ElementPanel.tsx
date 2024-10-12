@@ -9,10 +9,19 @@ const ElementPanel: React.FC = () => {
   ];
 
   return (
-    <div className="grid grid-cols-3 gap-2">
+    <div className="grid grid-cols-3 gap-2 p-4">
       {elements.map((element) => (
-        <div key={element.id} className="bg-white p-2 rounded">
-          <Image src={element.src} alt={element.alt} width={64} height={64} />
+        <div
+          key={element.id}
+          className="bg-white p-2 rounded cursor-pointer hover:bg-gray-100 transition-colors"
+        >
+          <Image
+            src={element.src}
+            alt={element.alt}
+            width={64}
+            height={64}
+            layout="responsive"
+          />
         </div>
       ))}
     </div>

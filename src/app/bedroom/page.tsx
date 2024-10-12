@@ -17,9 +17,9 @@ const VersePage: React.FC = () => {
         <div className="w-full md:w-[375px] h-[500px] bg-black rounded-3xl overflow-hidden">
           <EditableComponent />
         </div>
-        <div className="w-full md:w-[375px] h-[200px] bg-blue-200 rounded-lg overflow-y-auto">
+        {/* <div className="w-full md:w-[375px] h-[200px] bg-blue-200 rounded-lg overflow-y-auto">
           <ElementPanel />
-        </div>
+        </div> */}
       </main>
       <footer className="p-4 flex justify-between items-center">
         <span>Powered by JECZ</span>

@@ -48,7 +48,7 @@ const EditableComponent: React.FC = () => {
       y: windowDimensions.height ? windowDimensions.height / 2 : 100,
     },
     RUG: { x: 200, y: 300 },
-    POSTER1: { x: 100, y: 100 },
+    POSTER1: { x: 80, y: 90 },
     TABLE1: { x: 50, y: 50 },
     TABLE2: { x: 60, y: 60 },
     TABLE3: { x: 70, y: 70 },
@@ -105,7 +105,7 @@ const EditableComponent: React.FC = () => {
       });
       //   id: "2",
       //   type: "chair",
-      //   src: "/assets/chair.webp",
+      //   src: "/assets/chair.webp",3x
       //   category: "CHAIR",
       // });
       setElementsInitialized(true);
@@ -114,21 +114,31 @@ const EditableComponent: React.FC = () => {
 
   return (
     <div
-      className="relative w-full h-full text-white p-4"
+      className="relative w-full min-h-screen text-white p-4"
       style={{ backgroundColor }}
     >
-      <h2 className="text-3xl font-bold text-center py-4">DISCO BRAT</h2>
-      <p className="text-center">Emmy's Internet Bedroom</p>
-
       {/* Container for base image and draggable elements */}
       <div className="relative w-full h-full">
         {/* Base Image */}
-        <Image
+        {/* <Image
           src="/assets/table-chair.png"
           alt="Table and Chair"
           layout="fill"
           objectFit="contain"
           draggable={false}
+          style={{ marginTop: "auto" }} // Adjust this value as needed
+        /> */}
+        <img
+          src="/assets/table-chair.png"
+          alt="Table and Chair"
+          style={{
+            width: "250px",
+            height: "250px",
+            position: "absolute",
+            bottom: "-200px",
+            left: "10px",
+            zIndex: 1,
+          }}
         />
         {/* Draggable Elements */}
         {elements.map((element) => (

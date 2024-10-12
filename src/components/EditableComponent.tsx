@@ -1,6 +1,6 @@
 "use client";
-
-import React, { useState, useEffect, useRef } from "react";
+// EditableComponent.tsx
+import React, { useEffect, useState, useRef } from "react";
 import Draggable from "react-draggable";
 import Image from "next/image";
 
@@ -8,40 +8,10 @@ interface Element {
   id: string;
   type: string;
   src: string;
+  category: string;
   initialX: number;
   initialY: number;
-  category:
-    | "PETS"
-    | "FOOD"
-    | "SHELF_1"
-    | "SHELF_2"
-    | "CHAIR"
-    | "RUG"
-    | "POSTER1"
-    | "SHELF1"
-    | "SHELF2"
-    | "TABLE1"
-    | "TABLE2"
-    | "TABLE3"
-    | "TABLE4"
-    | "GROUND1"
-    | "CEILING";
 }
-const categoryHeights: { [key in Element["category"]]: number } = {
-  PETS: 80,
-  FOOD: 80,
-  SHELF_1: 50,
-  SHELF_2: 50,
-  CHAIR: 300,
-  RUG: 60,
-  POSTER1: 70,
-  TABLE1: 70,
-  TABLE2: 70,
-  TABLE3: 70,
-  TABLE4: 70,
-  GROUND1: 70,
-  CEILING: 70,
-};
 
 const EditableComponent: React.FC = () => {
   const [elements, setElements] = useState<Element[]>([]);
@@ -75,11 +45,11 @@ const EditableComponent: React.FC = () => {
     SHELF_1: { x: 400, y: 100 },
     SHELF_2: { x: 500, y: 150 },
     CHAIR: {
-      x: windowDimensions.width ? windowDimensions.width - 150 : 150, // Default value if width is not available
-      y: windowDimensions.height ? windowDimensions.height / 2 : 150, // Default value if height is not available
+      x: windowDimensions.width ? windowDimensions.width - 150 : 200, // Default value if width is not available
+      y: windowDimensions.height ? windowDimensions.height / 2 : 100, // Default value if height is not available
     },
     RUG: { x: 200, y: 300 },
-    POSTER1: { x: 10, y: 10 },
+    POSTER1: { x: 100, y: 100 },
     TABLE1: { x: 50, y: 50 },
     TABLE2: { x: 60, y: 60 },
     TABLE3: { x: 70, y: 70 },
@@ -87,9 +57,7 @@ const EditableComponent: React.FC = () => {
     GROUND1: { x: 90, y: 90 },
     CEILING: { x: 100, y: 100 },
   };
-
   console.log(categoryPositions);
-
   const getRandomColor = () => {
     const letters = "0123456789ABCDEF";
     let color = "#";
@@ -100,25 +68,26 @@ const EditableComponent: React.FC = () => {
   };
 
   const addElement = (element: Omit<Element, "initialX" | "initialY">) => {
-    const position = categoryPositions[element.category];
+    setElements((prevElements) => {
+      // Check if an element with the same id already exists
+      if (prevElements.some((el) => el.id === element.id)) {
+        return prevElements; // Do not add duplicate
+      }
+      const position = categoryPositions[element.category];
 
-    const newElement: Element = {
-      ...element,
-      initialX: position ? position.x : 0,
-      initialY: position ? position.y : 0,
-    };
+      const newElement: Element = {
+        ...element,
+        initialX: position ? position.x : 0,
+        initialY: position ? position.y : 0,
+      };
 
-    setElements([...elements, newElement]);
+      return [...prevElements, newElement];
+    });
   };
+  let backgroundColor = getRandomColor();
 
   // Initialize elements on component mount
   useEffect(() => {
-    addElement({
-      id: "1",
-      type: "radio",
-      src: "/assets/radio.png",
-      category: "POSTER1",
-    });
     addElement({
       id: "2",
       type: "chair",
@@ -126,9 +95,7 @@ const EditableComponent: React.FC = () => {
       category: "CHAIR",
     });
     // Add more elements as needed
-  }, [windowDimensions]);
-
-  const backgroundColor = getRandomColor();
+  }, []); // Empty dependency array to run only once on mount
 
   return (
     <div
@@ -148,7 +115,6 @@ const EditableComponent: React.FC = () => {
           objectFit="contain"
           draggable={false}
         />
-
         {/* Draggable Elements */}
         {elements.map((element) => (
           <DraggableElement key={element.id} {...element} />
@@ -157,6 +123,7 @@ const EditableComponent: React.FC = () => {
     </div>
   );
 };
+
 const DraggableElement: React.FC<Element> = ({
   id,
   type,
@@ -170,6 +137,23 @@ const DraggableElement: React.FC<Element> = ({
     width: number;
     height: number;
   } | null>(null);
+
+  // Define desired heights for each category
+  const categoryHeights: { [key in Element["category"]]: number } = {
+    PETS: 100,
+    FOOD: 80,
+    SHELF_1: 150,
+    SHELF_2: 150,
+    CHAIR: 200,
+    RUG: 100,
+    POSTER1: 120,
+    TABLE1: 150,
+    TABLE2: 150,
+    TABLE3: 150,
+    TABLE4: 150,
+    GROUND1: 150,
+    CEILING: 150,
+  };
 
   const desiredHeight = categoryHeights[category];
 

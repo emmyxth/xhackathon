@@ -1,6 +1,5 @@
 // pages/page1.tsx
 import EditableComponent from "@/components/EditableComponent";
-import ElementPanel from "@/components/ElementPanel";
 import Link from "next/link";
 import React from "react";
 

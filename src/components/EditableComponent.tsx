@@ -1,8 +1,8 @@
 "use client";
 // EditableComponent.tsx
-import React, { useEffect, useState, useRef, useMemo } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Draggable from "react-draggable";
-import Image from "next/image";
+import assetsData from '../app/assets.json';
 
 interface Element {
   id: string;
@@ -39,7 +39,7 @@ const EditableComponent: React.FC = () => {
 
   // Define positions for each category
   const categoryPositions = {
-    PETS: { x: 100, y: 200 },
+    PETS: { x: 100, y: 100 },
     FOOD: { x: 150, y: 250 },
     SHELF_1: { x: 400, y: 100 },
     SHELF_2: { x: 500, y: 150 },
@@ -103,11 +103,13 @@ const EditableComponent: React.FC = () => {
         src: "/assets/posters/doge.png",
         category: "POSTER1",
       });
-      //   id: "2",
-      //   type: "chair",
-      //   src: "/assets/chair.webp",3x
-      //   category: "CHAIR",
-      // });
+      // Add the new element from assets.json
+      addElement({
+        id: "3",
+        type: "pet",
+        src: assetsData.PETS.ASSET_4[1],
+        category: "PETS",
+      });
       setElementsInitialized(true);
     }
   }, [windowDimensions, elementsInitialized]);

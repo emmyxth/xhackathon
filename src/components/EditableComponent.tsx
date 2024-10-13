@@ -9,6 +9,7 @@ const items = [
   "haribo_goldbears_packaging",
   "flower_shaped_chair",
   "green_checkered_cherry_rug",
+  "trump_bobblehead",
   "teddy_bear",
   "spiderman_funko_pop_figure",
   "blue_lava_lamp",
@@ -27,6 +28,7 @@ const categoryOrder = [
   "FOOD",
   "CHAIR",
   "RUG",
+  "POSTER",
   "DECOR",
   "DECOR",
   "DECOR",
@@ -78,18 +80,19 @@ interface Element {
 // Define positions for each category
 const categoryPositions = {
   PETS: { x: -20, y: 280 },
-  FOOD: { x: 100, y: 130 },
-  SHELF_1: { x: 0, y: 0 },
-  SHELF_2: { x: 0, y: 0 },
+  FOOD: { x: 220, y: 170 },
+  SHELF_1: { x: 30, y: 90 },
+  SHELF_2: { x: 100, y: 200 },
   CHAIR: { x: 200, y: 220 },
   RUG: { x: 200, y: 300 },
-  POSTER1: { x: 30, y: 20 },
-  TABLE1: { x: 50, y: 50 },
-  TABLE2: { x: 60, y: 60 },
+  POSTER1: { x: 0, y: 0 },
+  TABLE1: { x: 100, y: 60 },
+  TABLE2: { x: 10, y: 60 },
   TABLE3: { x: 70, y: 70 },
   TABLE4: { x: 80, y: 80 },
-  GROUND1: { x: 90, y: 90 },
+  GROUND1: { x: 90, y: 280 },
   CEILING: { x: 100, y: 100 },
+  GIF: { x: 0, y: 0 },
 };
 
 const EditableComponent: React.FC = () => {
@@ -143,13 +146,12 @@ const EditableComponent: React.FC = () => {
     const asset = Object.values(assetCategory).find(([name]) => name === item);
 
     if (!asset) return;
-    console.log("category: ", category);
     if (category === "DECOR") {
-      const randomIndex = Math.floor(
-        Math.random() * reverseCategoriesDecor.length
-      );
-      category = reverseCategoriesDecor[randomIndex];
+      // Cycle through reverseCategoriesDecor
+      const decorIndex = index % reverseCategoriesDecor.length;
+      category = reverseCategoriesDecor[decorIndex];
     }
+    console.log("category: ", category, "item:", item);
     const [name, src] = asset;
     const fileExtension = src.split(".").pop()?.toLowerCase();
     const type = fileExtension === "gif" ? "gif" : "image";

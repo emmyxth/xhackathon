@@ -11,32 +11,21 @@ const AnimatedLoadingText = () => {
   ];
 
   useEffect(() => {
-    // Start showing the loading messages immediately
     const messageInterval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % messages.length);
-    }, 500); // Change message every 0.5 seconds
+    }, 1000); // Change message every 0.5 seconds
 
-    // Set a 3-second timer before showing the content
+    // Set a 5-second timer before showing the content
     const contentTimer = setTimeout(() => {
       setShowContent(true);
-      clearInterval(messageInterval); // Stop changing messages
-    }, 3000);
+      clearInterval(messageInterval);
+    }, 5000);
 
     return () => {
       clearInterval(messageInterval);
       clearTimeout(contentTimer);
     };
   }, []);
-
-  if (showContent) {
-    return (
-      <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-        <div className="text-lg font-semibold text-blue-600">
-          Results are ready!
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100">

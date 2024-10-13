@@ -1,11 +1,27 @@
 // pages/page1.tsx
+"use client";
+import AnimatedLoadingText from "@/components/AnimatedLoadingText";
 import EditableComponent from "@/components/EditableComponent";
 import ElementPanel from "@/components/ElementPanel";
 
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const VersePage: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <AnimatedLoadingText />;
+  }
+
   return (
     <div className="flex flex-col min-h-screen bg-blue-300">
       <header className="p-4">
@@ -39,4 +55,5 @@ const VersePage: React.FC = () => {
     </div>
   );
 };
+
 export default VersePage;

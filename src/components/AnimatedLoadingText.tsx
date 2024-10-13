@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 const AnimatedLoadingText = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [showContent, setShowContent] = useState(false);
   const messages = [
     "Analyzing your profile...",
     "Stalking your followers...",
@@ -10,25 +11,27 @@ const AnimatedLoadingText = () => {
   ];
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const messageInterval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % messages.length);
-    }, 500); // Change highlight every 2 seconds
+    }, 1000); // Change message every 0.5 seconds
 
-    return () => clearInterval(interval);
+    // Set a 5-second timer before showing the content
+    const contentTimer = setTimeout(() => {
+      setShowContent(true);
+      clearInterval(messageInterval);
+    }, 5000);
+
+    return () => {
+      clearInterval(messageInterval);
+      clearTimeout(contentTimer);
+    };
   }, []);
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      {messages.map((message, index) => (
-        <div
-          key={index}
-          className={`text-lg font-semibold mb-4 transition-all duration-300 ${
-            index === activeIndex ? "text-blue-600 scale-110" : "text-gray-600"
-          }`}
-        >
-          {message}
-        </div>
-      ))}
+      <div className="text-lg font-semibold text-blue-600 animate-pulse">
+        {messages[activeIndex]}
+      </div>
     </div>
   );
 };

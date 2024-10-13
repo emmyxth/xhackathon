@@ -1,9 +1,28 @@
 "use client";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const InternetBedroomPage: React.FC = () => {
   const router = useRouter();
+  const [isSoundOn, setIsSoundOn] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    audioRef.current = new Audio("/music.mp3"); // Replace with your actual audio file path
+    audioRef.current.loop = true;
+  }, []);
+
+  const toggleSound = () => {
+    if (audioRef.current) {
+      if (isSoundOn) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsSoundOn(!isSoundOn);
+    }
+  };
+
   const generateUserBedroom = () => {
     router.push("/bedroom");
   };
@@ -46,16 +65,31 @@ const InternetBedroomPage: React.FC = () => {
             </button>
           </div>
           <div className="mt-8">
-            <button className="flex items-center text-sm">
-              <span className="mr-2">🔊</span> Sound on
+            <button className="flex items-center text-sm" onClick={toggleSound}>
+              <span className="mr-2">{isSoundOn ? "🔊" : "🔇"}</span>
+              Sound {isSoundOn ? "on" : "off"}
             </button>
           </div>
         </div>
 
         {/* Right Section (Bottom on mobile) */}
-        <div className="w-full md:w-1/2 relative h-[50vh] md:h-auto flex items-end justify-between p-6 md:p-12 bg-black bg-opacity-30">
-          <div></div>
-          <div className="text-white text-right">
+        <div className="w-full md:w-1/2 relative h-[50vh] md:h-auto flex flex-col items-center justify-between p-6 md:p-12 bg-black bg-opacity-30">
+          {/* X Logo */}
+          <div className="flex-grow flex items-center justify-center">
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              className="w-32 h-32 md:w-48 md:h-48 text-white"
+            >
+              <g>
+                <path
+                  fill="currentColor"
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                ></path>
+              </g>
+            </svg>
+          </div>
+          <div className="text-white text-right self-end">
             <p>powered by</p>
             <p className="text-xl md:text-2xl font-bold">JECZ</p>
           </div>

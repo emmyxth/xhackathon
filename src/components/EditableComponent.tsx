@@ -2,28 +2,42 @@
 // EditableComponent.tsx
 import React, { useEffect, useRef, useState } from "react";
 import Draggable from "react-draggable";
-import assets from '../../image_retrieval/assets.json';
+import assets from "../../image_retrieval/assets.json";
 
 const example_items = [
-  "PETS", "FOOD", "SHELF_1", "SHELF_2", "CHAIR", "RUG", "POSTER1", "SHELF1", "SHELF2", "TABLE1", "TABLE2", "TABLE3", "TABLE4", "GROUND1", "CEILING"
+  "PETS",
+  "FOOD",
+  "SHELF_1",
+  "SHELF_2",
+  "CHAIR",
+  "RUG",
+  "POSTER1",
+  "SHELF1",
+  "SHELF2",
+  "TABLE1",
+  "TABLE2",
+  "TABLE3",
+  "TABLE4",
+  "GROUND1",
+  "CEILING",
 ];
 
 const categoryMapping = {
-  "PETS": "PETS",
-  "FOOD": "FOOD",
-  "SHELF_1": "DECOR",
-  "SHELF_2": "DECOR",
-  "CHAIR": "CHAIR",
-  "RUG": "RUG",
-  "POSTER1": "POSTER",
-  "SHELF1": "DECOR",
-  "SHELF2": "DECOR",
-  "TABLE1": "DECOR",
-  "TABLE2": "DECOR",
-  "TABLE3": "DECOR",
-  "TABLE4": "DECOR",
-  "GROUND1": "DECOR",
-  "CEILING": "GIF"
+  PETS: "PETS",
+  FOOD: "FOOD",
+  SHELF_1: "DECOR",
+  SHELF_2: "DECOR",
+  CHAIR: "CHAIR",
+  RUG: "RUG",
+  POSTER1: "POSTER",
+  SHELF1: "DECOR",
+  SHELF2: "DECOR",
+  TABLE1: "DECOR",
+  TABLE2: "DECOR",
+  TABLE3: "DECOR",
+  TABLE4: "DECOR",
+  GROUND1: "DECOR",
+  CEILING: "GIF",
 };
 
 interface Element {
@@ -38,10 +52,10 @@ interface Element {
 // Define positions for each category
 const categoryPositions = {
   PETS: { x: 30, y: 300 },
-  FOOD: { x: 150, y: 130 },
-  SHELF_1: { x: 400, y: 120 },
+  FOOD: { x: 150, y: 250 },
+  SHELF_1: { x: 400, y: 100 },
   SHELF_2: { x: 500, y: 150 },
-  CHAIR: { x: 0, y: 100 },
+  CHAIR: { x: 200, y: 220 },
   RUG: { x: 200, y: 300 },
   POSTER1: { x: 30, y: 20 },
   TABLE1: { x: 50, y: 50 },
@@ -59,7 +73,7 @@ const EditableComponent: React.FC = () => {
     height: 0,
   });
   const [elementsInitialized, setElementsInitialized] = useState(false);
-  const [backgroundColor, setBackgroundColor] = useState('');
+  const [backgroundColor, setBackgroundColor] = useState("");
 
   useEffect(() => {
     const updateWindowDimensions = () => {
@@ -98,16 +112,19 @@ const EditableComponent: React.FC = () => {
   };
 
   const addElement = (elementType: string, index: number) => {
-    const category = categoryMapping[elementType as keyof typeof categoryMapping];
+    const category =
+      categoryMapping[elementType as keyof typeof categoryMapping];
     const asset = getRandomAsset(category);
     if (!asset) return;
 
     const [name, src] = asset;
-    const fileExtension = src.split('.').pop()?.toLowerCase();
-    const type = fileExtension === 'gif' ? 'gif' : 'image';
+    const fileExtension = src.split(".").pop()?.toLowerCase();
+    const type = fileExtension === "gif" ? "gif" : "image";
 
     setElements((prevElements) => {
-      const position = categoryPositions[category as keyof typeof categoryPositions] || { x: 0, y: 0 };
+      const position = categoryPositions[
+        category as keyof typeof categoryPositions
+      ] || { x: 0, y: 0 };
       const newElement: Element = {
         id: `${elementType}-${index}`,
         type,
@@ -232,13 +249,13 @@ const DraggableElement: React.FC<Element> = ({
           position: "absolute",
         }}
       >
-        {type === 'gif' ? (
+        {type === "gif" ? (
           <img
             src={src}
             alt={category}
             style={{
               width: `${desiredHeight}px`,
-              height: 'auto',
+              height: "auto",
               pointerEvents: "none",
             }}
             draggable={false}

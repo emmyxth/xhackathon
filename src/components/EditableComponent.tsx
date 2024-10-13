@@ -1,6 +1,25 @@
 "use client";
+// EditableComponent.tsx
 import React, { useEffect, useRef, useState } from "react";
 import Draggable from "react-draggable";
+
+const example_items = [
+  "shiba_inu_dog_laying_down",
+  "haribo_goldbears_packaging",
+  "flower_shaped_chair",
+  "white_brown_rug",
+  "teddy_bear",
+  "spiderman_funko_pop_figure",
+  "blue_lava_lamp",
+  "cinnamoroll_plush_toy",
+  "potted_monstera_plant",
+  "pilea_plant_in_pot",
+  "plush_mouse_toy_with_pink_bow",
+  "anime_character_figure",
+  "gumball_machine",
+  "toy_doll_with_strawberry_helmet",
+  "rotating_red_heart_animation",
+];
 
 interface Element {
   id: string;
@@ -60,23 +79,23 @@ const EditableComponent: React.FC = () => {
     };
   };
 
-  const addElement = (element: Omit<Element, "initialX" | "initialY">) => {
-    setElements((prevElements) => {
-      if (prevElements.some((el) => el.id === element.id)) {
-        return prevElements;
-      }
-      const position = categoryPositions[element.category];
-      console.log(position);
+  // const addElement = (element: Omit<Element, "initialX" | "initialY">) => {
+  //   setElements((prevElements) => {
+  //     if (prevElements.some((el) => el.id === element.id)) {
+  //       return prevElements;
+  //     }
+  //     const position = categoryPositions[element.category];
+  //     console.log(position);
 
-      const newElement: Element = {
-        ...element,
-        initialX: position.x,
-        initialY: position.y,
-      };
+  //     const newElement: Element = {
+  //       ...element,
+  //       initialX: position.x,
+  //       initialY: position.y,
+  //     };
 
-      return [...prevElements, newElement];
-    });
-  };
+  //     return [...prevElements, newElement];
+  //   });
+  // };
 
   const getRandomColor = () => {
     const letters = "0123456789ABCDEF";
@@ -87,6 +106,22 @@ const EditableComponent: React.FC = () => {
     return color;
   };
 
+  const addElement = (element: Omit<Element, "initialX" | "initialY">) => {
+    setElements((prevElements) => {
+      if (prevElements.some((el) => el.id === element.id)) {
+        return prevElements;
+      }
+      const position = categoryPositions[element.category];
+
+      const newElement: Element = {
+        ...element,
+        initialX: position ? position.x : 0,
+        initialY: position ? position.y : 0,
+      };
+
+      return [...prevElements, newElement];
+    });
+  };
   let backgroundColor = getRandomColor();
 
   // Initialize elements when windowDimensions are available
@@ -129,7 +164,17 @@ const EditableComponent: React.FC = () => {
       className="relative w-full min-h-screen text-white p-4"
       style={{ backgroundColor }}
     >
+      {/* Container for base image and draggable elements */}
       <div className="relative w-full h-full">
+        {/* Base Image */}
+        {/* <Image
+          src="/assets/table-chair.png"
+          alt="Table and Chair"
+          layout="fill"
+          objectFit="contain"
+          draggable={false}
+          style={{ marginTop: "auto" }} // Adjust this value as needed
+        /> */}
         <img
           src="/assets/table-chair.png"
           alt="Table and Chair"
@@ -139,7 +184,7 @@ const EditableComponent: React.FC = () => {
             position: "absolute",
             top: "50%",
             left: "50%",
-            transform: "translate(-50%, 60%)",
+            transform: "translate(-50%, 80%)",
           }}
         />
         {elements.map((element) => (
@@ -164,6 +209,7 @@ const DraggableElement: React.FC<Element> = ({
     height: number;
   } | null>(null);
 
+  // Define desired heights for each category
   const categoryHeights: { [key in Element["category"]]: number } = {
     PETS: 100,
     FOOD: 80,
@@ -178,9 +224,11 @@ const DraggableElement: React.FC<Element> = ({
     TABLE4: 150,
     GROUND1: 150,
     CEILING: 150,
+    DECOR: 100,
+    GIF: 100,
   };
 
-  const desiredHeight = categoryHeights[category];
+  const desiredHeight = categoryHeights[category] || 100;
 
   const handleImageLoad = (event: React.SyntheticEvent<HTMLImageElement>) => {
     const { naturalWidth, naturalHeight } = event.currentTarget;
@@ -218,7 +266,6 @@ const DraggableElement: React.FC<Element> = ({
           style={{
             pointerEvents: "none",
             display: dimensions ? "block" : "none",
-            zIndex: 100,
           }}
           draggable={false}
         />

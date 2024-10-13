@@ -2,24 +2,29 @@
 // EditableComponent.tsx
 import React, { useEffect, useRef, useState } from "react";
 import Draggable from "react-draggable";
+import assets from '../../image_retrieval/assets.json';
 
 const example_items = [
-  "shiba_inu_dog_laying_down",
-  "haribo_goldbears_packaging",
-  "flower_shaped_chair",
-  "white_brown_rug",
-  "teddy_bear",
-  "spiderman_funko_pop_figure",
-  "blue_lava_lamp",
-  "cinnamoroll_plush_toy",
-  "potted_monstera_plant",
-  "pilea_plant_in_pot",
-  "plush_mouse_toy_with_pink_bow",
-  "anime_character_figure",
-  "gumball_machine",
-  "toy_doll_with_strawberry_helmet",
-  "rotating_red_heart_animation",
+  "PETS", "FOOD", "SHELF_1", "SHELF_2", "CHAIR", "RUG", "POSTER1", "SHELF1", "SHELF2", "TABLE1", "TABLE2", "TABLE3", "TABLE4", "GROUND1", "CEILING"
 ];
+
+const categoryMapping = {
+  "PETS": "PETS",
+  "FOOD": "FOOD",
+  "SHELF_1": "DECOR",
+  "SHELF_2": "DECOR",
+  "CHAIR": "CHAIR",
+  "RUG": "RUG",
+  "POSTER1": "POSTER",
+  "SHELF1": "DECOR",
+  "SHELF2": "DECOR",
+  "TABLE1": "DECOR",
+  "TABLE2": "DECOR",
+  "TABLE3": "DECOR",
+  "TABLE4": "DECOR",
+  "GROUND1": "DECOR",
+  "CEILING": "GIF"
+};
 
 interface Element {
   id: string;
@@ -54,6 +59,7 @@ const EditableComponent: React.FC = () => {
     height: 0,
   });
   const [elementsInitialized, setElementsInitialized] = useState(false);
+  const [backgroundColor, setBackgroundColor] = useState('');
 
   useEffect(() => {
     const updateWindowDimensions = () => {
@@ -65,6 +71,10 @@ const EditableComponent: React.FC = () => {
 
     updateWindowDimensions();
     window.addEventListener("resize", updateWindowDimensions);
+
+    // Generate random background color
+    const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+    setBackgroundColor(randomColor);
 
     return () => {
       window.removeEventListener("resize", updateWindowDimensions);
@@ -79,50 +89,36 @@ const EditableComponent: React.FC = () => {
     };
   };
 
-  // const addElement = (element: Omit<Element, "initialX" | "initialY">) => {
-  //   setElements((prevElements) => {
-  //     if (prevElements.some((el) => el.id === element.id)) {
-  //       return prevElements;
-  //     }
-  //     const position = categoryPositions[element.category];
-  //     console.log(position);
-
-  //     const newElement: Element = {
-  //       ...element,
-  //       initialX: position.x,
-  //       initialY: position.y,
-  //     };
-
-  //     return [...prevElements, newElement];
-  //   });
-  // };
-
-  const getRandomColor = () => {
-    const letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
+  const getRandomAsset = (category: string) => {
+    const categoryAssets = assets[category as keyof typeof assets];
+    if (!categoryAssets) return null;
+    const assetKeys = Object.keys(categoryAssets);
+    const randomKey = assetKeys[Math.floor(Math.random() * assetKeys.length)];
+    return categoryAssets[randomKey as keyof typeof categoryAssets];
   };
 
-  const addElement = (element: Omit<Element, "initialX" | "initialY">) => {
+  const addElement = (elementType: string, index: number) => {
+    const category = categoryMapping[elementType as keyof typeof categoryMapping];
+    const asset = getRandomAsset(category);
+    if (!asset) return;
+
+    const [name, src] = asset;
+    const fileExtension = src.split('.').pop()?.toLowerCase();
+    const type = fileExtension === 'gif' ? 'gif' : 'image';
+
     setElements((prevElements) => {
-      if (prevElements.some((el) => el.id === element.id)) {
-        return prevElements;
-      }
-      const position = categoryPositions[element.category];
-
+      const position = categoryPositions[category as keyof typeof categoryPositions] || { x: 0, y: 0 };
       const newElement: Element = {
-        ...element,
-        initialX: position ? position.x : 0,
-        initialY: position ? position.y : 0,
+        id: `${elementType}-${index}`,
+        type,
+        src,
+        category: elementType,
+        initialX: position.x,
+        initialY: position.y,
       };
-
       return [...prevElements, newElement];
     });
   };
-  let backgroundColor = getRandomColor();
 
   // Initialize elements when windowDimensions are available
   useEffect(() => {
@@ -131,29 +127,8 @@ const EditableComponent: React.FC = () => {
       windowDimensions.width &&
       windowDimensions.height
     ) {
-      addElement({
-        id: "1",
-        type: "poster",
-        src: "/assets/posters/american_flag.png",
-        category: "POSTER1",
-      });
-      // addElement({
-      //   id: "2",
-      //   type: "poster",
-      //   src: "/assets/posters/doge.png",
-      //   category: "POSTER1",
-      // });
-      addElement({
-        id: "3",
-        type: "pet",
-        src: "/assets/pets/C3PO.webp",
-        category: "PETS",
-      });
-      addElement({
-        id: "4",
-        type: "chair",
-        src: "/assets/radio.png",
-        category: "FOOD",
+      example_items.forEach((item, index) => {
+        addElement(item, index);
       });
       setElementsInitialized(true);
     }
@@ -257,18 +232,31 @@ const DraggableElement: React.FC<Element> = ({
           position: "absolute",
         }}
       >
-        <img
-          src={src}
-          alt={type}
-          onLoad={handleImageLoad}
-          width={dimensions ? dimensions.width : undefined}
-          height={dimensions ? dimensions.height : undefined}
-          style={{
-            pointerEvents: "none",
-            display: dimensions ? "block" : "none",
-          }}
-          draggable={false}
-        />
+        {type === 'gif' ? (
+          <img
+            src={src}
+            alt={category}
+            style={{
+              width: `${desiredHeight}px`,
+              height: 'auto',
+              pointerEvents: "none",
+            }}
+            draggable={false}
+          />
+        ) : (
+          <img
+            src={src}
+            alt={category}
+            onLoad={handleImageLoad}
+            width={dimensions ? dimensions.width : undefined}
+            height={dimensions ? dimensions.height : undefined}
+            style={{
+              pointerEvents: "none",
+              display: dimensions ? "block" : "none",
+            }}
+            draggable={false}
+          />
+        )}
       </div>
     </Draggable>
   );

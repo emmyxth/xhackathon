@@ -51,8 +51,8 @@ interface Element {
 
 // Define positions for each category
 const categoryPositions = {
-  PETS: { x: 30, y: 300 },
-  FOOD: { x: 150, y: 250 },
+  PETS: { x: -20, y: 280 },
+  FOOD: { x: 100, y: 130 },
   SHELF_1: { x: 400, y: 100 },
   SHELF_2: { x: 500, y: 150 },
   CHAIR: { x: 200, y: 220 },
@@ -203,11 +203,11 @@ const DraggableElement: React.FC<Element> = ({
 
   // Define desired heights for each category
   const categoryHeights: { [key in Element["category"]]: number } = {
-    PETS: 100,
+    PETS: 200,
     FOOD: 80,
     SHELF_1: 150,
     SHELF_2: 150,
-    CHAIR: 200,
+    CHAIR: 230,
     RUG: 100,
     POSTER1: 100,
     TABLE1: 150,

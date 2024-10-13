@@ -103,6 +103,12 @@ const EditableComponent: React.FC = () => {
         src: "/assets/posters/doge.png",
         category: "POSTER1",
       });
+      addElement({
+        id: "3",
+        type: "pet",
+        src: "/assets/pets/pets2.webp",
+        category: "PETS",
+      });
       //   id: "2",
       //   type: "chair",
       //   src: "/assets/chair.webp",3x
@@ -135,11 +141,12 @@ const EditableComponent: React.FC = () => {
             width: "250px",
             height: "250px",
             position: "absolute",
-            bottom: "-200px",
+            bottom: "-150px",
             left: "10px",
-            zIndex: 1,
+            // zIndex: -1, // Lower the z-index
           }}
         />
+        {/* <div className="absolute inset-x-0 bottom-0 h-2/3">
         {/* Draggable Elements */}
         {elements.map((element) => (
           <DraggableElement key={element.id} {...element} />
@@ -211,6 +218,7 @@ const DraggableElement: React.FC<Element> = ({
           style={{
             pointerEvents: "none",
             display: dimensions ? "block" : "none",
+            zIndex: 100,
           }}
           draggable={false}
         />

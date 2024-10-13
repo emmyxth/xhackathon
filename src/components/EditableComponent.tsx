@@ -33,8 +33,8 @@ interface Element {
 // Define positions for each category
 const categoryPositions = {
   PETS: { x: 30, y: 300 },
-  FOOD: { x: 150, y: 250 },
-  SHELF_1: { x: 400, y: 100 },
+  FOOD: { x: 150, y: 130 },
+  SHELF_1: { x: 400, y: 120 },
   SHELF_2: { x: 500, y: 150 },
   CHAIR: { x: 0, y: 100 },
   RUG: { x: 200, y: 300 },

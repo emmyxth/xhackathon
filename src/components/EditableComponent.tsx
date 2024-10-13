@@ -141,7 +141,7 @@ const EditableComponent: React.FC = () => {
             width: "250px",
             height: "250px",
             position: "absolute",
-            bottom: "-150px",
+            bottom: "-200px",
             left: "10px",
             // zIndex: -1, // Lower the z-index
           }}

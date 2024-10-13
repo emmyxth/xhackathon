@@ -4,22 +4,40 @@ import React, { useEffect, useRef, useState } from "react";
 import Draggable from "react-draggable";
 import assets from "../../image_retrieval/assets.json";
 
-const example_items = [
+const items = [
+  "shiba_inu_dog_laying_down",
+  "haribo_goldbears_packaging",
+  "flower_shaped_chair",
+  "green_checkered_cherry_rug",
+  "teddy_bear",
+  "spiderman_funko_pop_figure",
+  "blue_lava_lamp",
+  "cinnamoroll_plush_toy",
+  "potted_monstera_plant",
+  "pilea_plant_in_pot",
+  "plush_mouse_toy_with_pink_bow",
+  "anime_character_figure",
+  "gumball_machine",
+  "toy_doll_with_strawberry_helmet",
+  "rotating_red_heart_animation",
+];
+
+const categoryOrder = [
   "PETS",
   "FOOD",
-  "SHELF_1",
-  "SHELF_2",
   "CHAIR",
   "RUG",
-  "POSTER1",
-  "SHELF1",
-  "SHELF2",
-  "TABLE1",
-  "TABLE2",
-  "TABLE3",
-  "TABLE4",
-  "GROUND1",
-  "CEILING",
+  "DECOR",
+  "DECOR",
+  "DECOR",
+  "DECOR",
+  "DECOR",
+  "DECOR",
+  "DECOR",
+  "DECOR",
+  "DECOR",
+  "DECOR",
+  "GIF",
 ];
 
 const categoryMapping = {
@@ -119,10 +137,11 @@ const EditableComponent: React.FC = () => {
     return categoryAssets[randomKey as keyof typeof categoryAssets];
   };
 
-  const addElement = (elementType: string, index: number) => {
-    let category = categoryMapping[elementType as keyof typeof categoryMapping];
+  const addElement = (item: string, index: number) => {
+    let category = categoryOrder[index];
+    const assetCategory = assets[category as keyof typeof assets];
+    const asset = Object.values(assetCategory).find(([name]) => name === item);
 
-    const asset = getRandomAsset(category);
     if (!asset) return;
     console.log("category: ", category);
     if (category === "DECOR") {
@@ -136,14 +155,14 @@ const EditableComponent: React.FC = () => {
     const type = fileExtension === "gif" ? "gif" : "image";
 
     setElements((prevElements) => {
-      const position = categoryPositions[
-        category as keyof typeof categoryPositions
-      ] || { x: 0, y: 0 };
+      const position =
+        categoryPositions[category as keyof typeof categoryPositions] ||
+        getRandomPosition();
       const newElement: Element = {
-        id: `${elementType}-${index}`,
+        id: `${item}-${index}`,
         type,
         src,
-        category: elementType,
+        category,
         initialX: position.x,
         initialY: position.y,
       };
@@ -158,7 +177,7 @@ const EditableComponent: React.FC = () => {
       windowDimensions.width &&
       windowDimensions.height
     ) {
-      example_items.forEach((item, index) => {
+      items.forEach((item, index) => {
         addElement(item, index);
       });
       setElementsInitialized(true);
@@ -215,7 +234,7 @@ const DraggableElement: React.FC<Element> = ({
     height: number;
   } | null>(null);
 
-  // Define desired heights for each category
+  // Increase the heights for better visibility
   const categoryHeights: { [key in Element["category"]]: number } = {
     PETS: 200,
     FOOD: 80,
@@ -234,7 +253,7 @@ const DraggableElement: React.FC<Element> = ({
     GIF: 100,
   };
 
-  const desiredHeight = categoryHeights[category] || 100;
+  const desiredHeight = categoryHeights[category] || 150;
 
   const handleImageLoad = (event: React.SyntheticEvent<HTMLImageElement>) => {
     const { naturalWidth, naturalHeight } = event.currentTarget;

@@ -106,7 +106,7 @@ const EditableComponent: React.FC = () => {
       addElement({
         id: "3",
         type: "pet",
-        src: "/assets/pets/pets2.webp",
+        src: "/assets/pets/C3PO.webp",
         category: "PETS",
       });
       //   id: "2",
@@ -141,7 +141,7 @@ const EditableComponent: React.FC = () => {
             width: "250px",
             height: "250px",
             position: "absolute",
-            bottom: "-200px",
+            bottom: "-150px",
             left: "10px",
             // zIndex: -1, // Lower the z-index
           }}

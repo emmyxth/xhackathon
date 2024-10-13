@@ -230,8 +230,6 @@ const DraggableElement: React.FC<Element> = ({
 }) => {
   const nodeRef = useRef(null);
   const [dimensions, setDimensions] = useState<{ width: number; height: number } | null>(null);
-  const [isHovered, setIsHovered] = useState(false);
-  const [displayedText, setDisplayedText] = useState("");
 
   const categoryHeights: { [key: string]: number } = {
     PETS: 200, FOOD: 80, CHAIR: 230, RUG: 100, DECOR: 100, GIF: 100,
@@ -252,31 +250,11 @@ const DraggableElement: React.FC<Element> = ({
     }
   };
 
-  useEffect(() => {
-    if (isHovered) {
-      const text = "test";
-      let index = 0;
-      const intervalId = setInterval(() => {
-        setDisplayedText(text.slice(0, index + 1));
-        index++;
-        if (index === text.length) {
-          clearInterval(intervalId);
-        }
-      }, 100); // Adjust typing speed here
-
-      return () => clearInterval(intervalId);
-    } else {
-      setDisplayedText("");
-    }
-  }, [isHovered]);
-
   return (
     <Draggable defaultPosition={{ x: initialX, y: initialY }} nodeRef={nodeRef}>
       <div
         ref={nodeRef}
         style={{ touchAction: "none", userSelect: "none", position: "absolute" }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
       >
         <img
           src={src}
@@ -290,11 +268,6 @@ const DraggableElement: React.FC<Element> = ({
           }}
           draggable={false}
         />
-        {isHovered && (
-          <div className="absolute top-0 left-full ml-2 bg-white text-black p-2 rounded shadow-md min-w-[60px] min-h-[24px]">
-            {displayedText}
-          </div>
-        )}
       </div>
     </Draggable>
   );

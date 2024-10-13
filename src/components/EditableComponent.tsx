@@ -75,6 +75,7 @@ interface Element {
   category: string;
   initialX: number;
   initialY: number;
+  animationDelay: number;
 }
 
 // Define positions for each category
@@ -167,6 +168,7 @@ const EditableComponent: React.FC = () => {
         category,
         initialX: position.x,
         initialY: position.y,
+        animationDelay: index * 0.1, // Add staggered delay
       };
       return [...prevElements, newElement];
     });
@@ -180,7 +182,9 @@ const EditableComponent: React.FC = () => {
       windowDimensions.height
     ) {
       items.forEach((item, index) => {
-        addElement(item, index);
+        setTimeout(() => {
+          addElement(item, index);
+        }, index * 100); // Stagger the addition of elements
       });
       setElementsInitialized(true);
     }
@@ -193,15 +197,6 @@ const EditableComponent: React.FC = () => {
     >
       {/* Container for base image and draggable elements */}
       <div className="relative w-full h-full">
-        {/* Base Image */}
-        {/* <Image
-          src="/assets/table-chair.png"
-          alt="Table and Chair"
-          layout="fill"
-          objectFit="contain"
-          draggable={false}
-          style={{ marginTop: "auto" }} // Adjust this value as needed
-        /> */}
         <img
           src="/assets/table-chair.png"
           alt="Table and Chair"
@@ -229,12 +224,14 @@ const DraggableElement: React.FC<Element> = ({
   initialX,
   initialY,
   category,
+  animationDelay,
 }) => {
   const nodeRef = useRef(null);
   const [dimensions, setDimensions] = useState<{
     width: number;
     height: number;
   } | null>(null);
+  const [animationComplete, setAnimationComplete] = useState(false);
 
   // Increase the heights for better visibility
   const categoryHeights: { [key in Element["category"]]: number } = {
@@ -274,41 +271,42 @@ const DraggableElement: React.FC<Element> = ({
     }
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAnimationComplete(true);
+    }, (animationDelay + 0.5) * 1000); // 0.5s for animation duration
+
+    return () => clearTimeout(timer);
+  }, [animationDelay]);
+
   return (
-    <Draggable defaultPosition={{ x: initialX, y: initialY }} nodeRef={nodeRef}>
+    <Draggable
+      nodeRef={nodeRef}
+      defaultPosition={{ x: initialX, y: initialY }}
+      disabled={!animationComplete}
+    >
       <div
         ref={nodeRef}
         style={{
           touchAction: "none",
           userSelect: "none",
           position: "absolute",
+          opacity: animationComplete ? 1 : 0,
+          transform: animationComplete ? 'none' : 'translateY(-100px)',
+          transition: "opacity 0.3s, transform 0.3s",
+          cursor: animationComplete ? "grab" : "default",
         }}
       >
-        {type === "gif" ? (
-          <img
-            src={src}
-            alt={category}
-            style={{
-              width: `${desiredHeight}px`,
-              height: "auto",
-              pointerEvents: "none",
-            }}
-            draggable={false}
-          />
-        ) : (
-          <img
-            src={src}
-            alt={category}
-            onLoad={handleImageLoad}
-            width={dimensions ? dimensions.width : undefined}
-            height={dimensions ? dimensions.height : undefined}
-            style={{
-              pointerEvents: "none",
-              display: dimensions ? "block" : "none",
-            }}
-            draggable={false}
-          />
-        )}
+        <img
+          src={src}
+          alt={id}
+          style={{
+            width: dimensions?.width,
+            height: dimensions?.height,
+            pointerEvents: "none", // Prevent image from interfering with drag
+          }}
+          onLoad={handleImageLoad}
+        />
       </div>
     </Draggable>
   );

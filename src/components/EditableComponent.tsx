@@ -1,8 +1,6 @@
 "use client";
-// EditableComponent.tsx
 import React, { useEffect, useRef, useState } from "react";
 import Draggable from "react-draggable";
-import assetsData from "../app/assets.json";
 
 interface Element {
   id: string;
@@ -37,24 +35,29 @@ const EditableComponent: React.FC = () => {
     };
   }, []);
 
-  // Define positions for each category
-  const categoryPositions = {
-    PETS: { x: 100, y: 100 },
-    FOOD: { x: 150, y: 250 },
-    SHELF_1: { x: 400, y: 100 },
-    SHELF_2: { x: 500, y: 150 },
-    CHAIR: {
-      x: windowDimensions.width ? windowDimensions.width - 150 : 150,
-      y: windowDimensions.height ? windowDimensions.height / 2 : 100,
-    },
-    RUG: { x: 200, y: 300 },
-    POSTER1: { x: 80, y: 90 },
-    TABLE1: { x: 50, y: 50 },
-    TABLE2: { x: 60, y: 60 },
-    TABLE3: { x: 70, y: 70 },
-    TABLE4: { x: 80, y: 80 },
-    GROUND1: { x: 90, y: 90 },
-    CEILING: { x: 100, y: 100 },
+  const getRandomPosition = () => {
+    const margin = 100; // Margin from the edges
+    return {
+      x: Math.random() * (windowDimensions.width - 2 * margin) + margin,
+      y: Math.random() * (windowDimensions.height - 2 * margin) + margin,
+    };
+  };
+
+  const addElement = (element: Omit<Element, "initialX" | "initialY">) => {
+    setElements((prevElements) => {
+      if (prevElements.some((el) => el.id === element.id)) {
+        return prevElements;
+      }
+      const position = getRandomPosition();
+
+      const newElement: Element = {
+        ...element,
+        initialX: position.x,
+        initialY: position.y,
+      };
+
+      return [...prevElements, newElement];
+    });
   };
 
   const getRandomColor = () => {
@@ -66,22 +69,6 @@ const EditableComponent: React.FC = () => {
     return color;
   };
 
-  const addElement = (element: Omit<Element, "initialX" | "initialY">) => {
-    setElements((prevElements) => {
-      if (prevElements.some((el) => el.id === element.id)) {
-        return prevElements;
-      }
-      const position = categoryPositions[element.category];
-
-      const newElement: Element = {
-        ...element,
-        initialX: position ? position.x : 0,
-        initialY: position ? position.y : 0,
-      };
-
-      return [...prevElements, newElement];
-    });
-  };
   let backgroundColor = getRandomColor();
 
   // Initialize elements when windowDimensions are available
@@ -91,27 +78,28 @@ const EditableComponent: React.FC = () => {
       windowDimensions.width &&
       windowDimensions.height
     ) {
-      addElement({
-        id: "1",
-        type: "poster",
-        src: "/assets/posters/american_flag.png",
-        category: "POSTER1",
-      });
-      addElement({
-        id: "2",
-        type: "poster",
-        src: "/assets/posters/doge.png",
-        category: "POSTER1",
-      });
-      addElement({
-        id: "3",
-        type: "pet",
-        src: "/assets/pets/C3PO.webp",
-        category: "PETS",
-      });
+      // addElement({
+      //   id: "1",
+      //   type: "poster",
+      //   src: "/assets/posters/american_flag.png",
+      //   category: "POSTER1",
+      // });
+      // addElement({
       //   id: "2",
+      //   type: "poster",
+      //   src: "/assets/posters/doge.png",
+      //   category: "POSTER1",
+      // });
+      // addElement({
+      //   id: "3",
+      //   type: "pet",
+      //   src: "/assets/pets/C3PO.webp",
+      //   category: "PETS",
+      // });
+      // addElement({
+      //   id: "4",
       //   type: "chair",
-      //   src: "/assets/chair.webp",3x
+      //   src: "/assets/chair/ASSET_9.webp",
       //   category: "CHAIR",
       // });
       setElementsInitialized(true);
@@ -123,17 +111,7 @@ const EditableComponent: React.FC = () => {
       className="relative w-full min-h-screen text-white p-4"
       style={{ backgroundColor }}
     >
-      {/* Container for base image and draggable elements */}
       <div className="relative w-full h-full">
-        {/* Base Image */}
-        {/* <Image
-          src="/assets/table-chair.png"
-          alt="Table and Chair"
-          layout="fill"
-          objectFit="contain"
-          draggable={false}
-          style={{ marginTop: "auto" }} // Adjust this value as needed
-        /> */}
         <img
           src="/assets/table-chair.png"
           alt="Table and Chair"
@@ -141,13 +119,11 @@ const EditableComponent: React.FC = () => {
             width: "250px",
             height: "250px",
             position: "absolute",
-            bottom: "-150px",
-            left: "10px",
-            // zIndex: -1, // Lower the z-index
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, 60%)",
           }}
         />
-        {/* <div className="absolute inset-x-0 bottom-0 h-2/3">
-        {/* Draggable Elements */}
         {elements.map((element) => (
           <DraggableElement key={element.id} {...element} />
         ))}
@@ -170,7 +146,6 @@ const DraggableElement: React.FC<Element> = ({
     height: number;
   } | null>(null);
 
-  // Define desired heights for each category
   const categoryHeights: { [key in Element["category"]]: number } = {
     PETS: 100,
     FOOD: 80,
@@ -208,7 +183,14 @@ const DraggableElement: React.FC<Element> = ({
 
   return (
     <Draggable defaultPosition={{ x: initialX, y: initialY }} nodeRef={nodeRef}>
-      <div ref={nodeRef} style={{ touchAction: "none", userSelect: "none" }}>
+      <div
+        ref={nodeRef}
+        style={{
+          touchAction: "none",
+          userSelect: "none",
+          position: "absolute",
+        }}
+      >
         <img
           src={src}
           alt={type}

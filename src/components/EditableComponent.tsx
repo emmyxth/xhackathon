@@ -1,5 +1,5 @@
 "use client";
-// EditableComponent.tsx
+import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useEffect, useRef, useState } from "react";
 import Draggable from "react-draggable";
 import assets from "../../image_retrieval/assets.json";
@@ -75,7 +75,6 @@ interface Element {
   category: string;
   initialX: number;
   initialY: number;
-  animationDelay: number;
 }
 
 // Define positions for each category
@@ -98,12 +97,11 @@ const categoryPositions = {
 
 const EditableComponent: React.FC = () => {
   const [elements, setElements] = useState<Element[]>([]);
-  const [windowDimensions, setWindowDimensions] = useState({
-    width: 0,
-    height: 0,
-  });
+  const [windowDimensions, setWindowDimensions] = useState({ width: 0, height: 0 });
   const [elementsInitialized, setElementsInitialized] = useState(false);
   const [backgroundColor, setBackgroundColor] = useState("");
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     const updateWindowDimensions = () => {
@@ -116,29 +114,35 @@ const EditableComponent: React.FC = () => {
     updateWindowDimensions();
     window.addEventListener("resize", updateWindowDimensions);
 
-    // Generate random background color
-    const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-    setBackgroundColor(randomColor);
+    // Parse URL parameters
+    const urlState = searchParams.get('state');
+    if (urlState) {
+      try {
+        const decodedState = JSON.parse(atob(urlState));
+        setElements(decodedState.elements);
+        setBackgroundColor(decodedState.backgroundColor);
+        setElementsInitialized(true);
+      } catch (error) {
+        console.error("Failed to parse URL state:", error);
+        // Generate random background color if URL parsing fails
+        setBackgroundColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
+      }
+    } else {
+      // Generate random background color if no URL state
+      setBackgroundColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
+    }
 
     return () => {
       window.removeEventListener("resize", updateWindowDimensions);
     };
-  }, []);
+  }, [searchParams]);
 
   const getRandomPosition = () => {
-    const margin = 100; // Margin from the edges
+    const margin = 100;
     return {
       x: Math.random() * (windowDimensions.width - 2 * margin) + margin,
       y: Math.random() * (windowDimensions.height - 2 * margin) + margin,
     };
-  };
-
-  const getRandomAsset = (category: string) => {
-    const categoryAssets = assets[category as keyof typeof assets];
-    if (!categoryAssets) return null;
-    const assetKeys = Object.keys(categoryAssets);
-    const randomKey = assetKeys[Math.floor(Math.random() * assetKeys.length)];
-    return categoryAssets[randomKey as keyof typeof categoryAssets];
   };
 
   const addElement = (item: string, index: number) => {
@@ -148,19 +152,14 @@ const EditableComponent: React.FC = () => {
 
     if (!asset) return;
     if (category === "DECOR") {
-      // Cycle through reverseCategoriesDecor
-      const decorIndex = index % reverseCategoriesDecor.length;
-      category = reverseCategoriesDecor[decorIndex];
+      category = reverseCategoriesDecor[Math.floor(Math.random() * reverseCategoriesDecor.length)];
     }
     console.log("category: ", category, "item:", item);
     const [name, src] = asset;
-    const fileExtension = src.split(".").pop()?.toLowerCase();
-    const type = fileExtension === "gif" ? "gif" : "image";
+    const type = src.split(".").pop()?.toLowerCase() === "gif" ? "gif" : "image";
 
     setElements((prevElements) => {
-      const position =
-        categoryPositions[category as keyof typeof categoryPositions] ||
-        getRandomPosition();
+      const position = categoryPositions[category as keyof typeof categoryPositions] || getRandomPosition();
       const newElement: Element = {
         id: `${item}-${index}`,
         type,
@@ -168,34 +167,32 @@ const EditableComponent: React.FC = () => {
         category,
         initialX: position.x,
         initialY: position.y,
-        animationDelay: index * 0.1, // Add staggered delay
       };
       return [...prevElements, newElement];
     });
   };
 
-  // Initialize elements when windowDimensions are available
   useEffect(() => {
-    if (
-      !elementsInitialized &&
-      windowDimensions.width &&
-      windowDimensions.height
-    ) {
-      items.forEach((item, index) => {
-        setTimeout(() => {
-          addElement(item, index);
-        }, index * 100); // Stagger the addition of elements
-      });
+    if (!elementsInitialized && windowDimensions.width && windowDimensions.height) {
+      items.forEach((item, index) => addElement(item, index));
       setElementsInitialized(true);
     }
   }, [windowDimensions, elementsInitialized]);
 
+  const generateShareableURL = () => {
+    const state = { elements, backgroundColor };
+    const encodedState = btoa(JSON.stringify(state));
+    return `${window.location.origin}${window.location.pathname}?state=${encodedState}`;
+  };
+
+  const copyShareableURL = () => {
+    navigator.clipboard.writeText(generateShareableURL())
+      .then(() => alert("Shareable URL copied to clipboard!"))
+      .catch(err => console.error('Failed to copy URL: ', err));
+  };
+
   return (
-    <div
-      className="relative w-full min-h-screen text-white p-4"
-      style={{ backgroundColor }}
-    >
-      {/* Container for base image and draggable elements */}
+    <div className="relative w-full min-h-screen text-white p-4" style={{ backgroundColor }}>
       <div className="relative w-full h-full">
         <img
           src="/assets/table-chair.png"
@@ -213,6 +210,12 @@ const EditableComponent: React.FC = () => {
           <DraggableElement key={element.id} {...element} />
         ))}
       </div>
+      <button
+        onClick={copyShareableURL}
+        className="fixed bottom-4 right-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Share URL
+      </button>
     </div>
   );
 };
@@ -224,88 +227,43 @@ const DraggableElement: React.FC<Element> = ({
   initialX,
   initialY,
   category,
-  animationDelay,
 }) => {
   const nodeRef = useRef(null);
-  const [dimensions, setDimensions] = useState<{
-    width: number;
-    height: number;
-  } | null>(null);
-  const [animationComplete, setAnimationComplete] = useState(false);
+  const [dimensions, setDimensions] = useState<{ width: number; height: number } | null>(null);
 
-  // Increase the heights for better visibility
-  const categoryHeights: { [key in Element["category"]]: number } = {
-    PETS: 200,
-    FOOD: 80,
-    SHELF_1: 150,
-    SHELF_2: 150,
-    CHAIR: 230,
-    RUG: 100,
-    POSTER1: 100,
-    TABLE1: 150,
-    TABLE2: 150,
-    TABLE3: 150,
-    TABLE4: 150,
-    GROUND1: 150,
-    CEILING: 150,
-    DECOR: 100,
-    GIF: 100,
+  const categoryHeights: { [key: string]: number } = {
+    PETS: 200, FOOD: 80, CHAIR: 230, RUG: 100, DECOR: 100, GIF: 100,
+    SHELF_1: 150, SHELF_2: 150, POSTER1: 100,
+    TABLE1: 150, TABLE2: 150, TABLE3: 150, TABLE4: 150, GROUND1: 150, CEILING: 150,
   };
 
   const desiredHeight = categoryHeights[category] || 150;
 
   const handleImageLoad = (event: React.SyntheticEvent<HTMLImageElement>) => {
     const { naturalWidth, naturalHeight } = event.currentTarget;
-
     if (naturalWidth && naturalHeight) {
-      let scaleFactor = desiredHeight / naturalHeight;
-
-      if (scaleFactor > 1) {
-        scaleFactor = 1;
-      }
-
-      const finalWidth = naturalWidth * scaleFactor;
-      const finalHeight = naturalHeight * scaleFactor;
-
-      setDimensions({ width: finalWidth, height: finalHeight });
+      const scaleFactor = Math.min(1, desiredHeight / naturalHeight);
+      setDimensions({
+        width: naturalWidth * scaleFactor,
+        height: naturalHeight * scaleFactor,
+      });
     }
   };
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setAnimationComplete(true);
-    }, (animationDelay + 0.5) * 1000); // 0.5s for animation duration
-
-    return () => clearTimeout(timer);
-  }, [animationDelay]);
-
   return (
-    <Draggable
-      nodeRef={nodeRef}
-      defaultPosition={{ x: initialX, y: initialY }}
-      disabled={!animationComplete}
-    >
-      <div
-        ref={nodeRef}
-        style={{
-          touchAction: "none",
-          userSelect: "none",
-          position: "absolute",
-          opacity: animationComplete ? 1 : 0,
-          transform: animationComplete ? 'none' : 'translateY(-100px)',
-          transition: "opacity 0.3s, transform 0.3s",
-          cursor: animationComplete ? "grab" : "default",
-        }}
-      >
+    <Draggable defaultPosition={{ x: initialX, y: initialY }} nodeRef={nodeRef}>
+      <div ref={nodeRef} style={{ touchAction: "none", userSelect: "none", position: "absolute" }}>
         <img
           src={src}
-          alt={id}
-          style={{
-            width: dimensions?.width,
-            height: dimensions?.height,
-            pointerEvents: "none", // Prevent image from interfering with drag
-          }}
+          alt={category}
           onLoad={handleImageLoad}
+          style={{
+            width: type === "gif" ? `${desiredHeight}px` : dimensions?.width,
+            height: type === "gif" ? "auto" : dimensions?.height,
+            pointerEvents: "none",
+            display: (type === "gif" || dimensions) ? "block" : "none",
+          }}
+          draggable={false}
         />
       </div>
     </Draggable>

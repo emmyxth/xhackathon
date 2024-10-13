@@ -1,12 +1,12 @@
 {
     "PETS": {
         "ASSET_1": [
-            "albino_burmese_python",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_1.webp"
+            "c3po",
+            "/public/assets/petss/C3PO.webp"
         ],
         "ASSET_2": [
-            "cockroach_on_transparent_background",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_2.webp"
+            "r2d2",
+            "/public/assets/petss/R2D2.webp"
         ],
         "ASSET_3": [
             "brown_rat",
@@ -389,45 +389,89 @@
     },
     "RUG": {
         "ASSET_1": [
-            "Doge",
-            "/manual_images/posters/doge.png"
+            "rugs11",
+            "/public/assets/rugs/rugs11.webp"
+        ],
+        "ASSET_5": [
+            "pink_square_rug",
+            "/public/assets/rugs/pink_square_rug.webp"
+        ],
+        "ASSET_7": [
+            "rugs2",
+            "/public/assets/rugs/rugs2.png"
+        ],
+        "ASSET_9": [
+            "rugs4",
+            "/public/assets/rugs/rugs4.webp"
+        ],
+        "ASSET_10": [
+            "rugs9",
+            "/public/assets/rugs/rugs9.jpg"
+        ],
+        "ASSET_11": [
+            "red_carpet_rug",
+            "/public/assets/rugs/red_carpet_rug.png"
+        ],
+        "ASSET_13": [
+            "rugs16",
+            "/public/assets/rugs/rugs16.png"
+        ],
+        "ASSET_2": [
+            "green_checkered_cherry_rug",
+            "/public/assets/rugs/green_checkered_cherry_rug.jpg"
+        ],
+        "ASSET_3": [
+            "regal_brown_persian_rug",
+            "/public/assets/rugs/regal_brown_persian_rug.png"
+        ],
+        "ASSET_4": [
+            "persian_rug_brown",
+            "/public/assets/rugs/persian_rug_brown.jpg"
+        ],
+        "ASSET_8": [
+            "pink_rug",
+            "/public/assets/rugs/pink_rug.jpg"
+        ],
+        "ASSET_12": [
+            "white_brown_rug",
+            "/public/assets/rugs/white_brown_rug.webp"
         ]
     },
     "POSTER": {
         "ASSET_1": [
-            "Doge",
+            "doge",
             "/manual_images/posters/doge.png"
         ],
         "ASSET_2": [
-            "Trump Bobblehead",
+            "trump_bobblehead",
             "/manual_images/posters/trump_bobblehead.jpg"
         ],
         "ASSET_3": [
-            "Protestor Shit Hole Trump Street",
+            "protestor_shit_hole_trump_street",
             "/manual_images/posters/protestor_shit_hole_trump_street.jpg"
         ],
         "ASSET_4": [
-            "Trump Cheato Dislike",
+            "trump_cheato_dislike",
             "/manual_images/posters/trump_cheato_dislike.jpg"
         ],
         "ASSET_5": [
-            "Maga Cap Trump",
+            "maga_cap_trump",
             "/manual_images/posters/maga_cap_trump.jpg"
         ],
         "ASSET_6": [
-            "Trump Mask Pointing Costume",
+            "trump_mask_pointing_costume",
             "/manual_images/posters/trump_mask_pointing_costume.jpg"
         ],
         "ASSET_7": [
-            "American Flag",
+            "american_flag",
             "/manual_images/posters/american_flag.png"
         ],
         "ASSET_8": [
-            "Contemplative Sketch Art",
+            "contemplative_sketch_art",
             "/manual_images/posters/contemplative_sketch_art.jpg"
         ],
         "ASSET_9": [
-            "Trump Tower Palm Beach",
+            "trump_tower_palm_beach",
             "/manual_images/posters/trump_tower_palm_beach.jpg"
         ]
     },

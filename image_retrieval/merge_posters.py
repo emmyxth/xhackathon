@@ -17,12 +17,12 @@ def merge_posters():
     for i, filename in enumerate(os.listdir(posters_dir), start=1):
         if filename.endswith(('.jpg', '.png', '.webp')):  # Add more extensions if needed
             # Get description from filename (without extension)
-            description = os.path.splitext(filename)[0].replace('_', ' ').title()
+            description = os.path.splitext(filename)[0].replace('_', ' ').lower()
 
             # Create asset entry
             asset_key = f"ASSET_{i}"
             assets['POSTER'][asset_key] = [
-                description,
+                description.replace(' ', '_'),
                 f"/manual_images/posters/{filename}"
             ]
 

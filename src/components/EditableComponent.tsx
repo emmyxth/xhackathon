@@ -73,6 +73,7 @@ interface Element {
   category: string;
   initialX: number;
   initialY: number;
+  animationDelay: number;
 }
 
 // Define positions for each category
@@ -165,6 +166,7 @@ const EditableComponent: React.FC = () => {
         category,
         initialX: position.x,
         initialY: position.y,
+        animationDelay: index * 0.1, // Add staggered delay
       };
       return [...prevElements, newElement];
     });
@@ -178,7 +180,9 @@ const EditableComponent: React.FC = () => {
       windowDimensions.height
     ) {
       items.forEach((item, index) => {
-        addElement(item, index);
+        setTimeout(() => {
+          addElement(item, index);
+        }, index * 100); // Stagger the addition of elements
       });
       setElementsInitialized(true);
     }
@@ -191,15 +195,6 @@ const EditableComponent: React.FC = () => {
     >
       {/* Container for base image and draggable elements */}
       <div className="relative w-full h-full">
-        {/* Base Image */}
-        {/* <Image
-          src="/assets/table-chair.png"
-          alt="Table and Chair"
-          layout="fill"
-          objectFit="contain"
-          draggable={false}
-          style={{ marginTop: "auto" }} // Adjust this value as needed
-        /> */}
         <img
           src="/assets/table-chair.png"
           alt="Table and Chair"
@@ -227,6 +222,7 @@ const DraggableElement: React.FC<Element> = ({
   initialX,
   initialY,
   category,
+  animationDelay,
 }) => {
   const nodeRef = useRef(null);
   const [dimensions, setDimensions] = useState<{
@@ -280,6 +276,9 @@ const DraggableElement: React.FC<Element> = ({
           touchAction: "none",
           userSelect: "none",
           position: "absolute",
+          animation: `dropIn 0.5s ease-out ${animationDelay}s forwards`,
+          opacity: 0,
+          transform: "translateY(-100px)",
         }}
       >
         {type === "gif" ? (

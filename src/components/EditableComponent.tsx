@@ -1,9 +1,7 @@
 "use client";
 // EditableComponent.tsx
-import Image from 'next/image';
 import React, { useEffect, useRef, useState } from "react";
 import Draggable from "react-draggable";
-import assetsData from '../app/assets.json';
 
 const example_items = [
   "shiba_inu_dog_laying_down",
@@ -73,29 +71,6 @@ const EditableComponent: React.FC = () => {
     TABLE4: { x: 80, y: 80 },
     GROUND1: { x: 90, y: 90 },
     CEILING: { x: 100, y: 100 },
-  const getRandomPosition = () => {
-    const margin = 100; // Margin from the edges
-    return {
-      x: Math.random() * (windowDimensions.width - 2 * margin) + margin,
-      y: Math.random() * (windowDimensions.height - 2 * margin) + margin,
-    };
-  };
-
-  const addElement = (element: Omit<Element, "initialX" | "initialY">) => {
-    setElements((prevElements) => {
-      if (prevElements.some((el) => el.id === element.id)) {
-        return prevElements;
-      }
-      const position = getRandomPosition();
-
-      const newElement: Element = {
-        ...element,
-        initialX: position.x,
-        initialY: position.y,
-      };
-
-      return [...prevElements, newElement];
-    });
   };
 
   const getRandomColor = () => {
@@ -112,7 +87,7 @@ const EditableComponent: React.FC = () => {
       if (prevElements.some((el) => el.id === element.id)) {
         return prevElements;
       }
-      const position = categoryPositions[element.category as keyof typeof categoryPositions];
+      const position = categoryPositions[element.category];
 
       const newElement: Element = {
         ...element,
@@ -123,53 +98,38 @@ const EditableComponent: React.FC = () => {
       return [...prevElements, newElement];
     });
   };
+  let backgroundColor = getRandomColor();
 
-  const backgroundColor = getRandomColor();
-  const loadAssetsFromJson = () => {
-    const categoryOrder = [
-      "PETS", "FOOD", "SHELF_1", "SHELF_2", "CHAIR", "RUG", "POSTER1",
-      "SHELF1", "SHELF2", "TABLE1", "TABLE2", "TABLE3", "TABLE4", "GROUND1", "CEILING"
-    ];
-
-    const categoryMapping = {
-      CEILING: "GIF",
-      SHELF_1: "DECOR", SHELF_2: "DECOR", SHELF1: "DECOR", SHELF2: "DECOR",
-      TABLE1: "DECOR", TABLE2: "DECOR", TABLE3: "DECOR", TABLE4: "DECOR", GROUND1: "DECOR",
-      POSTER1: "POSTER" // Added this line to map POSTER1 to POSTER
-    };
-
-    example_items.forEach((item, index) => {
-      const originalCategory = categoryOrder[index % categoryOrder.length];
-      const category = categoryMapping[originalCategory as keyof typeof categoryMapping] || originalCategory;
-      let src = "";
-
-      if (category === "GIF") {
-        src = assetsData.GIF.ASSET_15[1];
-      } else {
-        const assetEntry = Object.entries(assetsData[category as keyof typeof assetsData]).find(([_, value]) => value[0] === item);
-        if (assetEntry) {
-          src = assetEntry[1][1];
-        }
-      }
-
-      if (src) {
-        addElement({
-          id: `asset_${index}`,
-          type: originalCategory.toLowerCase(),
-          src: src,
-          category: originalCategory,
-        });
-      }
-    });
-  };
-
+  // Initialize elements when windowDimensions are available
   useEffect(() => {
     if (
       !elementsInitialized &&
       windowDimensions.width &&
       windowDimensions.height
     ) {
-      loadAssetsFromJson();
+      addElement({
+        id: "1",
+        type: "poster",
+        src: "/assets/posters/american_flag.png",
+        category: "POSTER1",
+      });
+      addElement({
+        id: "2",
+        type: "poster",
+        src: "/assets/posters/doge.png",
+        category: "POSTER1",
+      });
+      addElement({
+        id: "3",
+        type: "pet",
+        src: "/assets/pets/pets2.webp",
+        category: "PETS",
+      });
+      //   id: "2",
+      //   type: "chair",
+      //   src: "/assets/chair.webp",3x
+      //   category: "CHAIR",
+      // });
       setElementsInitialized(true);
     }
   }, [windowDimensions, elementsInitialized]);
@@ -179,15 +139,25 @@ const EditableComponent: React.FC = () => {
       className="relative w-full min-h-screen text-white p-4"
       style={{ backgroundColor }}
     >
+      {/* Container for base image and draggable elements */}
       <div className="relative w-full h-full">
+        {/* Base Image */}
+        {/* <Image
+          src="/assets/table-chair.png"
+          alt="Table and Chair"
+          layout="fill"
+          objectFit="contain"
+          draggable={false}
+          style={{ marginTop: "auto" }} // Adjust this value as needed
+        /> */}
         <img
           src="/assets/table-chair.png"
           alt="Table and Chair"
           style={{
             position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, 60%)",
+            bottom: "-200px",
+            left: "10px",
+            // zIndex: -1, // Lower the z-index
           }}
         />
         {elements.map((element) => (
@@ -212,7 +182,8 @@ const DraggableElement: React.FC<Element> = ({
     height: number;
   } | null>(null);
 
-  const categoryHeights: { [key: string]: number } = {
+  // Define desired heights for each category
+  const categoryHeights: { [key in Element["category"]]: number } = {
     PETS: 100,
     FOOD: 80,
     SHELF_1: 150,

@@ -1,9 +1,25 @@
 // pages/page1.tsx
+"use client";
+import AnimatedLoadingText from "@/components/AnimatedLoadingText";
 import EditableComponent from "@/components/EditableComponent";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const VersePage: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <AnimatedLoadingText />;
+  }
+
   return (
     <div className="flex flex-col min-h-screen bg-blue-300">
       <header className="p-4">
@@ -16,9 +32,6 @@ const VersePage: React.FC = () => {
         <div className="w-full md:w-[375px] h-[500px] bg-black rounded-3xl overflow-hidden">
           <EditableComponent />
         </div>
-        {/* <div className="w-full md:w-[375px] h-[200px] bg-blue-200 rounded-lg overflow-y-auto">
-          <ElementPanel />
-        </div> */}
       </main>
       <footer className="p-4 flex justify-between items-center">
         <span>Powered by JECZ</span>
@@ -28,4 +41,5 @@ const VersePage: React.FC = () => {
     </div>
   );
 };
+
 export default VersePage;

@@ -229,6 +229,7 @@ const DraggableElement: React.FC<Element> = ({
     width: number;
     height: number;
   } | null>(null);
+  const [animationComplete, setAnimationComplete] = useState(false);
 
   // Increase the heights for better visibility
   const categoryHeights: { [key in Element["category"]]: number } = {
@@ -268,44 +269,42 @@ const DraggableElement: React.FC<Element> = ({
     }
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAnimationComplete(true);
+    }, (animationDelay + 0.5) * 1000); // 0.5s for animation duration
+
+    return () => clearTimeout(timer);
+  }, [animationDelay]);
+
   return (
-    <Draggable defaultPosition={{ x: initialX, y: initialY }} nodeRef={nodeRef}>
+    <Draggable
+      nodeRef={nodeRef}
+      defaultPosition={{ x: initialX, y: initialY }}
+      disabled={!animationComplete}
+    >
       <div
         ref={nodeRef}
         style={{
           touchAction: "none",
           userSelect: "none",
           position: "absolute",
-          animation: `dropIn 0.5s ease-out ${animationDelay}s forwards`,
-          opacity: 0,
-          transform: "translateY(-100px)",
+          opacity: animationComplete ? 1 : 0,
+          transform: animationComplete ? 'none' : 'translateY(-100px)',
+          transition: "opacity 0.3s, transform 0.3s",
+          cursor: animationComplete ? "grab" : "default",
         }}
       >
-        {type === "gif" ? (
-          <img
-            src={src}
-            alt={category}
-            style={{
-              width: `${desiredHeight}px`,
-              height: "auto",
-              pointerEvents: "none",
-            }}
-            draggable={false}
-          />
-        ) : (
-          <img
-            src={src}
-            alt={category}
-            onLoad={handleImageLoad}
-            width={dimensions ? dimensions.width : undefined}
-            height={dimensions ? dimensions.height : undefined}
-            style={{
-              pointerEvents: "none",
-              display: dimensions ? "block" : "none",
-            }}
-            draggable={false}
-          />
-        )}
+        <img
+          src={src}
+          alt={id}
+          style={{
+            width: dimensions?.width,
+            height: dimensions?.height,
+            pointerEvents: "none", // Prevent image from interfering with drag
+          }}
+          onLoad={handleImageLoad}
+        />
       </div>
     </Draggable>
   );

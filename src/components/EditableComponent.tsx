@@ -11,6 +11,23 @@ interface Element {
   initialY: number;
 }
 
+// Define positions for each category
+const categoryPositions = {
+  PETS: { x: 30, y: 300 },
+  FOOD: { x: 150, y: 250 },
+  SHELF_1: { x: 400, y: 100 },
+  SHELF_2: { x: 500, y: 150 },
+  CHAIR: { x: 0, y: 100 },
+  RUG: { x: 200, y: 300 },
+  POSTER1: { x: 30, y: 20 },
+  TABLE1: { x: 50, y: 50 },
+  TABLE2: { x: 60, y: 60 },
+  TABLE3: { x: 70, y: 70 },
+  TABLE4: { x: 80, y: 80 },
+  GROUND1: { x: 90, y: 90 },
+  CEILING: { x: 100, y: 100 },
+};
+
 const EditableComponent: React.FC = () => {
   const [elements, setElements] = useState<Element[]>([]);
   const [windowDimensions, setWindowDimensions] = useState({
@@ -48,7 +65,8 @@ const EditableComponent: React.FC = () => {
       if (prevElements.some((el) => el.id === element.id)) {
         return prevElements;
       }
-      const position = getRandomPosition();
+      const position = categoryPositions[element.category];
+      console.log(position);
 
       const newElement: Element = {
         ...element,
@@ -78,30 +96,30 @@ const EditableComponent: React.FC = () => {
       windowDimensions.width &&
       windowDimensions.height
     ) {
-      // addElement({
-      //   id: "1",
-      //   type: "poster",
-      //   src: "/assets/posters/american_flag.png",
-      //   category: "POSTER1",
-      // });
+      addElement({
+        id: "1",
+        type: "poster",
+        src: "/assets/posters/american_flag.png",
+        category: "POSTER1",
+      });
       // addElement({
       //   id: "2",
       //   type: "poster",
       //   src: "/assets/posters/doge.png",
       //   category: "POSTER1",
       // });
-      // addElement({
-      //   id: "3",
-      //   type: "pet",
-      //   src: "/assets/pets/C3PO.webp",
-      //   category: "PETS",
-      // });
-      // addElement({
-      //   id: "4",
-      //   type: "chair",
-      //   src: "/assets/chair/ASSET_9.webp",
-      //   category: "CHAIR",
-      // });
+      addElement({
+        id: "3",
+        type: "pet",
+        src: "/assets/pets/C3PO.webp",
+        category: "PETS",
+      });
+      addElement({
+        id: "4",
+        type: "chair",
+        src: "/assets/radio.png",
+        category: "FOOD",
+      });
       setElementsInitialized(true);
     }
   }, [windowDimensions, elementsInitialized]);
@@ -153,7 +171,7 @@ const DraggableElement: React.FC<Element> = ({
     SHELF_2: 150,
     CHAIR: 200,
     RUG: 100,
-    POSTER1: 120,
+    POSTER1: 100,
     TABLE1: 150,
     TABLE2: 150,
     TABLE3: 150,

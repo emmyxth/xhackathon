@@ -1,5 +1,5 @@
 "use client";
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import Draggable from "react-draggable";
 import assets from "../../image_retrieval/assets.json";
@@ -95,13 +95,20 @@ const categoryPositions = {
   GIF: { x: 0, y: 0 },
 };
 
-const EditableComponent: React.FC = () => {
+const EditableComponent = ({ parsedMessage }: { parsedMessage: string[] }) => {
   const [elements, setElements] = useState<Element[]>([]);
-  const [windowDimensions, setWindowDimensions] = useState({ width: 0, height: 0 });
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: 0,
+    height: 0,
+  });
   const [elementsInitialized, setElementsInitialized] = useState(false);
   const [backgroundColor, setBackgroundColor] = useState("");
   const router = useRouter();
   const searchParams = useSearchParams();
+
+  const modifiedParsedMessage = parsedMessage.map((message) =>
+    message.toLowerCase().replace(/ /g, "_")
+  );
 
   useEffect(() => {
     const updateWindowDimensions = () => {
@@ -115,7 +122,7 @@ const EditableComponent: React.FC = () => {
     window.addEventListener("resize", updateWindowDimensions);
 
     // Parse URL parameters
-    const urlState = searchParams.get('state');
+    const urlState = searchParams.get("state");
     if (urlState) {
       try {
         const decodedState = JSON.parse(atob(urlState));
@@ -125,11 +132,15 @@ const EditableComponent: React.FC = () => {
       } catch (error) {
         console.error("Failed to parse URL state:", error);
         // Generate random background color if URL parsing fails
-        setBackgroundColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
+        setBackgroundColor(
+          `#${Math.floor(Math.random() * 16777215).toString(16)}`
+        );
       }
     } else {
       // Generate random background color if no URL state
-      setBackgroundColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
+      setBackgroundColor(
+        `#${Math.floor(Math.random() * 16777215).toString(16)}`
+      );
     }
 
     return () => {
@@ -152,14 +163,20 @@ const EditableComponent: React.FC = () => {
 
     if (!asset) return;
     if (category === "DECOR") {
-      category = reverseCategoriesDecor[Math.floor(Math.random() * reverseCategoriesDecor.length)];
+      category =
+        reverseCategoriesDecor[
+          Math.floor(Math.random() * reverseCategoriesDecor.length)
+        ];
     }
     console.log("category: ", category, "item:", item);
     const [name, src] = asset;
-    const type = src.split(".").pop()?.toLowerCase() === "gif" ? "gif" : "image";
+    const type =
+      src.split(".").pop()?.toLowerCase() === "gif" ? "gif" : "image";
 
     setElements((prevElements) => {
-      const position = categoryPositions[category as keyof typeof categoryPositions] || getRandomPosition();
+      const position =
+        categoryPositions[category as keyof typeof categoryPositions] ||
+        getRandomPosition();
       const newElement: Element = {
         id: `${item}-${index}`,
         type,
@@ -173,8 +190,12 @@ const EditableComponent: React.FC = () => {
   };
 
   useEffect(() => {
-    if (!elementsInitialized && windowDimensions.width && windowDimensions.height) {
-      items.forEach((item, index) => addElement(item, index));
+    if (
+      !elementsInitialized &&
+      windowDimensions.width &&
+      windowDimensions.height
+    ) {
+      modifiedParsedMessage.forEach((item, index) => addElement(item, index));
       setElementsInitialized(true);
     }
   }, [windowDimensions, elementsInitialized]);
@@ -186,13 +207,17 @@ const EditableComponent: React.FC = () => {
   };
 
   const copyShareableURL = () => {
-    navigator.clipboard.writeText(generateShareableURL())
+    navigator.clipboard
+      .writeText(generateShareableURL())
       .then(() => alert("Shareable URL copied to clipboard!"))
-      .catch(err => console.error('Failed to copy URL: ', err));
+      .catch((err) => console.error("Failed to copy URL: ", err));
   };
 
   return (
-    <div className="relative w-full min-h-screen text-white p-4" style={{ backgroundColor }}>
+    <div
+      className="relative w-full min-h-screen text-white p-4"
+      style={{ backgroundColor }}
+    >
       <div className="relative w-full h-full">
         <img
           src="/assets/table-chair.png"
@@ -229,12 +254,27 @@ const DraggableElement: React.FC<Element> = ({
   category,
 }) => {
   const nodeRef = useRef(null);
-  const [dimensions, setDimensions] = useState<{ width: number; height: number } | null>(null);
+  const [dimensions, setDimensions] = useState<{
+    width: number;
+    height: number;
+  } | null>(null);
 
   const categoryHeights: { [key: string]: number } = {
-    PETS: 200, FOOD: 80, CHAIR: 230, RUG: 100, DECOR: 100, GIF: 100,
-    SHELF_1: 150, SHELF_2: 150, POSTER1: 100,
-    TABLE1: 150, TABLE2: 150, TABLE3: 150, TABLE4: 150, GROUND1: 150, CEILING: 150,
+    PETS: 200,
+    FOOD: 80,
+    CHAIR: 230,
+    RUG: 100,
+    DECOR: 100,
+    GIF: 100,
+    SHELF_1: 150,
+    SHELF_2: 150,
+    POSTER1: 100,
+    TABLE1: 150,
+    TABLE2: 150,
+    TABLE3: 150,
+    TABLE4: 150,
+    GROUND1: 150,
+    CEILING: 150,
   };
 
   const desiredHeight = categoryHeights[category] || 150;
@@ -254,7 +294,11 @@ const DraggableElement: React.FC<Element> = ({
     <Draggable defaultPosition={{ x: initialX, y: initialY }} nodeRef={nodeRef}>
       <div
         ref={nodeRef}
-        style={{ touchAction: "none", userSelect: "none", position: "absolute" }}
+        style={{
+          touchAction: "none",
+          userSelect: "none",
+          position: "absolute",
+        }}
       >
         <img
           src={src}
@@ -264,7 +308,7 @@ const DraggableElement: React.FC<Element> = ({
             width: type === "gif" ? `${desiredHeight}px` : dimensions?.width,
             height: type === "gif" ? "auto" : dimensions?.height,
             pointerEvents: "none",
-            display: (type === "gif" || dimensions) ? "block" : "none",
+            display: type === "gif" || dimensions ? "block" : "none",
           }}
           draggable={false}
         />

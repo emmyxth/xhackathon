@@ -3,20 +3,62 @@
 import AnimatedLoadingText from "@/components/AnimatedLoadingText";
 import EditableComponent from "@/components/EditableComponent";
 import ElementPanel from "@/components/ElementPanel";
+import axios from "axios";
 
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 const VersePage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [storedMessage, setStoredMessage] = useState<string | null>(null);
+  const [arrOfItems, setArrOfItems] = useState([]);
+
+  const tweetsData = localStorage.getItem("tweetsData");
+  const likedTweetsData = localStorage.getItem("likedTweetsData");
+
+  const getPrompt = async () => {
+    if (tweetsData && likedTweetsData) {
+      const tweets = JSON.parse(tweetsData);
+      const likedTweets = JSON.parse(likedTweetsData);
+      console.log("Tweets:", tweets.justText);
+      console.log("Liked Tweets:", likedTweets.justText);
+
+      setIsLoading(true);
+      const prompt = await axios.post("/api/analyze_user_tweets", {
+        tweets: tweets,
+        liked_tweets: likedTweets,
+      });
+      console.log(prompt);
+      const message = prompt.data.data.choices[0].message.content;
+      console.log(message);
+
+      const parsedMessage = message
+        ? JSON.parse(message.substring(findLastBracketIndex(message)))
+        : [];
+      console.log(parsedMessage);
+      setArrOfItems(parsedMessage);
+      setStoredMessage(message);
+      setIsLoading(false);
+    } else {
+      console.error("No tweets data found in localStorage.");
+    }
+  };
+
+  useEffect(() => {
+    getPrompt();
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 5000);
+    }, 20000);
 
     return () => clearTimeout(timer);
   }, []);
+
+  const findLastBracketIndex = (message: string): number => {
+    return message.lastIndexOf("[");
+  };
 
   if (isLoading) {
     return <AnimatedLoadingText />;
@@ -32,10 +74,10 @@ const VersePage: React.FC = () => {
 
       <main className="flex-grow flex flex-col md:flex-row gap-12 items-center justify-center md:space-y-0 space-y-4 p-4">
         <div className="w-full md:w-[375px] h-[500px] bg-black rounded-3xl overflow-hidden">
-          <EditableComponent />
+          <EditableComponent parsedMessage={arrOfItems} />
         </div>
         <div className="w-full md:w-[375px] h-[300px] bg-blue-200 rounded-lg overflow-y-auto">
-          <ElementPanel />
+          {storedMessage && <ElementPanel text={storedMessage} />}
         </div>
       </main>
       <footer className="p-4 flex justify-between items-center">

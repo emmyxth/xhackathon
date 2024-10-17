@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const ProfileMatchPanel: React.FC = () => {
+const ProfileMatchPanel = ({ text }: { text: string }) => {
+  const fullText = text;
   const [typedText, setTypedText] = useState("");
-  const fullText = `Based on the analysis of the tweets and liked tweets, the user X appears to be deeply involved in the tech community, particularly around coding, AI, and hackathons. This suggests a personality that is innovative, tech-savvy, and possibly enjoys the challenge of problem-solving and the thrill of new technological developments. Here's how we can match these traits to the list of accessories:
+  const oldtext = `Based on the analysis of the tweets and liked tweets, the user X appears to be deeply involved in the tech community, particularly around coding, AI, and hackathons. This suggests a personality that is innovative, tech-savvy, and possibly enjoys the challenge of problem-solving and the thrill of new technological developments. Here's how we can match these traits to the list of accessories:
 
 - **PETS**: Given the user's interest in cutting-edge technology and possibly unconventional hobbies, a pet that stands out would be fitting. **Capybara** - these animals are unique, social, and somewhat quirky, aligning with someone who might enjoy the unusual.
 

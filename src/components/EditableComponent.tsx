@@ -84,7 +84,7 @@ interface Element {
 // Define positions for each category
 const categoryPositions = {
   PETS: { x: -20, y: 280 },
-  FOOD: { x: 200, y: 200 },
+  FOOD: { x: 180, y: 180 },
   SHELF1: { x: 30, y: 10 },
   SHELF2: { x: 30, y: -70 },
   SHELF3: { x: -30, y: 10 },
@@ -237,7 +237,7 @@ const EditableComponent: React.FC = () => {
 
   return (
     <div
-      className="relative w-full min-h-screen text-white p-4"
+      className="relative w-full min-h-screen text-white"
       style={{ backgroundColor }}
       onClick={handleBackgroundClick}
     >
@@ -246,14 +246,25 @@ const EditableComponent: React.FC = () => {
           src="/assets/bedroom-base.png"
           alt="Table and Chair"
           style={{
-            width: "450px",
-            height: "450px",
+            width: "600px",
+            height: "500px",
             position: "absolute",
             top: "50%",
             left: "50%",
-            transform: "translate(-55%, 0%)",
+            transform: "translate(-50%, -0%)",
           }}
         />
+        {/* <img
+          src="/assets/floor.png"
+          alt="Floor"
+          style={{
+            width: "480px",
+            height: "300px",
+            position: "absolute",
+            transform: "translate(0%, 110%)",
+            zIndex: "-1",
+          }}
+        /> */}
         {elements.map((element) => (
           <DraggableElement
             key={element.id}
@@ -375,6 +386,7 @@ const DraggableElement: React.FC<DraggableElementProps> = ({
               height: type === "gif" ? "auto" : dimensions?.height,
               pointerEvents: "none",
               display: type === "gif" || dimensions ? "block" : "none",
+              zIndex: "1000",
             }}
             draggable={false}
           />

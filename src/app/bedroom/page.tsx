@@ -93,7 +93,7 @@ const VersePage: React.FC = () => {
 
       <main className="flex-grow flex flex-col md:flex-row gap-12 items-center justify-center md:space-y-0 space-y-4 p-4">
         <div className="w-full md:w-[375px] h-[500px] bg-black rounded-3xl overflow-hidden">
-          <EditableComponent parsedMessage={arrOfItems} />
+          <EditableComponent />
         </div>
         <div className="w-full md:w-[375px] h-[300px] bg-blue-200 rounded-lg overflow-y-auto">
           {storedMessage && <ElementPanel text={storedMessage} />}

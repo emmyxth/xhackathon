@@ -81,8 +81,8 @@ interface Element {
 const categoryPositions = {
   PETS: { x: -20, y: 280 },
   FOOD: { x: 220, y: 170 },
-  SHELF_1: { x: 30, y: 90 },
-  SHELF_2: { x: 100, y: 200 },
+  SHELF1: { x: 30, y: 90 },
+  SHELF2: { x: 100, y: 200 },
   CHAIR: { x: 200, y: 220 },
   RUG: { x: 200, y: 300 },
   POSTER1: { x: 0, y: 0 },
@@ -95,7 +95,7 @@ const categoryPositions = {
   GIF: { x: 0, y: 0 },
 };
 
-const EditableComponent = ({ parsedMessage }: { parsedMessage: string[] }) => {
+const EditableComponent: React.FC = () => {
   const [elements, setElements] = useState<Element[]>([]);
   const [windowDimensions, setWindowDimensions] = useState({
     width: 0,
@@ -105,10 +105,6 @@ const EditableComponent = ({ parsedMessage }: { parsedMessage: string[] }) => {
   const [backgroundColor, setBackgroundColor] = useState("");
   const router = useRouter();
   const searchParams = useSearchParams();
-
-  const modifiedParsedMessage = parsedMessage.map((message) =>
-    message.toLowerCase().replace(/ /g, "_")
-  );
 
   useEffect(() => {
     const updateWindowDimensions = () => {
@@ -163,10 +159,14 @@ const EditableComponent = ({ parsedMessage }: { parsedMessage: string[] }) => {
 
     if (!asset) return;
     if (category === "DECOR") {
-      category =
-        reverseCategoriesDecor[
-          Math.floor(Math.random() * reverseCategoriesDecor.length)
-        ];
+      const decorIndex = index % reverseCategoriesDecor.length;
+      category = reverseCategoriesDecor[decorIndex];
+      // category =
+      //   reverseCategoriesDecor[
+      //     Math.floor(Math.random() * reverseCategoriesDecor.length)
+      //   ];
+    } else if (category == "POSTER") {
+      category = "POSTER1";
     }
     console.log("category: ", category, "item:", item);
     const [name, src] = asset;
@@ -175,8 +175,12 @@ const EditableComponent = ({ parsedMessage }: { parsedMessage: string[] }) => {
 
     setElements((prevElements) => {
       const position =
-        categoryPositions[category as keyof typeof categoryPositions] ||
-        getRandomPosition();
+        categoryPositions[category as keyof typeof categoryPositions];
+
+      if (!position) {
+        console.log("POSITION NOT", category);
+      }
+
       const newElement: Element = {
         id: `${item}-${index}`,
         type,
@@ -195,7 +199,7 @@ const EditableComponent = ({ parsedMessage }: { parsedMessage: string[] }) => {
       windowDimensions.width &&
       windowDimensions.height
     ) {
-      modifiedParsedMessage.forEach((item, index) => addElement(item, index));
+      items.forEach((item, index) => addElement(item, index));
       setElementsInitialized(true);
     }
   }, [windowDimensions, elementsInitialized]);
@@ -258,6 +262,8 @@ const DraggableElement: React.FC<Element> = ({
     width: number;
     height: number;
   } | null>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [displayedText, setDisplayedText] = useState("");
 
   const categoryHeights: { [key: string]: number } = {
     PETS: 200,
@@ -266,8 +272,8 @@ const DraggableElement: React.FC<Element> = ({
     RUG: 100,
     DECOR: 100,
     GIF: 100,
-    SHELF_1: 150,
-    SHELF_2: 150,
+    SHELF1: 150,
+    SHELF2: 150,
     POSTER1: 100,
     TABLE1: 150,
     TABLE2: 150,
@@ -290,6 +296,24 @@ const DraggableElement: React.FC<Element> = ({
     }
   };
 
+  useEffect(() => {
+    if (isHovered) {
+      const text = "test";
+      let index = 0;
+      const intervalId = setInterval(() => {
+        setDisplayedText(text.slice(0, index + 1));
+        index++;
+        if (index === text.length) {
+          clearInterval(intervalId);
+        }
+      }, 100); // Adjust typing speed here
+
+      return () => clearInterval(intervalId);
+    } else {
+      setDisplayedText("");
+    }
+  }, [isHovered]);
+
   return (
     <Draggable defaultPosition={{ x: initialX, y: initialY }} nodeRef={nodeRef}>
       <div
@@ -299,6 +323,8 @@ const DraggableElement: React.FC<Element> = ({
           userSelect: "none",
           position: "absolute",
         }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
         <img
           src={src}
@@ -312,6 +338,11 @@ const DraggableElement: React.FC<Element> = ({
           }}
           draggable={false}
         />
+        {isHovered && (
+          <div className="absolute top-0 left-full ml-2 bg-white text-black p-2 rounded shadow-md min-w-[60px] min-h-[24px]">
+            {displayedText}
+          </div>
+        )}
       </div>
     </Draggable>
   );

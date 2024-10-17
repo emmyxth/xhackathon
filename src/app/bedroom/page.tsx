@@ -2,6 +2,7 @@
 "use client";
 import AnimatedLoadingText from "@/components/AnimatedLoadingText";
 import EditableComponent from "@/components/EditableComponent";
+import Bedroom from "@/components/Bedroom";
 import ElementPanel from "@/components/ElementPanel";
 import axios from "axios";
 
@@ -92,12 +93,10 @@ const VersePage: React.FC = () => {
       </header>
 
       <main className="flex-grow flex flex-col md:flex-row gap-12 items-center justify-center md:space-y-0 space-y-4 p-4">
-        <div className="w-[355px] h-[500px] bg-black rounded-3xl overflow-hidden">
-          <EditableComponent />
-        </div>
-        <div className="w-full md:w-[375px] h-[300px] bg-blue-200 rounded-lg overflow-y-auto">
+        <Bedroom />
+        {/* <div className="w-full md:w-[375px] h-[300px] bg-blue-200 rounded-lg overflow-y-auto">
           {storedMessage && <ElementPanel text={storedMessage} />}
-        </div>
+        </div> */}
       </main>
       <footer className="p-4 flex justify-between items-center">
         <span>Powered by JECZ</span>

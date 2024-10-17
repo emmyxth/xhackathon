@@ -2,7 +2,10 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import Draggable from "react-draggable";
+import DraggableElement from "./DraggableElement";
+import DetailPanel from "./DetailPanel";
 import assets from "../../image_retrieval/assets.json";
+import elementDetails from "../../image_retrieval/items_description.json";
 
 const items = [
   "shiba_inu_dog_laying_down",
@@ -12,19 +15,14 @@ const items = [
   "american_flag",
   "teddy_bear",
   "pilea_plant_in_pot",
-
   "blue_lava_lamp",
   "cinnamoroll_plush_toy",
   "gumball_machine",
-
   "plush_mouse_toy_with_pink_bow",
-
   "toy_doll_with_strawberry_helmet",
   "anime_character_figure",
   "spiderman_funko_pop_figure",
-
   "potted_monstera_plant",
-
   "abstract_3d_structure",
 ];
 
@@ -88,6 +86,12 @@ interface Element {
   initialY: number;
 }
 
+interface ElementDetail {
+  name: string;
+  description: string;
+  id: number;
+  category: string;
+}
 // Define positions for each category
 const categoryPositions = {
   PETS: { x: -20, y: 280 },
@@ -109,7 +113,13 @@ const categoryPositions = {
   GIF: { x: 240, y: 0 },
 };
 
-const EditableComponent: React.FC = () => {
+interface EditableComponentProps {
+  onElementHover: (name: string | null) => void;
+}
+
+const EditableComponent: React.FC<EditableComponentProps> = ({
+  onElementHover,
+}) => {
   const [elements, setElements] = useState<Element[]>([]);
   const [windowDimensions, setWindowDimensions] = useState({
     width: 0,
@@ -144,13 +154,11 @@ const EditableComponent: React.FC = () => {
         setElementsInitialized(true);
       } catch (error) {
         console.error("Failed to parse URL state:", error);
-        // Generate random background color if URL parsing fails
         setBackgroundColor(
           `#${Math.floor(Math.random() * 16777215).toString(16)}`
         );
       }
     } else {
-      // Generate random background color if no URL state
       setBackgroundColor(
         `#${Math.floor(Math.random() * 16777215).toString(16)}`
       );
@@ -245,181 +253,39 @@ const EditableComponent: React.FC = () => {
 
   return (
     <div
-      className="relative w-full min-h-screen text-white"
+      className="relative w-[350px] h-[500px]"
       style={{ backgroundColor }}
       onClick={handleBackgroundClick}
     >
-      <div className="relative w-full h-full">
-        <img
-          src="/assets/bedroom-base.png"
-          alt="Table and Chair"
-          style={{
-            width: "600px",
-            height: "500px",
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -0%)",
-          }}
+      <img
+        src="/assets/bedroom-base.png"
+        alt="Table and Chair"
+        style={{
+          width: "100%",
+          height: "100%",
+          position: "absolute",
+          top: 0,
+          left: 0,
+        }}
+      />
+      {elements.map((element) => (
+        <DraggableElement
+          key={element.id}
+          {...element}
+          isSelected={selectedElementId === element.id}
+          onClick={(event) => handleElementClick(element.id, event)}
+          onHover={(isHovered) =>
+            onElementHover(isHovered ? element.id.split("-")[0] : null)
+          }
         />
-        {/* <img
-          src="/assets/floor.png"
-          alt="Floor"
-          style={{
-            width: "480px",
-            height: "300px",
-            position: "absolute",
-            transform: "translate(0%, 110%)",
-            zIndex: "-1",
-          }}
-        /> */}
-        {elements.map((element) => (
-          <DraggableElement
-            key={element.id}
-            {...element}
-            isSelected={selectedElementId === element.id}
-            onClick={(event) => handleElementClick(element.id, event)}
-          />
-        ))}
-      </div>
+      ))}
       <button
         onClick={copyShareableURL}
-        className="fixed bottom-4 right-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        className="absolute bottom-4 right-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       >
         Share URL
       </button>
     </div>
-  );
-};
-
-interface DraggableElementProps extends Element {
-  isSelected: boolean;
-  onClick: (event: React.MouseEvent) => void;
-}
-
-const DraggableElement: React.FC<DraggableElementProps> = ({
-  id,
-  type,
-  src,
-  initialX,
-  initialY,
-  category,
-  isSelected,
-  onClick,
-}) => {
-  const nodeRef = useRef(null);
-  const [dimensions, setDimensions] = useState<{
-    width: number;
-    height: number;
-  } | null>(null);
-  const [isHovered, setIsHovered] = useState(false);
-  const [displayedText, setDisplayedText] = useState("");
-
-  const categoryHeights: { [key: string]: number } = {
-    PETS: 200,
-    FOOD: 80,
-    CHAIR: 230,
-    RUG: 100,
-    DECOR: 100,
-    GIF: 100,
-    SHELF1: 150,
-    SHELF2: 150,
-    SHELF3: 150,
-    SHELF4: 150,
-    POSTER1: 100,
-    TABLE1: 150,
-    TABLE2: 150,
-    TABLE3: 150,
-    TABLE4: 150,
-    GROUND1: 150,
-    GROUND2: 150,
-    CEILING: 150,
-  };
-
-  const desiredHeight = categoryHeights[category] || 150;
-
-  const handleImageLoad = (event: React.SyntheticEvent<HTMLImageElement>) => {
-    const { naturalWidth, naturalHeight } = event.currentTarget;
-    if (naturalWidth && naturalHeight) {
-      const scaleFactor = Math.min(1, desiredHeight / naturalHeight);
-      setDimensions({
-        width: naturalWidth * scaleFactor,
-        height: naturalHeight * scaleFactor,
-      });
-    }
-  };
-
-  useEffect(() => {
-    if (isHovered) {
-      const text = "test";
-      let index = 0;
-      const intervalId = setInterval(() => {
-        setDisplayedText(text.slice(0, index + 1));
-        index++;
-        if (index === text.length) {
-          clearInterval(intervalId);
-        }
-      }, 100); // Adjust typing speed here
-
-      return () => clearInterval(intervalId);
-    } else {
-      setDisplayedText("");
-    }
-  }, [isHovered]);
-
-  return (
-    <Draggable defaultPosition={{ x: initialX, y: initialY }} nodeRef={nodeRef}>
-      <div
-        ref={nodeRef}
-        style={{
-          touchAction: "none",
-          userSelect: "none",
-          position: "absolute",
-        }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        onClick={onClick}
-      >
-        <div
-          style={{
-            position: "relative",
-            display: "inline-block",
-          }}
-        >
-          <img
-            src={src}
-            alt={category}
-            onLoad={handleImageLoad}
-            style={{
-              width: type === "gif" ? `${desiredHeight}px` : dimensions?.width,
-              height: type === "gif" ? "auto" : dimensions?.height,
-              pointerEvents: "none",
-              display: type === "gif" || dimensions ? "block" : "none",
-              zIndex: "1000",
-            }}
-            draggable={false}
-          />
-          {isSelected && (
-            <div
-              style={{
-                position: "absolute",
-                top: -2,
-                left: -2,
-                right: -2,
-                bottom: -2,
-                border: "2px solid black",
-                pointerEvents: "none",
-              }}
-            />
-          )}
-        </div>
-        {isHovered && (
-          <div className="absolute top-0 left-full ml-2 bg-white text-black p-2 rounded shadow-md min-w-[60px] min-h-[24px]">
-            {displayedText}
-          </div>
-        )}
-      </div>
-    </Draggable>
   );
 };
 

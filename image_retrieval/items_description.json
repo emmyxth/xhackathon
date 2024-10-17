@@ -1,0 +1,98 @@
+[
+  {
+    "name": "shiba_inu_dog_laying_down",
+    "description": "A cute Shiba Inu dog laying down.",
+    "id": 1,
+    "category": "PETS"
+  },
+  {
+    "name": "haribo_goldbears_packaging",
+    "description": "A pack of Haribo Goldbears candy.",
+    "id": 2,
+    "category": "FOOD"
+  },
+  {
+    "name": "flower_shaped_chair",
+    "description": "A chair shaped like a flower.",
+    "id": 3,
+    "category": "CHAIR"
+  },
+  {
+    "name": "green_checkered_cherry_rug",
+    "description": "A green checkered rug with cherry designs.",
+    "id": 4,
+    "category": "RUG"
+  },
+  {
+    "name": "american_flag",
+    "description": "An American flag poster.",
+    "id": 5,
+    "category": "POSTER1"
+  },
+  {
+    "name": "teddy_bear",
+    "description": "A soft teddy bear toy.",
+    "id": 6,
+    "category": "SHELF1"
+  },
+  {
+    "name": "pilea_plant_in_pot",
+    "description": "A Pilea plant in a decorative pot.",
+    "id": 7,
+    "category": "SHELF2"
+  },
+  {
+    "name": "blue_lava_lamp",
+    "description": "A retro-style blue lava lamp.",
+    "id": 8,
+    "category": "SHELF3"
+  },
+  {
+    "name": "cinnamoroll_plush_toy",
+    "description": "A plush toy of Cinnamoroll character.",
+    "id": 9,
+    "category": "SHELF4"
+  },
+  {
+    "name": "gumball_machine",
+    "description": "A miniature gumball machine.",
+    "id": 10,
+    "category": "TABLE1"
+  },
+  {
+    "name": "plush_mouse_toy_with_pink_bow",
+    "description": "A plush mouse toy wearing a pink bow.",
+    "id": 11,
+    "category": "TABLE2"
+  },
+  {
+    "name": "toy_doll_with_strawberry_helmet",
+    "description": "A toy doll with a strawberry-shaped helmet.",
+    "id": 12,
+    "category": "TABLE3"
+  },
+  {
+    "name": "anime_character_figure",
+    "description": "An anime character figure in a dynamic pose.",
+    "id": 13,
+    "category": "TABLE4"
+  },
+  {
+    "name": "spiderman_funko_pop_figure",
+    "description": "A collectible Spiderman Funko Pop figure.",
+    "id": 14,
+    "category": "GROUND1"
+  },
+  {
+    "name": "potted_monstera_plant",
+    "description": "A Monstera plant in a decorative pot.",
+    "id": 15,
+    "category": "GROUND2"
+  },
+  {
+    "name": "abstract_3d_structure",
+    "description": "An abstract 3D decorative structure.",
+    "id": 16,
+    "category": "CEILING"
+  }
+]

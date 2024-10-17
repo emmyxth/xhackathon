@@ -81,7 +81,7 @@ const VersePage: React.FC = () => {
         </div>
       </main>
       <footer className="p-4 flex justify-between items-center">
-        <span>Powered by JECZ</span>
+        <span>Powered by Roomify</span>
         <div>
           <button className="px-4 py-2 bg-gray-800 text-white rounded mr-2">
             Get the app

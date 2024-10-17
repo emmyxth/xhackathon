@@ -1,5 +1,20 @@
+@font-face {
+    font-family: 'Minecraft';
+    src: url('/styles/minecraft.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* styles/globals.css */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: 'Minecraft', sans-serif;
+}
+
+.minecraft-font {
+  font-family: 'Minecraft', sans-serif;
+}

@@ -3,6 +3,12 @@ import localFont from "next/font/local";
 import { AuthProviders } from "./auth-providers";
 import "./globals.css";
 
+
+const impactFont = localFont({
+  src: './fonts/impact.ttf',  // Adjust this path if necessary
+  variable: '--font-impact',
+})
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -12,6 +18,10 @@ const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+});
+const minecraftFont = localFont({
+  src: './fonts/minecraft.ttf',
+  variable: '--font-minecraft',
 });
 
 export const metadata: Metadata = {
@@ -27,8 +37,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AuthProviders>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        <body 
+          className={`${minecraftFont.variable} ${impactFont.variable} antialiased font-minecraft`}
+          style={{ fontFamily: 'var(--font-minecraft), var(--font-impact), sans-serif' }}
         >
           {children}
         </body>

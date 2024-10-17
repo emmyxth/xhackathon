@@ -12,15 +12,15 @@ const items = [
   "american_flag",
   "teddy_bear",
   "spiderman_funko_pop_figure",
-  "blue_lava_lamp",
-  "cinnamoroll_plush_toy",
-  "potted_monstera_plant",
-  "pilea_plant_in_pot",
-  "plush_mouse_toy_with_pink_bow",
-  "anime_character_figure",
   "gumball_machine",
+  "cinnamoroll_plush_toy",
+  "plush_mouse_toy_with_pink_bow",
+  "blue_lava_lamp",
+  "potted_monstera_plant",
   "toy_doll_with_strawberry_helmet",
-  "wireframe_head_model",
+  "anime_character_figure",
+  "pilea_plant_in_pot",
+  "abstract_3d_structure",
 ];
 
 const categoryOrder = [
@@ -50,6 +50,8 @@ const categoryMapping = {
   POSTER1: "POSTER",
   SHELF1: "DECOR",
   SHELF2: "DECOR",
+  SHELF3: "DECOR",
+  SHELF4: "DECOR",
   TABLE1: "DECOR",
   TABLE2: "DECOR",
   TABLE3: "DECOR",
@@ -61,6 +63,8 @@ const categoryMapping = {
 const reverseCategoriesDecor = [
   "SHELF1",
   "SHELF2",
+  "SHELF3",
+  "SHELF4",
   "TABLE1",
   "TABLE2",
   "TABLE3",
@@ -81,8 +85,10 @@ interface Element {
 const categoryPositions = {
   PETS: { x: -20, y: 280 },
   FOOD: { x: 200, y: 200 },
-  SHELF1: { x: 30, y: 90 },
-  SHELF2: { x: 100, y: 200 },
+  SHELF1: { x: 30, y: 10 },
+  SHELF2: { x: 30, y: -70 },
+  SHELF3: { x: -30, y: 10 },
+  SHELF4: { x: -30, y: -70 },
   CHAIR: { x: 200, y: 220 },
   RUG: { x: 200, y: 300 },
   POSTER1: { x: 0, y: 0 },
@@ -92,7 +98,7 @@ const categoryPositions = {
   TABLE4: { x: 80, y: 80 },
   GROUND1: { x: 90, y: 280 },
   CEILING: { x: 100, y: 100 },
-  GIF: { x: 0, y: 0 },
+  GIF: { x: 240, y: 0 },
 };
 
 const EditableComponent: React.FC = () => {
@@ -175,7 +181,7 @@ const EditableComponent: React.FC = () => {
     const [name, src] = asset;
     const type =
       src.split(".").pop()?.toLowerCase() === "gif" ? "gif" : "image";
-
+    console.log("type:", type);
     setElements((prevElements) => {
       const position =
         categoryPositions[category as keyof typeof categoryPositions];
@@ -299,6 +305,8 @@ const DraggableElement: React.FC<DraggableElementProps> = ({
     GIF: 100,
     SHELF1: 150,
     SHELF2: 150,
+    SHELF3: 150,
+    SHELF4: 150,
     POSTER1: 100,
     TABLE1: 150,
     TABLE2: 150,

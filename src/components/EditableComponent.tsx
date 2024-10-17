@@ -11,15 +11,20 @@ const items = [
   "green_checkered_cherry_rug",
   "american_flag",
   "teddy_bear",
-  "spiderman_funko_pop_figure",
-  "gumball_machine",
-  "cinnamoroll_plush_toy",
-  "plush_mouse_toy_with_pink_bow",
+  "pilea_plant_in_pot",
+
   "blue_lava_lamp",
-  "potted_monstera_plant",
+  "cinnamoroll_plush_toy",
+  "gumball_machine",
+
+  "plush_mouse_toy_with_pink_bow",
+
   "toy_doll_with_strawberry_helmet",
   "anime_character_figure",
-  "pilea_plant_in_pot",
+  "spiderman_funko_pop_figure",
+
+  "potted_monstera_plant",
+
   "abstract_3d_structure",
 ];
 
@@ -57,6 +62,7 @@ const categoryMapping = {
   TABLE3: "DECOR",
   TABLE4: "DECOR",
   GROUND1: "DECOR",
+  GROUND2: "DECOR",
   CEILING: "GIF",
 };
 
@@ -70,6 +76,7 @@ const reverseCategoriesDecor = [
   "TABLE3",
   "TABLE4",
   "GROUND1",
+  "GROUND2",
 ];
 
 interface Element {
@@ -84,7 +91,7 @@ interface Element {
 // Define positions for each category
 const categoryPositions = {
   PETS: { x: -20, y: 280 },
-  FOOD: { x: 180, y: 180 },
+  FOOD: { x: 220, y: 210 },
   SHELF1: { x: 30, y: 25 },
   SHELF2: { x: 30, y: -65 },
   SHELF3: { x: -30, y: 25 },
@@ -92,11 +99,12 @@ const categoryPositions = {
   CHAIR: { x: 200, y: 220 },
   RUG: { x: 200, y: 300 },
   POSTER1: { x: 0, y: 0 },
-  TABLE1: { x: 100, y: 100 },
-  TABLE2: { x: 10, y: 100 },
-  TABLE3: { x: 70, y: 70 },
-  TABLE4: { x: 80, y: 80 },
-  GROUND1: { x: 90, y: 280 },
+  TABLE1: { x: 110, y: 130 },
+  TABLE2: { x: 10, y: 130 },
+  TABLE3: { x: 70, y: 130 },
+  TABLE4: { x: 140, y: 130 },
+  GROUND1: { x: 110, y: 260 },
+  GROUND2: { x: 150, y: 350 },
   CEILING: { x: 100, y: 100 },
   GIF: { x: 240, y: 0 },
 };
@@ -324,6 +332,7 @@ const DraggableElement: React.FC<DraggableElementProps> = ({
     TABLE3: 150,
     TABLE4: 150,
     GROUND1: 150,
+    GROUND2: 150,
     CEILING: 150,
   };
 

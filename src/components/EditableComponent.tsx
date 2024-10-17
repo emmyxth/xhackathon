@@ -9,7 +9,7 @@ const items = [
   "haribo_goldbears_packaging",
   "flower_shaped_chair",
   "green_checkered_cherry_rug",
-  "trump_bobblehead",
+  "american_flag",
   "teddy_bear",
   "spiderman_funko_pop_figure",
   "blue_lava_lamp",
@@ -20,7 +20,7 @@ const items = [
   "anime_character_figure",
   "gumball_machine",
   "toy_doll_with_strawberry_helmet",
-  "rotating_red_heart_animation",
+  "wireframe_head_model",
 ];
 
 const categoryOrder = [
@@ -80,14 +80,14 @@ interface Element {
 // Define positions for each category
 const categoryPositions = {
   PETS: { x: -20, y: 280 },
-  FOOD: { x: 220, y: 170 },
+  FOOD: { x: 200, y: 200 },
   SHELF1: { x: 30, y: 90 },
   SHELF2: { x: 100, y: 200 },
   CHAIR: { x: 200, y: 220 },
   RUG: { x: 200, y: 300 },
   POSTER1: { x: 0, y: 0 },
-  TABLE1: { x: 100, y: 60 },
-  TABLE2: { x: 10, y: 60 },
+  TABLE1: { x: 100, y: 100 },
+  TABLE2: { x: 10, y: 100 },
   TABLE3: { x: 70, y: 70 },
   TABLE4: { x: 80, y: 80 },
   GROUND1: { x: 90, y: 280 },

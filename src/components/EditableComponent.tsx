@@ -224,15 +224,15 @@ const EditableComponent: React.FC = () => {
     >
       <div className="relative w-full h-full">
         <img
-          src="/assets/table-chair.png"
+          src="/assets/bedroom-base.png"
           alt="Table and Chair"
           style={{
-            width: "250px",
-            height: "250px",
+            width: "450px",
+            height: "450px",
             position: "absolute",
             top: "50%",
             left: "50%",
-            transform: "translate(-50%, 80%)",
+            transform: "translate(-55%, 0%)",
           }}
         />
         {elements.map((element) => (

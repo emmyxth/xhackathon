@@ -103,6 +103,9 @@ const EditableComponent: React.FC = () => {
   });
   const [elementsInitialized, setElementsInitialized] = useState(false);
   const [backgroundColor, setBackgroundColor] = useState("");
+  const [selectedElementId, setSelectedElementId] = useState<string | null>(
+    null
+  );
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -217,10 +220,20 @@ const EditableComponent: React.FC = () => {
       .catch((err) => console.error("Failed to copy URL: ", err));
   };
 
+  const handleElementClick = (id: string, event: React.MouseEvent) => {
+    event.stopPropagation();
+    setSelectedElementId(id);
+  };
+
+  const handleBackgroundClick = () => {
+    setSelectedElementId(null);
+  };
+
   return (
     <div
       className="relative w-full min-h-screen text-white p-4"
       style={{ backgroundColor }}
+      onClick={handleBackgroundClick}
     >
       <div className="relative w-full h-full">
         <img
@@ -236,7 +249,12 @@ const EditableComponent: React.FC = () => {
           }}
         />
         {elements.map((element) => (
-          <DraggableElement key={element.id} {...element} />
+          <DraggableElement
+            key={element.id}
+            {...element}
+            isSelected={selectedElementId === element.id}
+            onClick={(event) => handleElementClick(element.id, event)}
+          />
         ))}
       </div>
       <button
@@ -249,13 +267,20 @@ const EditableComponent: React.FC = () => {
   );
 };
 
-const DraggableElement: React.FC<Element> = ({
+interface DraggableElementProps extends Element {
+  isSelected: boolean;
+  onClick: (event: React.MouseEvent) => void;
+}
+
+const DraggableElement: React.FC<DraggableElementProps> = ({
   id,
   type,
   src,
   initialX,
   initialY,
   category,
+  isSelected,
+  onClick,
 }) => {
   const nodeRef = useRef(null);
   const [dimensions, setDimensions] = useState<{
@@ -325,19 +350,40 @@ const DraggableElement: React.FC<Element> = ({
         }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onClick={onClick}
       >
-        <img
-          src={src}
-          alt={category}
-          onLoad={handleImageLoad}
+        <div
           style={{
-            width: type === "gif" ? `${desiredHeight}px` : dimensions?.width,
-            height: type === "gif" ? "auto" : dimensions?.height,
-            pointerEvents: "none",
-            display: type === "gif" || dimensions ? "block" : "none",
+            position: "relative",
+            display: "inline-block",
           }}
-          draggable={false}
-        />
+        >
+          <img
+            src={src}
+            alt={category}
+            onLoad={handleImageLoad}
+            style={{
+              width: type === "gif" ? `${desiredHeight}px` : dimensions?.width,
+              height: type === "gif" ? "auto" : dimensions?.height,
+              pointerEvents: "none",
+              display: type === "gif" || dimensions ? "block" : "none",
+            }}
+            draggable={false}
+          />
+          {isSelected && (
+            <div
+              style={{
+                position: "absolute",
+                top: -2,
+                left: -2,
+                right: -2,
+                bottom: -2,
+                border: "2px solid black",
+                pointerEvents: "none",
+              }}
+            />
+          )}
+        </div>
         {isHovered && (
           <div className="absolute top-0 left-full ml-2 bg-white text-black p-2 rounded shadow-md min-w-[60px] min-h-[24px]">
             {displayedText}

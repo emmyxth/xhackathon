@@ -13,8 +13,15 @@ const VersePage: React.FC = () => {
   const [storedMessage, setStoredMessage] = useState<string | null>(null);
   const [arrOfItems, setArrOfItems] = useState([]);
 
-  const tweetsData = localStorage.getItem("tweetsData");
-  const likedTweetsData = localStorage.getItem("likedTweetsData");
+  const tweetsData = JSON.stringify({
+    justText: ["This is a dummy tweet", "Another dummy tweet"],
+  });
+  const likedTweetsData = JSON.stringify({
+    justText: ["This is a liked dummy tweet", "Another liked dummy tweet"],
+  });
+
+  // const tweetsData = localStorage.getItem("tweetsData");
+  // const likedTweetsData = localStorage.getItem("likedTweetsData");
 
   const getPrompt = async () => {
     if (tweetsData && likedTweetsData) {
@@ -29,15 +36,27 @@ const VersePage: React.FC = () => {
         liked_tweets: likedTweets,
       });
       console.log(prompt);
-      const message = prompt.data.data.choices[0].message.content;
-      console.log(message);
 
-      const parsedMessage = message
-        ? JSON.parse(message.substring(findLastBracketIndex(message)))
-        : [];
-      console.log(parsedMessage);
-      setArrOfItems(parsedMessage);
-      setStoredMessage(message);
+      // Check if the response structure is as expected
+      if (
+        prompt.data &&
+        prompt.data.data &&
+        prompt.data.data.choices &&
+        prompt.data.data.choices.length > 0
+      ) {
+        const message = prompt.data.data.choices[0].message.content;
+        console.log(message);
+
+        const parsedMessage = message
+          ? JSON.parse(message.substring(findLastBracketIndex(message)))
+          : [];
+        console.log(parsedMessage);
+        setArrOfItems(parsedMessage);
+        setStoredMessage(message);
+      } else {
+        console.error("Unexpected response structure:", prompt);
+      }
+
       setIsLoading(false);
     } else {
       console.error("No tweets data found in localStorage.");
@@ -73,8 +92,8 @@ const VersePage: React.FC = () => {
       </header>
 
       <main className="flex-grow flex flex-col md:flex-row gap-12 items-center justify-center md:space-y-0 space-y-4 p-4">
-        <div className="w-full md:w-[375px] h-[500px] bg-black rounded-3xl overflow-hidden">
-          <EditableComponent parsedMessage={arrOfItems} />
+        <div className="w-[355px] h-[500px] bg-black rounded-3xl overflow-hidden">
+          <EditableComponent />
         </div>
         <div className="w-full md:w-[375px] h-[300px] bg-blue-200 rounded-lg overflow-y-auto">
           {storedMessage && <ElementPanel text={storedMessage} />}

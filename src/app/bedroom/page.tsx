@@ -34,27 +34,6 @@ const VersePage: React.FC = () => {
     setBedroomState({ elements, backgroundColor });
   };
 
-  const generateShareableURL = () => {
-    if (bedroomState) {
-      const encodedState = btoa(JSON.stringify(bedroomState));
-      console.log("encoded state", encodedState);
-      return `${window.location.origin}${window.location.pathname}?state=${encodedState}`;
-    }
-    return "";
-  };
-
-  const copyShareableURL = () => {
-    const url = generateShareableURL();
-    if (url) {
-      navigator.clipboard
-        .writeText(url)
-        .then(() => alert("Shareable URL copied to clipboard!"))
-        .catch((err) => console.error("Failed to copy URL: ", err));
-    } else {
-      alert("Unable to generate shareable URL. Please try again.");
-    }
-  };
-
   // if (isLoading) {
   //   return <AnimatedLoadingText />;
   // }
@@ -68,24 +47,13 @@ const VersePage: React.FC = () => {
       </header>
 
       <main className="flex-grow flex flex-col md:flex-row gap-12 items-center justify-center md:space-y-0 space-y-4 p-4">
-        <Bedroom onStateChange={handleBedroomStateChange} />
+        <Bedroom
+          onStateChange={handleBedroomStateChange}
+          bedroomState={bedroomState}
+        />
       </main>
       <footer className="p-4 flex justify-between items-center">
         <span>Powered by JECZ</span>
-        <div>
-          <button className="px-4 py-2 bg-gray-800 text-white rounded mr-2">
-            Get the app
-          </button>
-          <button
-            className="px-4 py-2 bg-gray-800 text-white rounded mr-2"
-            onClick={copyShareableURL}
-          >
-            Copy link
-          </button>
-          <button className="px-4 py-2 bg-gray-800 text-white rounded">
-            Save & Share
-          </button>
-        </div>
       </footer>
     </div>
   );

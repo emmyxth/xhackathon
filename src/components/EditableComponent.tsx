@@ -1,6 +1,7 @@
 "use client";
+
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import Draggable from "react-draggable";
 import DraggableElement from "./DraggableElement";
 import DetailPanel from "./DetailPanel";
@@ -115,10 +116,12 @@ const categoryPositions = {
 
 interface EditableComponentProps {
   onElementHover: (name: string | null) => void;
+  onStateChange: (elements: Element[], backgroundColor: string) => void;
 }
 
 const EditableComponent: React.FC<EditableComponentProps> = ({
   onElementHover,
+  onStateChange,
 }) => {
   const [elements, setElements] = useState<Element[]>([]);
   const [windowDimensions, setWindowDimensions] = useState({
@@ -132,6 +135,11 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
   );
   const router = useRouter();
   const searchParams = useSearchParams();
+
+  // Use useCallback to memoize the function
+  const updateState = useCallback(() => {
+    onStateChange(elements, backgroundColor);
+  }, [elements, backgroundColor, onStateChange]);
 
   useEffect(() => {
     const updateWindowDimensions = () => {
@@ -169,13 +177,23 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
     };
   }, [searchParams]);
 
-  const getRandomPosition = () => {
-    const margin = 100;
-    return {
-      x: Math.random() * (windowDimensions.width - 2 * margin) + margin,
-      y: Math.random() * (windowDimensions.height - 2 * margin) + margin,
-    };
-  };
+  useEffect(() => {
+    if (
+      !elementsInitialized &&
+      windowDimensions.width &&
+      windowDimensions.height
+    ) {
+      items.forEach((item, index) => addElement(item, index));
+      setElementsInitialized(true);
+    }
+  }, [windowDimensions, elementsInitialized]);
+
+  // Use a separate useEffect for state updates
+  useEffect(() => {
+    if (elementsInitialized) {
+      updateState();
+    }
+  }, [elementsInitialized, updateState]);
 
   const addElement = (item: string, index: number) => {
     let category = categoryOrder[index];
@@ -229,18 +247,22 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
     }
   }, [windowDimensions, elementsInitialized]);
 
-  const generateShareableURL = () => {
-    const state = { elements, backgroundColor };
-    const encodedState = btoa(JSON.stringify(state));
-    return `${window.location.origin}${window.location.pathname}?state=${encodedState}`;
-  };
+  useEffect(() => {
+    onStateChange(elements, backgroundColor);
+  }, [elements, backgroundColor, onStateChange]);
 
-  const copyShareableURL = () => {
-    navigator.clipboard
-      .writeText(generateShareableURL())
-      .then(() => alert("Shareable URL copied to clipboard!"))
-      .catch((err) => console.error("Failed to copy URL: ", err));
-  };
+  // const generateShareableURdo L = () => {
+  //   const state = { elements, backgroundColor };
+  //   const encodedState = btoa(JSON.stringify(state));
+  //   return `${window.location.origin}${window.location.pathname}?state=${encodedState}`;
+  // };
+
+  // const copyShareableURL = () => {
+  //   navigator.clipboard
+  //     .writeText(generateShareableURL())
+  //     .then(() => alert("Shareable URL copied to clipboard!"))
+  //     .catch((err) => console.error("Failed to copy URL: ", err));
+  // };
 
   const handleElementClick = (id: string, event: React.MouseEvent) => {
     event.stopPropagation();
@@ -279,12 +301,6 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
           }
         />
       ))}
-      <button
-        onClick={copyShareableURL}
-        className="absolute bottom-4 right-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      >
-        Share URL
-      </button>
     </div>
   );
 };

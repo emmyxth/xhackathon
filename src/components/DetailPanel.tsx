@@ -35,7 +35,7 @@ const DetailPanel: React.FC<DetailPanelProps> = ({ hoveredElementName }) => {
           </p>
         </div>
       ) : (
-        <p className="text-dark-grey">
+        <p className="text-[#A9A9A9]">
           Hover over an element to see its details.
         </p>
       )}

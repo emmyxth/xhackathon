@@ -13,7 +13,10 @@ const VersePage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [storedMessage, setStoredMessage] = useState<string | null>(null);
   const [arrOfItems, setArrOfItems] = useState([]);
-
+  const [bedroomState, setBedroomState] = useState<{
+    elements: any[];
+    backgroundColor: string;
+  } | null>(null);
   const tweetsData = JSON.stringify({
     justText: ["This is a dummy tweet", "Another dummy tweet"],
   });
@@ -24,68 +27,39 @@ const VersePage: React.FC = () => {
   // const tweetsData = localStorage.getItem("tweetsData");
   // const likedTweetsData = localStorage.getItem("likedTweetsData");
 
-  const getPrompt = async () => {
-    if (tweetsData && likedTweetsData) {
-      const tweets = JSON.parse(tweetsData);
-      const likedTweets = JSON.parse(likedTweetsData);
-      console.log("Tweets:", tweets.justText);
-      console.log("Liked Tweets:", likedTweets.justText);
+  const handleBedroomStateChange = (
+    elements: any[],
+    backgroundColor: string
+  ) => {
+    setBedroomState({ elements, backgroundColor });
+  };
 
-      setIsLoading(true);
-      const prompt = await axios.post("/api/analyze_user_tweets", {
-        tweets: tweets,
-        liked_tweets: likedTweets,
-      });
-      console.log(prompt);
+  const generateShareableURL = () => {
+    if (bedroomState) {
+      const encodedState = btoa(JSON.stringify(bedroomState));
+      return `${window.location.origin}${window.location.pathname}?state=${encodedState}`;
+    }
+    return "";
+  };
 
-      // Check if the response structure is as expected
-      if (
-        prompt.data &&
-        prompt.data.data &&
-        prompt.data.data.choices &&
-        prompt.data.data.choices.length > 0
-      ) {
-        const message = prompt.data.data.choices[0].message.content;
-        console.log(message);
-
-        const parsedMessage = message
-          ? JSON.parse(message.substring(findLastBracketIndex(message)))
-          : [];
-        console.log(parsedMessage);
-        setArrOfItems(parsedMessage);
-        setStoredMessage(message);
-      } else {
-        console.error("Unexpected response structure:", prompt);
-      }
-
-      setIsLoading(false);
+  const copyShareableURL = () => {
+    const url = generateShareableURL();
+    if (url) {
+      navigator.clipboard
+        .writeText(url)
+        .then(() => alert("Shareable URL copied to clipboard!"))
+        .catch((err) => console.error("Failed to copy URL: ", err));
     } else {
-      console.error("No tweets data found in localStorage.");
+      alert("Unable to generate shareable URL. Please try again.");
     }
   };
 
-  useEffect(() => {
-    getPrompt();
-  }, []);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 20000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  const findLastBracketIndex = (message: string): number => {
-    return message.lastIndexOf("[");
-  };
-
-  if (isLoading) {
-    return <AnimatedLoadingText />;
-  }
+  // if (isLoading) {
+  //   return <AnimatedLoadingText />;
+  // }
 
   return (
-    <div className="flex flex-col min-h-screen bg-blue-300">
+    <div className="flex flex-col min-h-screen bg-black">
       <header className="p-4">
         <Link href={"/hello"}>
           <h1 className="text-2xl font-bold">My X Bedroom</h1>
@@ -93,10 +67,7 @@ const VersePage: React.FC = () => {
       </header>
 
       <main className="flex-grow flex flex-col md:flex-row gap-12 items-center justify-center md:space-y-0 space-y-4 p-4">
-        <Bedroom />
-        {/* <div className="w-full md:w-[375px] h-[300px] bg-blue-200 rounded-lg overflow-y-auto">
-          {storedMessage && <ElementPanel text={storedMessage} />}
-        </div> */}
+        <Bedroom onStateChange={handleBedroomStateChange} />
       </main>
       <footer className="p-4 flex justify-between items-center">
         <span>Powered by JECZ</span>
@@ -104,7 +75,10 @@ const VersePage: React.FC = () => {
           <button className="px-4 py-2 bg-gray-800 text-white rounded mr-2">
             Get the app
           </button>
-          <button className="px-4 py-2 bg-gray-800 text-white rounded mr-2">
+          <button
+            className="px-4 py-2 bg-gray-800 text-white rounded mr-2"
+            onClick={copyShareableURL}
+          >
             Copy link
           </button>
           <button className="px-4 py-2 bg-gray-800 text-white rounded">
@@ -115,5 +89,4 @@ const VersePage: React.FC = () => {
     </div>
   );
 };
-
 export default VersePage;

@@ -117,11 +117,11 @@ const DraggableElement: React.FC<DraggableElementProps> = ({
             />
           )}
         </div>
-        {isHovered && (
+        {/* {isHovered && (
           <div className="absolute top-0 left-full ml-2 bg-white text-black p-2 rounded shadow-md min-w-[60px] min-h-[24px]">
             {id.split("-")[0]}
           </div>
-        )}
+        )} */}
       </div>
     </Draggable>
   );

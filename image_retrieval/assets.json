@@ -384,38 +384,35 @@
   "RUG": {
     "ASSET_1": [
       "regal_brown_persian_rug",
-      "/public/assets/rugs/regal_brown_persian_rug.png"
+      "/assets/rugs/regal_brown_persian_rug.png"
     ],
-    "ASSET_2": ["red_carpet_rug", "/public/assets/rugs/red_carpet_rug.png"],
-    "ASSET_3": ["white_brown_rug", "/public/assets/rugs/white_brown_rug.webp"]
+    "ASSET_2": ["red_carpet_rug", "/assets/rugs/red_carpet_rug.png"],
+    "ASSET_3": ["white_brown_rug", "/assets/rugs/white_brown_rug.webp"]
   },
   "POSTER": {
-    "ASSET_1": ["doge", "/manual_images/posters/doge.png"],
-    "ASSET_2": [
-      "trump_bobblehead",
-      "/manual_images/posters/trump_bobblehead.jpg"
-    ],
+    "ASSET_1": ["doge", "/assets/posters/doge.png"],
+    "ASSET_2": ["trump_bobblehead", "/assets/posters/trump_bobblehead.jpg"],
     "ASSET_3": [
       "protestor_shit_hole_trump_street",
-      "/manual_images/posters/protestor_shit_hole_trump_street.jpg"
+      "/assets/posters/protestor_shit_hole_trump_street.jpg"
     ],
     "ASSET_4": [
       "trump_cheato_dislike",
-      "/manual_images/posters/trump_cheato_dislike.jpg"
+      "/assets/posters/trump_cheato_dislike.jpg"
     ],
-    "ASSET_5": ["maga_cap_trump", "/manual_images/posters/maga_cap_trump.jpg"],
+    "ASSET_5": ["maga_cap_trump", "/assets/posters/maga_cap_trump.jpg"],
     "ASSET_6": [
       "trump_mask_pointing_costume",
-      "/manual_images/posters/trump_mask_pointing_costume.jpg"
+      "/assets/posters/trump_mask_pointing_costume.jpg"
     ],
-    "ASSET_7": ["american_flag", "/manual_images/posters/american_flag.png"],
+    "ASSET_7": ["american_flag", "/assets/posters/american_flag.png"],
     "ASSET_8": [
       "contemplative_sketch_art",
-      "/manual_images/posters/contemplative_sketch_art.jpg"
+      "/assets/posters/contemplative_sketch_art.jpg"
     ],
     "ASSET_9": [
       "trump_tower_palm_beach",
-      "/manual_images/posters/trump_tower_palm_beach.jpg"
+      "/assets/posters/trump_tower_palm_beach.jpg"
     ]
   },
   "GIF": {

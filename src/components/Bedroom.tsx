@@ -60,7 +60,7 @@ const Bedroom: React.FC<BedroomProps> = ({ onStateChange, bedroomState }) => {
         <DetailPanel hoveredElementName={hoveredElementName} />
       </div>
       <button
-        className="px-4 py-2 bg-black border border-white text-white rounded-full mr-2 w-[20%] self-center hover:bg-white hover:text-black"
+        className="px-4 py-2 bg-black border border-white text-white rounded-full mr-2 w-[60%] sm:w-[20%] self-center hover:bg-white hover:text-black"
         onClick={copyShareableURL}
       >
         Copy link

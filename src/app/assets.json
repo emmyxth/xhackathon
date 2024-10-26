@@ -1,548 +1,503 @@
 {
-    "PETS": {
-        "ASSET_1": [
-            "c3po",
-            "/public/assets/petss/C3PO.webp"
-        ],
-        "ASSET_2": [
-            "r2d2",
-            "/public/assets/petss/R2D2.webp"
-        ],
-        "ASSET_3": [
-            "brown_rat",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_3.webp"
-        ],
-        "ASSET_4": [
-            "shiba_inu_dog_laying_down",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_4.webp"
-        ],
-        "ASSET_5": [
-            "ginger_cat_sitting",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_5.webp"
-        ],
-        "ASSET_6": [
-            "capybara_sitting",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_6.webp"
-        ],
-        "ASSET_7": [
-            "brown_rabbit",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_7.webp"
-        ],
-        "ASSET_8": [
-            "rottweiler_dog_standing",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_8.webp"
-        ],
-        "ASSET_9": [
-            "white_cat_sitting",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_9.webp"
-        ],
-        "ASSET_10": [
-            "baby_hippo",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_10.webp"
-        ],
-        "ASSET_11": [
-            "brown_cocker_spaniel_dog_sitting",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_11.webp"
-        ],
-        "ASSET_12": [
-            "spotted_horse_running",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_12.webp"
-        ],
-        "ASSET_13": [
-            "flamingo_standing_side_view",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_13.webp"
-        ],
-        "ASSET_14": [
-            "calico_cat_sitting",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_14.webp"
-        ],
-        "ASSET_15": [
-            "cat_sitting_upright_with_leg_up",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_15.webp"
-        ]
-    },
-    "FOOD": {
-        "ASSET_1": [
-            "cup_noodles_container",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_1.webp"
-        ],
-        "ASSET_2": [
-            "pocky_chocolate_sticks_packaging",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_2.webp"
-        ],
-        "ASSET_3": [
-            "mean_girls_kalteen_bar",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_3.webp"
-        ],
-        "ASSET_4": [
-            "miralax_laxative_powder_bottle",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_4.webp"
-        ],
-        "ASSET_5": [
-            "wing_stop_feast",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_5.webp"
-        ],
-        "ASSET_6": [
-            "open_box_with_six_cookies",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_6.webp"
-        ],
-        "ASSET_7": [
-            "chamoy_pickle_kit",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_7.webp"
-        ],
-        "ASSET_8": [
-            "whey_protein_powder_container",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_8.webp"
-        ],
-        "ASSET_9": [
-            "haribo_goldbears_packaging",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_9.webp"
-        ],
-        "ASSET_10": [
-            "red_bull_can",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_10.webp"
-        ],
-        "ASSET_11": [
-            "iced_matcha_pink_drink",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_11.webp"
-        ],
-        "ASSET_12": [
-            "iced_coffee_in_glass_with_straw",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_12.webp"
-        ],
-        "ASSET_13": [
-            "stanley_travel_tumbler_with_straw",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_13.webp"
-        ],
-        "ASSET_14": [
-            "bag_of_takis_fuego_snacks",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_14.webp"
-        ],
-        "ASSET_15": [
-            "diet_coke_can",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_15.webp"
-        ],
-        "ASSET_16": [
-            "cigar_with_smoke",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_16.webp"
-        ],
-        "ASSET_17": [
-            "bud_light_can",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_17.webp"
-        ],
-        "ASSET_18": [
-            "kombucha_bottle_synergy",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_18.webp"
-        ],
-        "ASSET_19": [
-            "celsius_sparkling_orange_drink_can",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_19.webp"
-        ],
-        "ASSET_20": [
-            "strawberry_garnished_cocktail_drink",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_20.webp"
-        ],
-        "ASSET_21": [
-            "strawberry_smoothie_cup",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_21.webp"
-        ],
-        "ASSET_22": [
-            "bubble_tea_drink",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_22.webp"
-        ]
-    },
-    "DECOR": {
-        "ASSET_1": [
-            "spiderman_funko_pop_figure",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_1.webp"
-        ],
-        "ASSET_2": [
-            "lip_balm_tube",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_2.webp"
-        ],
-        "ASSET_3": [
-            "blue_glass_bong",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_3.webp"
-        ],
-        "ASSET_4": [
-            "rose_quartz_obelisk_with_amethyst_cluster",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_4.webp"
-        ],
-        "ASSET_5": [
-            "film_disposable_camera",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_5.webp"
-        ],
-        "ASSET_6": [
-            "green_analog_alarm_clock",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_6.webp"
-        ],
-        "ASSET_7": [
-            "plush_mouse_toy_with_pink_bow",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_7.webp"
-        ],
-        "ASSET_8": [
-            "kaws_stormtrooper_figure",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_8.webp"
-        ],
-        "ASSET_9": [
-            "yellow_smiley_face_plush_toy",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_9.webp"
-        ],
-        "ASSET_10": [
-            "hello_kitty_figure",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_10.webp"
-        ],
-        "ASSET_11": [
-            "teddy_bear",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_11.webp"
-        ],
-        "ASSET_12": [
-            "anime_character_figure",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_12.webp"
-        ],
-        "ASSET_13": [
-            "stack_of_books",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_13.webp"
-        ],
-        "ASSET_14": [
-            "cinnamoroll_plush_toy",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_14.webp"
-        ],
-        "ASSET_15": [
-            "toy_doll_with_strawberry_helmet",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_15.webp"
-        ],
-        "ASSET_16": [
-            "life-like_action_figure",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_16.webp"
-        ],
-        "ASSET_17": [
-            "bottle_with_red_and_yellow_label",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_17.webp"
-        ],
-        "ASSET_18": [
-            "jade_roller_tool",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_18.webp"
-        ],
-        "ASSET_19": [
-            "tarot_cards_fan_display",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_19.webp"
-        ],
-        "ASSET_20": [
-            "american_express_platinum_card",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_20.webp"
-        ],
-        "ASSET_21": [
-            "cowboy_hat",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_21.webp"
-        ],
-        "ASSET_22": [
-            "incense_stick_in_holder_with_smoke",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_22.webp"
-        ],
-        "ASSET_23": [
-            "album_cover_with_newspaper_collage",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_23.webp"
-        ],
-        "ASSET_24": [
-            "gumball_machine",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_1.webp"
-        ],
-        "ASSET_25": [
-            "captain_america_shield_makeup_brush",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_2.webp"
-        ],
-        "ASSET_26": [
-            "pilea_plant_in_pot",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_3.webp"
-        ],
-        "ASSET_27": [
-            "potted_monstera_plant",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_4.webp"
-        ],
-        "ASSET_28": [
-            "croissant_with_candle",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_5.webp"
-        ],
-        "ASSET_29": [
-            "green_gummy_bear_jar",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_6.webp"
-        ],
-        "ASSET_30": [
-            "orange_mushroom_lamp",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_7.webp"
-        ],
-        "ASSET_31": [
-            "blue_lava_lamp",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_8.webp"
-        ],
-        "ASSET_32": [
-            "potted_succulent_plants",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_9.webp"
-        ],
-        "ASSET_33": [
-            "cartoon-style_white_wrench",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_10.webp"
-        ],
-        "ASSET_34": [
-            "pink_tulips_in_vase",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_11.webp"
-        ],
-        "ASSET_35": [
-            "blue_table_lamp",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_12.webp"
-        ],
-        "ASSET_36": [
-            "sunglasses_with_blue_lenses",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_13.webp"
-        ],
-        "ASSET_37": [
-            "pink_classic_car",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_14.webp"
-        ],
-        "ASSET_38": [
-            "zyn_nicotine_pouches_open_tin",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_15.webp"
-        ],
-        "ASSET_39": [
-            "lava_lamp",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_16.webp"
-        ],
-        "ASSET_40": [
-            "leica_compact_camera",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_17.webp"
-        ],
-        "ASSET_41": [
-            "chimamanda_ngozi_adichie_book_cover",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_18.webp"
-        ],
-        "ASSET_42": [
-            "ceramic_cactus_plant_pot",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_19.webp"
-        ],
-        "ASSET_43": [
-            "red_woven_scarf",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_20.webp"
-        ],
-        "ASSET_44": [
-            "red_lipstick_tube",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_23.webp"
-        ]
-    },
-    "CHAIR": {
-        "ASSET_1": [
-            "red_modern_chair",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_1.webp"
-        ],
-        "ASSET_2": [
-            "wooden_modern_chair",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_2.webp"
-        ],
-        "ASSET_3": [
-            "flower_shaped_chair",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_3.webp"
-        ],
-        "ASSET_4": [
-            "orange_translucent_chair",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_4.webp"
-        ],
-        "ASSET_5": [
-            "office_chair",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_5.webp"
-        ],
-        "ASSET_6": [
-            "gaming_chair",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_6.webp"
-        ],
-        "ASSET_7": [
-            "cream_sherpa_armchair",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_7.webp"
-        ],
-        "ASSET_8": [
-            "fluffy_round_bean_bag",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_8.webp"
-        ],
-        "ASSET_9": [
-            "pink_modern_chair",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_9.webp"
-        ],
-        "ASSET_10": [
-            "egg_shaped_chair",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_10.webp"
-        ],
-        "ASSET_11": [
-            "green_modern_chair",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_11.webp"
-        ],
-        "ASSET_12": [
-            "green_leather_modular_sofa",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_12.webp"
-        ],
-        "ASSET_13": [
-            "wood_and_cane_chair",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_13.webp"
-        ],
-        "ASSET_14": [
-            "wooden_chair",
-            "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_14.webp"
-        ]
-    },
-    "RUG": {
-        "ASSET_1": [
-            "rugs11",
-            "/public/assets/rugs/rugs11.webp"
-        ],
-        "ASSET_5": [
-            "pink_square_rug",
-            "/public/assets/rugs/pink_square_rug.webp"
-        ],
-        "ASSET_7": [
-            "rugs2",
-            "/public/assets/rugs/rugs2.png"
-        ],
-        "ASSET_9": [
-            "rugs4",
-            "/public/assets/rugs/rugs4.webp"
-        ],
-        "ASSET_10": [
-            "rugs9",
-            "/public/assets/rugs/rugs9.jpg"
-        ],
-        "ASSET_11": [
-            "red_carpet_rug",
-            "/public/assets/rugs/red_carpet_rug.png"
-        ],
-        "ASSET_13": [
-            "rugs16",
-            "/public/assets/rugs/rugs16.png"
-        ],
-        "ASSET_2": [
-            "green_checkered_cherry_rug",
-            "/public/assets/rugs/green_checkered_cherry_rug.jpg"
-        ],
-        "ASSET_3": [
-            "regal_brown_persian_rug",
-            "/public/assets/rugs/regal_brown_persian_rug.png"
-        ],
-        "ASSET_4": [
-            "persian_rug_brown",
-            "/public/assets/rugs/persian_rug_brown.jpg"
-        ],
-        "ASSET_8": [
-            "pink_rug",
-            "/public/assets/rugs/pink_rug.jpg"
-        ],
-        "ASSET_12": [
-            "white_brown_rug",
-            "/public/assets/rugs/white_brown_rug.webp"
-        ]
-    },
-    "POSTER": {
-        "ASSET_1": [
-            "doge",
-            "/manual_images/posters/doge.png"
-        ],
-        "ASSET_2": [
-            "trump_bobblehead",
-            "/manual_images/posters/trump_bobblehead.jpg"
-        ],
-        "ASSET_3": [
-            "protestor_shit_hole_trump_street",
-            "/manual_images/posters/protestor_shit_hole_trump_street.jpg"
-        ],
-        "ASSET_4": [
-            "trump_cheato_dislike",
-            "/manual_images/posters/trump_cheato_dislike.jpg"
-        ],
-        "ASSET_5": [
-            "maga_cap_trump",
-            "/manual_images/posters/maga_cap_trump.jpg"
-        ],
-        "ASSET_6": [
-            "trump_mask_pointing_costume",
-            "/manual_images/posters/trump_mask_pointing_costume.jpg"
-        ],
-        "ASSET_7": [
-            "american_flag",
-            "/manual_images/posters/american_flag.png"
-        ],
-        "ASSET_8": [
-            "contemplative_sketch_art",
-            "/manual_images/posters/contemplative_sketch_art.jpg"
-        ],
-        "ASSET_9": [
-            "trump_tower_palm_beach",
-            "/manual_images/posters/trump_tower_palm_beach.jpg"
-        ]
-    },
-    "GIF": {
-        "ASSET_1": [
-            "abstract_3d_structure",
-            "https://media.giphy.com/media/JivJuYWnX7lra/giphy.gif?cid=790b7611s0zj23pacg5rlvdrd5l5qjjgw1e6y9aloe9ukxr4&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
-        ],
-        "ASSET_2": [
-            "cluster_of_moving_eyeballs",
-            "https://media.giphy.com/media/EZrRnFyeq60lW/giphy.gif?cid=790b7611s0zj23pacg5rlvdrd5l5qjjgw1e6y9aloe9ukxr4&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
-        ],
-        "ASSET_3": [
-            "wireframe_head_model",
-            "https://media.giphy.com/media/j91j9wdUh3rm8/giphy.gif?cid=790b7611s0zj23pacg5rlvdrd5l5qjjgw1e6y9aloe9ukxr4&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
-        ],
-        "ASSET_4": [
-            "swimming_character_animation",
-            "https://media.giphy.com/media/EiNnTTIaeMuZy/giphy.gif?cid=ecf05e47aksqnvktw92s9qf0nqtw6e7t8ridx2mue56n7bkt&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
-        ],
-        "ASSET_5": [
-            "abstract_colored_figure",
-            "https://media.giphy.com/media/yidUzil7u0LK8kbtvy/giphy.gif?cid=ecf05e47aksqnvktw92s9qf0nqtw6e7t8ridx2mue56n7bkt&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
-        ],
-        "ASSET_6": [
-            "isometric_building_animation",
-            "https://media.giphy.com/media/10y2QxGnQ7hQRO/giphy.gif?cid=ecf05e47aksqnvktw92s9qf0nqtw6e7t8ridx2mue56n7bkt&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
-        ],
-        "ASSET_7": [
-            "animated_bear_playing_piano",
-            "https://media.giphy.com/media/9Iwn9QqdjF1hm/giphy.gif?cid=ecf05e470z288oswv5j66q1h10b0z8a91wn0pr3gs9d2xd9w&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
-        ],
-        "ASSET_8": [
-            "3d_wireframe_shape",
-            "https://media.giphy.com/media/TyQY0zTXX4x0c/giphy.gif?cid=ecf05e47zj6m9qk2fjlssmv2i1n1uyjlczzlo2g7ounl2f21&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
-        ],
-        "ASSET_9": [
-            "framed_head_bust_rendering",
-            "https://media.giphy.com/media/13ECbwh46goJGw/giphy.gif?cid=ecf05e47zj6m9qk2fjlssmv2i1n1uyjlczzlo2g7ounl2f21&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
-        ],
-        "ASSET_10": [
-            "multicolored_acrobatic_figures",
-            "https://media.giphy.com/media/ZcJLwmfutZBqU/giphy.gif?cid=ecf05e47qvcqpudyrcr0ft870qb5pjvnz800it5qjboouy1f&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
-        ],
-        "ASSET_11": [
-            "geometric_bear_neon_logo",
-            "https://media.giphy.com/media/3ornjNM6wlq8i87aQU/giphy.gif?cid=ecf05e47hssz634hv64v963dt2vlfijk0tjo1ncao52fzc29&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
-        ],
-        "ASSET_12": [
-            "ocean_waves_under_cloudy_sky",
-            "https://media.giphy.com/media/8gQNjxnRS57UY04Ha8/giphy.gif?cid=ecf05e47miebft49h1xmv1xar4hi94l6sgieljgnha1xbtbe&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
-        ],
-        "ASSET_13": [
-            "bouncing_pool_balls",
-            "https://media.giphy.com/media/xT0BKz6hXpHN8Jvmp2/giphy.gif?cid=ecf05e47miebft49h1xmv1xar4hi94l6sgieljgnha1xbtbe&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
-        ],
-        "ASSET_14": [
-            "abstract_geometric_pattern",
-            "https://media.giphy.com/media/yvcKh0pIEtZUA/giphy.gif?cid=ecf05e47miebft49h1xmv1xar4hi94l6sgieljgnha1xbtbe&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
-        ],
-        "ASSET_15": [
-            "rotating_red_heart_animation",
-            "https://media.giphy.com/media/13aaIESJDm56q4/giphy.gif?cid=ecf05e47z372r9p3jry8icoospbatzqvnromdbj1945mylgc&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
-        ],
-        "ASSET_16": [
-            "pyramid_with_eye_on_dollar_bill",
-            "https://media.giphy.com/media/VtRW9YZLtIyzK/giphy.gif?cid=790b7611s0zj23pacg5rlvdrd5l5qjjgw1e6y9aloe9ukxr4&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
-        ],
-        "ASSET_17": [
-            "disco_ball_spinning",
-            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTY5eWw4N2FsbmY2NDJ3ems2YjR0em1jYm9samlzdXB4OXQwZ2dxeSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/7rzbxdu0ZEXLy/giphy.gif"
-        ]
-    }
+  "PETS": {
+    "ASSET_1": ["c3po", "/public/assets/petss/C3PO.webp"],
+    "ASSET_2": ["r2d2", "/public/assets/petss/R2D2.webp"],
+    "ASSET_3": [
+      "brown_rat",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_3.webp"
+    ],
+    "ASSET_4": [
+      "shiba_inu_dog_laying_down",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_4.webp"
+    ],
+    "ASSET_5": [
+      "ginger_cat_sitting",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_5.webp"
+    ],
+    "ASSET_6": [
+      "capybara_sitting",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_6.webp"
+    ],
+    "ASSET_7": [
+      "brown_rabbit",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_7.webp"
+    ],
+    "ASSET_8": [
+      "rottweiler_dog_standing",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_8.webp"
+    ],
+    "ASSET_9": [
+      "white_cat_sitting",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_9.webp"
+    ],
+    "ASSET_10": [
+      "baby_hippo",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_10.webp"
+    ],
+    "ASSET_11": [
+      "brown_cocker_spaniel_dog_sitting",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_11.webp"
+    ],
+    "ASSET_12": [
+      "spotted_horse_running",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_12.webp"
+    ],
+    "ASSET_13": [
+      "flamingo_standing_side_view",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_13.webp"
+    ],
+    "ASSET_14": [
+      "calico_cat_sitting",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_14.webp"
+    ],
+    "ASSET_15": [
+      "cat_sitting_upright_with_leg_up",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_15.webp"
+    ]
+  },
+  "FOOD": {
+    "ASSET_1": [
+      "cup_noodles_container",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_1.webp"
+    ],
+    "ASSET_2": [
+      "pocky_chocolate_sticks_packaging",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_2.webp"
+    ],
+    "ASSET_3": [
+      "mean_girls_kalteen_bar",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_3.webp"
+    ],
+    "ASSET_4": [
+      "miralax_laxative_powder_bottle",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_4.webp"
+    ],
+    "ASSET_5": [
+      "wing_stop_feast",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_5.webp"
+    ],
+    "ASSET_6": [
+      "open_box_with_six_cookies",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_6.webp"
+    ],
+    "ASSET_7": [
+      "chamoy_pickle_kit",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_7.webp"
+    ],
+    "ASSET_8": [
+      "whey_protein_powder_container",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_8.webp"
+    ],
+    "ASSET_9": [
+      "haribo_goldbears_packaging",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_9.webp"
+    ],
+    "ASSET_10": [
+      "red_bull_can",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_10.webp"
+    ],
+    "ASSET_11": [
+      "iced_matcha_pink_drink",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_11.webp"
+    ],
+    "ASSET_12": [
+      "iced_coffee_in_glass_with_straw",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_12.webp"
+    ],
+    "ASSET_13": [
+      "stanley_travel_tumbler_with_straw",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_13.webp"
+    ],
+    "ASSET_14": [
+      "bag_of_takis_fuego_snacks",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_14.webp"
+    ],
+    "ASSET_15": [
+      "diet_coke_can",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_15.webp"
+    ],
+    "ASSET_16": [
+      "cigar_with_smoke",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_16.webp"
+    ],
+    "ASSET_17": [
+      "bud_light_can",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_17.webp"
+    ],
+    "ASSET_18": [
+      "kombucha_bottle_synergy",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_18.webp"
+    ],
+    "ASSET_19": [
+      "celsius_sparkling_orange_drink_can",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_19.webp"
+    ],
+    "ASSET_20": [
+      "strawberry_garnished_cocktail_drink",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_20.webp"
+    ],
+    "ASSET_21": [
+      "strawberry_smoothie_cup",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_21.webp"
+    ],
+    "ASSET_22": [
+      "bubble_tea_drink",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_22.webp"
+    ]
+  },
+  "DECOR": {
+    "ASSET_1": [
+      "spiderman_funko_pop_figure",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_1.webp"
+    ],
+    "ASSET_2": [
+      "lip_balm_tube",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_2.webp"
+    ],
+    "ASSET_3": [
+      "blue_glass_bong",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_3.webp"
+    ],
+    "ASSET_4": [
+      "rose_quartz_obelisk_with_amethyst_cluster",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_4.webp"
+    ],
+    "ASSET_5": [
+      "film_disposable_camera",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_5.webp"
+    ],
+    "ASSET_6": [
+      "green_analog_alarm_clock",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_6.webp"
+    ],
+    "ASSET_7": [
+      "plush_mouse_toy_with_pink_bow",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_7.webp"
+    ],
+    "ASSET_8": [
+      "kaws_stormtrooper_figure",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_8.webp"
+    ],
+    "ASSET_9": [
+      "yellow_smiley_face_plush_toy",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_9.webp"
+    ],
+    "ASSET_10": [
+      "hello_kitty_figure",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_10.webp"
+    ],
+    "ASSET_11": [
+      "teddy_bear",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_11.webp"
+    ],
+    "ASSET_12": [
+      "anime_character_figure",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_12.webp"
+    ],
+    "ASSET_13": [
+      "stack_of_books",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_13.webp"
+    ],
+    "ASSET_14": [
+      "cinnamoroll_plush_toy",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_14.webp"
+    ],
+    "ASSET_15": [
+      "toy_doll_with_strawberry_helmet",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_15.webp"
+    ],
+    "ASSET_16": [
+      "life-like_action_figure",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_16.webp"
+    ],
+    "ASSET_17": [
+      "bottle_with_red_and_yellow_label",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_17.webp"
+    ],
+    "ASSET_18": [
+      "jade_roller_tool",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_18.webp"
+    ],
+    "ASSET_19": [
+      "tarot_cards_fan_display",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_19.webp"
+    ],
+    "ASSET_20": [
+      "american_express_platinum_card",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_20.webp"
+    ],
+    "ASSET_21": [
+      "cowboy_hat",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_21.webp"
+    ],
+    "ASSET_22": [
+      "incense_stick_in_holder_with_smoke",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_22.webp"
+    ],
+    "ASSET_23": [
+      "album_cover_with_newspaper_collage",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_23.webp"
+    ],
+    "ASSET_24": [
+      "gumball_machine",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_1.webp"
+    ],
+    "ASSET_25": [
+      "captain_america_shield_makeup_brush",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_2.webp"
+    ],
+    "ASSET_26": [
+      "pilea_plant_in_pot",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_3.webp"
+    ],
+    "ASSET_27": [
+      "potted_monstera_plant",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_4.webp"
+    ],
+    "ASSET_28": [
+      "croissant_with_candle",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_5.webp"
+    ],
+    "ASSET_29": [
+      "green_gummy_bear_jar",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_6.webp"
+    ],
+    "ASSET_30": [
+      "orange_mushroom_lamp",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_7.webp"
+    ],
+    "ASSET_31": [
+      "blue_lava_lamp",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_8.webp"
+    ],
+    "ASSET_32": [
+      "potted_succulent_plants",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_9.webp"
+    ],
+    "ASSET_33": [
+      "cartoon-style_white_wrench",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_10.webp"
+    ],
+    "ASSET_34": [
+      "pink_tulips_in_vase",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_11.webp"
+    ],
+    "ASSET_35": [
+      "blue_table_lamp",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_12.webp"
+    ],
+    "ASSET_36": [
+      "sunglasses_with_blue_lenses",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_13.webp"
+    ],
+    "ASSET_37": [
+      "pink_classic_car",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_14.webp"
+    ],
+    "ASSET_38": [
+      "zyn_nicotine_pouches_open_tin",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_15.webp"
+    ],
+    "ASSET_39": [
+      "lava_lamp",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_16.webp"
+    ],
+    "ASSET_40": [
+      "leica_compact_camera",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_17.webp"
+    ],
+    "ASSET_41": [
+      "chimamanda_ngozi_adichie_book_cover",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_18.webp"
+    ],
+    "ASSET_42": [
+      "ceramic_cactus_plant_pot",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_19.webp"
+    ],
+    "ASSET_43": [
+      "red_woven_scarf",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_20.webp"
+    ],
+    "ASSET_44": [
+      "red_lipstick_tube",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_23.webp"
+    ]
+  },
+  "CHAIR": {
+    "ASSET_1": [
+      "red_modern_chair",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_1.webp"
+    ],
+    "ASSET_2": [
+      "wooden_modern_chair",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_2.webp"
+    ],
+    "ASSET_3": [
+      "flower_shaped_chair",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_3.webp"
+    ],
+    "ASSET_4": [
+      "orange_translucent_chair",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_4.webp"
+    ],
+    "ASSET_5": [
+      "office_chair",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_5.webp"
+    ],
+    "ASSET_6": [
+      "gaming_chair",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_6.webp"
+    ],
+    "ASSET_7": [
+      "cream_sherpa_armchair",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_7.webp"
+    ],
+    "ASSET_8": [
+      "fluffy_round_bean_bag",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_8.webp"
+    ],
+    "ASSET_9": [
+      "pink_modern_chair",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_9.webp"
+    ],
+    "ASSET_10": [
+      "egg_shaped_chair",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_10.webp"
+    ],
+    "ASSET_11": [
+      "green_modern_chair",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_11.webp"
+    ],
+    "ASSET_12": [
+      "green_leather_modular_sofa",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_12.webp"
+    ],
+    "ASSET_13": [
+      "wood_and_cane_chair",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_13.webp"
+    ],
+    "ASSET_14": [
+      "wooden_chair",
+      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_14.webp"
+    ]
+  },
+  "RUG": {
+    "ASSET_1": ["rugs11", "/public/assets/rugs/rugs11.webp"],
+    "ASSET_5": ["pink_square_rug", "/public/assets/rugs/pink_square_rug.webp"],
+    "ASSET_7": ["rugs2", "/public/assets/rugs/rugs2.png"],
+    "ASSET_9": ["rugs4", "/public/assets/rugs/rugs4.webp"],
+    "ASSET_10": ["rugs9", "/public/assets/rugs/rugs9.jpg"],
+    "ASSET_11": ["red_carpet_rug", "/public/assets/rugs/red_carpet_rug.png"],
+    "ASSET_13": ["rugs16", "/public/assets/rugs/rugs16.png"],
+    "ASSET_2": [
+      "green_checkered_cherry_rug",
+      "/public/assets/rugs/green_checkered_cherry_rug.jpg"
+    ],
+    "ASSET_3": [
+      "regal_brown_persian_rug",
+      "/public/assets/rugs/regal_brown_persian_rug.png"
+    ],
+    "ASSET_4": [
+      "persian_rug_brown",
+      "/public/assets/rugs/persian_rug_brown.jpg"
+    ],
+    "ASSET_8": ["pink_rug", "/public/assets/rugs/pink_rug.jpg"],
+    "ASSET_12": ["white_brown_rug", "/public/assets/rugs/white_brown_rug.webp"]
+  },
+  "POSTER": {
+    "ASSET_1": ["doge", "/assets/posters/doge.png"],
+    "ASSET_2": ["trump_bobblehead", "/assets/posters/trump_bobblehead.jpg"],
+    "ASSET_3": [
+      "protestor_shit_hole_trump_street",
+      "/assets/posters/protestor_shit_hole_trump_street.jpg"
+    ],
+    "ASSET_4": [
+      "trump_cheato_dislike",
+      "/assets/posters/trump_cheato_dislike.jpg"
+    ],
+    "ASSET_5": ["maga_cap_trump", "/assets/posters/maga_cap_trump.jpg"],
+    "ASSET_6": [
+      "trump_mask_pointing_costume",
+      "/assets/posters/trump_mask_pointing_costume.jpg"
+    ],
+    "ASSET_7": ["american_flag", "/assets/posters/american_flag.png"],
+    "ASSET_8": [
+      "contemplative_sketch_art",
+      "/assets/posters/contemplative_sketch_art.jpg"
+    ],
+    "ASSET_9": [
+      "trump_tower_palm_beach",
+      "/assets/posters/trump_tower_palm_beach.jpg"
+    ]
+  },
+  "GIF": {
+    "ASSET_1": [
+      "abstract_3d_structure",
+      "https://media.giphy.com/media/JivJuYWnX7lra/giphy.gif?cid=790b7611s0zj23pacg5rlvdrd5l5qjjgw1e6y9aloe9ukxr4&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
+    ],
+    "ASSET_2": [
+      "cluster_of_moving_eyeballs",
+      "https://media.giphy.com/media/EZrRnFyeq60lW/giphy.gif?cid=790b7611s0zj23pacg5rlvdrd5l5qjjgw1e6y9aloe9ukxr4&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
+    ],
+    "ASSET_3": [
+      "wireframe_head_model",
+      "https://media.giphy.com/media/j91j9wdUh3rm8/giphy.gif?cid=790b7611s0zj23pacg5rlvdrd5l5qjjgw1e6y9aloe9ukxr4&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
+    ],
+    "ASSET_4": [
+      "swimming_character_animation",
+      "https://media.giphy.com/media/EiNnTTIaeMuZy/giphy.gif?cid=ecf05e47aksqnvktw92s9qf0nqtw6e7t8ridx2mue56n7bkt&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
+    ],
+    "ASSET_5": [
+      "abstract_colored_figure",
+      "https://media.giphy.com/media/yidUzil7u0LK8kbtvy/giphy.gif?cid=ecf05e47aksqnvktw92s9qf0nqtw6e7t8ridx2mue56n7bkt&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
+    ],
+    "ASSET_6": [
+      "isometric_building_animation",
+      "https://media.giphy.com/media/10y2QxGnQ7hQRO/giphy.gif?cid=ecf05e47aksqnvktw92s9qf0nqtw6e7t8ridx2mue56n7bkt&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
+    ],
+    "ASSET_7": [
+      "animated_bear_playing_piano",
+      "https://media.giphy.com/media/9Iwn9QqdjF1hm/giphy.gif?cid=ecf05e470z288oswv5j66q1h10b0z8a91wn0pr3gs9d2xd9w&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
+    ],
+    "ASSET_8": [
+      "3d_wireframe_shape",
+      "https://media.giphy.com/media/TyQY0zTXX4x0c/giphy.gif?cid=ecf05e47zj6m9qk2fjlssmv2i1n1uyjlczzlo2g7ounl2f21&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
+    ],
+    "ASSET_9": [
+      "framed_head_bust_rendering",
+      "https://media.giphy.com/media/13ECbwh46goJGw/giphy.gif?cid=ecf05e47zj6m9qk2fjlssmv2i1n1uyjlczzlo2g7ounl2f21&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
+    ],
+    "ASSET_10": [
+      "multicolored_acrobatic_figures",
+      "https://media.giphy.com/media/ZcJLwmfutZBqU/giphy.gif?cid=ecf05e47qvcqpudyrcr0ft870qb5pjvnz800it5qjboouy1f&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
+    ],
+    "ASSET_11": [
+      "geometric_bear_neon_logo",
+      "https://media.giphy.com/media/3ornjNM6wlq8i87aQU/giphy.gif?cid=ecf05e47hssz634hv64v963dt2vlfijk0tjo1ncao52fzc29&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
+    ],
+    "ASSET_12": [
+      "ocean_waves_under_cloudy_sky",
+      "https://media.giphy.com/media/8gQNjxnRS57UY04Ha8/giphy.gif?cid=ecf05e47miebft49h1xmv1xar4hi94l6sgieljgnha1xbtbe&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
+    ],
+    "ASSET_13": [
+      "bouncing_pool_balls",
+      "https://media.giphy.com/media/xT0BKz6hXpHN8Jvmp2/giphy.gif?cid=ecf05e47miebft49h1xmv1xar4hi94l6sgieljgnha1xbtbe&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
+    ],
+    "ASSET_14": [
+      "abstract_geometric_pattern",
+      "https://media.giphy.com/media/yvcKh0pIEtZUA/giphy.gif?cid=ecf05e47miebft49h1xmv1xar4hi94l6sgieljgnha1xbtbe&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
+    ],
+    "ASSET_15": [
+      "rotating_red_heart_animation",
+      "https://media.giphy.com/media/13aaIESJDm56q4/giphy.gif?cid=ecf05e47z372r9p3jry8icoospbatzqvnromdbj1945mylgc&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
+    ],
+    "ASSET_16": [
+      "pyramid_with_eye_on_dollar_bill",
+      "https://media.giphy.com/media/VtRW9YZLtIyzK/giphy.gif?cid=790b7611s0zj23pacg5rlvdrd5l5qjjgw1e6y9aloe9ukxr4&ep=v1_gifs_search&rid=giphy.gif&ct=g,"
+    ],
+    "ASSET_17": [
+      "disco_ball_spinning",
+      "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTY5eWw4N2FsbmY2NDJ3ems2YjR0em1jYm9samlzdXB4OXQwZ2dxeSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/7rzbxdu0ZEXLy/giphy.gif"
+    ]
+  }
 }

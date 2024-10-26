@@ -12,7 +12,7 @@ const items = [
   "shiba_inu_dog_laying_down",
   "haribo_goldbears_packaging",
   "flower_shaped_chair",
-  "green_checkered_cherry_rug",
+  "regal_brown_persian_rug",
   "american_flag",
   "teddy_bear",
   "pilea_plant_in_pot",
@@ -103,7 +103,7 @@ const categoryPositions = {
   SHELF4: { x: -30, y: -65 },
   CHAIR: { x: 200, y: 220 },
   RUG: { x: 200, y: 300 },
-  POSTER1: { x: 0, y: 0 },
+  POSTER1: { x: 180, y: 0 },
   TABLE1: { x: 110, y: 130 },
   TABLE2: { x: 10, y: 130 },
   TABLE3: { x: 70, y: 130 },
@@ -198,16 +198,13 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
   const addElement = (item: string, index: number) => {
     let category = categoryOrder[index];
     const assetCategory = assets[category as keyof typeof assets];
+    console.log("AssetCatgeory: ", assetCategory, item);
     const asset = Object.values(assetCategory).find(([name]) => name === item);
 
     if (!asset) return;
     if (category === "DECOR") {
       const decorIndex = index % reverseCategoriesDecor.length;
       category = reverseCategoriesDecor[decorIndex];
-      // category =
-      //   reverseCategoriesDecor[
-      //     Math.floor(Math.random() * reverseCategoriesDecor.length)
-      //   ];
     } else if (category == "POSTER") {
       category = "POSTER1";
     }
@@ -240,19 +237,6 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
     onStateChange(elements, backgroundColor);
   }, [elements, backgroundColor]);
 
-  // const generateShareableURL = () => {
-  //   const state = { elements, backgroundColor };
-  //   const encodedState = btoa(JSON.stringify(state));
-  //   return `${window.location.origin}${window.location.pathname}?state=${encodedState}`;
-  // };
-
-  // const copyShareableURL = () => {
-  //   navigator.clipboard
-  //     .writeText(generateShareableURL())
-  //     .then(() => alert("Shareable URL copied to clipboard!"))
-  //     .catch((err) => console.error("Failed to copy URL: ", err));
-  // };
-
   const handleElementClick = (id: string, event: React.MouseEvent) => {
     event.stopPropagation();
     setSelectedElementId(id);
@@ -264,7 +248,7 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
 
   return (
     <div
-      className="relative w-[350px] h-[500px]"
+      className="relative w-[320px] h-[500px] overflow-hidden sm:overflow-visible rounded-lg"
       style={{ backgroundColor }}
       onClick={handleBackgroundClick}
     >

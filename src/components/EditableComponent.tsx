@@ -186,14 +186,14 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
       items.forEach((item, index) => addElement(item, index));
       setElementsInitialized(true);
     }
-  }, [windowDimensions]);
+  }, [windowDimensions, elementsInitialized]);
 
   // Use a separate useEffect for state updates
   useEffect(() => {
     if (elementsInitialized) {
       updateState();
     }
-  }, [elementsInitialized, updateState]);
+  }, [elementsInitialized]);
 
   const addElement = (item: string, index: number) => {
     let category = categoryOrder[index];
@@ -238,9 +238,9 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
 
   useEffect(() => {
     onStateChange(elements, backgroundColor);
-  }, [elements, backgroundColor, onStateChange]);
+  }, [elements, backgroundColor]);
 
-  // const generateShareableURdo L = () => {
+  // const generateShareableURL = () => {
   //   const state = { elements, backgroundColor };
   //   const encodedState = btoa(JSON.stringify(state));
   //   return `${window.location.origin}${window.location.pathname}?state=${encodedState}`;

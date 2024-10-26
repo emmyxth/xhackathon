@@ -37,6 +37,7 @@ const VersePage: React.FC = () => {
   const generateShareableURL = () => {
     if (bedroomState) {
       const encodedState = btoa(JSON.stringify(bedroomState));
+      console.log("encoded state", encodedState);
       return `${window.location.origin}${window.location.pathname}?state=${encodedState}`;
     }
     return "";

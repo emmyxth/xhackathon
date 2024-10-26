@@ -186,7 +186,7 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
       items.forEach((item, index) => addElement(item, index));
       setElementsInitialized(true);
     }
-  }, [windowDimensions, elementsInitialized]);
+  }, [windowDimensions]);
 
   // Use a separate useEffect for state updates
   useEffect(() => {
@@ -235,17 +235,6 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
       return [...prevElements, newElement];
     });
   };
-
-  useEffect(() => {
-    if (
-      !elementsInitialized &&
-      windowDimensions.width &&
-      windowDimensions.height
-    ) {
-      items.forEach((item, index) => addElement(item, index));
-      setElementsInitialized(true);
-    }
-  }, [windowDimensions, elementsInitialized]);
 
   useEffect(() => {
     onStateChange(elements, backgroundColor);

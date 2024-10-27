@@ -11,11 +11,8 @@ const handler = NextAuth({
       clientId: process.env.AUTH_TWITTER_ID as string,
       clientSecret: process.env.AUTH_TWITTER_SECRET as string,
       version: "2.0",
-      authorization: {
-        params:{
-          scope: "users.read tweet.read offline.access like.read bookmark.read"
-        }
-        
+      params: {
+        scope: "users.read tweet.read offline.access like.read bookmark.read"
       }
     })
   ],
@@ -38,7 +35,7 @@ const handler = NextAuth({
       return session
     }
   },
-
-})
+}
+)
 
 export { handler as GET, handler as POST };

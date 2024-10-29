@@ -8,8 +8,7 @@ export async function GET(request: Request) {
   const bearer_token = searchParams.get('bearer_token')
 
 
-  // AMJAD'S ID 
-  const url = `https://api.twitter.com/2/users/${"166138615"}/tweets`;
+  const url = `https://api.twitter.com/2/users/${user_id}/tweets`;
   const params = {
     'max_results': 5,
     'tweet.fields': 'article,attachments,author_id,card_uri,conversation_id,created_at,display_text_range,entities,geo,id,in_reply_to_user_id,lang,media_metadata,note_tweet,public_metrics,referenced_tweets,reply_settings,scopes,source,text,withheld',

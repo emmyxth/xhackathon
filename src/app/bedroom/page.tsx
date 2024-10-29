@@ -1,13 +1,9 @@
 // pages/page1.tsx
 "use client";
-import AnimatedLoadingText from "@/components/AnimatedLoadingText";
-import EditableComponent from "@/components/EditableComponent";
 import Bedroom from "@/components/Bedroom";
-import ElementPanel from "@/components/ElementPanel";
-import axios from "axios";
 
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const VersePage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -17,12 +13,6 @@ const VersePage: React.FC = () => {
     elements: any[];
     backgroundColor: string;
   } | null>(null);
-  const tweetsData = JSON.stringify({
-    justText: ["This is a dummy tweet", "Another dummy tweet"],
-  });
-  const likedTweetsData = JSON.stringify({
-    justText: ["This is a liked dummy tweet", "Another liked dummy tweet"],
-  });
 
   // const tweetsData = localStorage.getItem("tweetsData");
   // const likedTweetsData = localStorage.getItem("likedTweetsData");

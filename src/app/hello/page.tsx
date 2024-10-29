@@ -19,29 +19,43 @@ const InternetBedroomPage: React.FC = () => {
       const id_str = session.data?.user.id_str;
       const username = session.data?.user.username;
       const bearer_token = session.data?.user.access_token;
-      const tweets = await axios.get(
-        `/api/user_tweets?user_id=${id_str}&bearer_token=${bearer_token}`
-      );
 
-      const liked_tweets = await axios.get(
-        `/api/user_tweets?user_id=${id_str}&bearer_token=${bearer_token}`
-      );
-      const { data, error } = await supabase
-        .from("rooms")
-        .select("*")
-        .eq("profile_id", id_str)
-        .eq("author_id", id_str);
+      try {
+        const { data, error } = await supabase
+          .from("rooms")
+          .select("*")
+          .eq("profile_id", id_str)
+          .eq("author_id", id_str);
 
-      if (!error && data.length > 0) {
-        setLoading(false);
-        const room_id = data[0].id;
-        router.push(`/bedroom/${username}/${room_id}`);
-      } else {
-        const analyze = await axios.post(`api/analyze_user_tweets`, {
-          tweets: tweets.data,
-          liked_tweets: liked_tweets.data,
-        });
-        console.log(analyze);
+        if (!error && data.length > 0) {
+          setLoading(false);
+          const room_id = data[0].id;
+          router.push(`/bedroom/${username}/${room_id}`);
+        } else {
+          const tweets = await axios.get(
+            `/api/user_tweets?user_id=${id_str}&bearer_token=${bearer_token}`
+          );
+
+          const liked_tweets = await axios.get(
+            `/api/user_tweets?user_id=${id_str}&bearer_token=${bearer_token}`
+          );
+
+          const analyze = await axios.post(`api/analyze_user_tweets`, {
+            tweets: tweets.data,
+            liked_tweets: liked_tweets.data,
+          });
+
+          const { data, error } = await supabase.from("rooms").insert({
+            author_id: id_str,
+            profile_id: id_str,
+            prompt_response: {
+              response: analyze.data.data,
+            },
+          });
+          setLoading(false);
+        }
+      } catch {
+        // Error toast
         setLoading(false);
       }
     }

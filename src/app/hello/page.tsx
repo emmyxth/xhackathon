@@ -14,10 +14,11 @@ const InternetBedroomPage: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   const generateUserBedroom = async () => {
+    console.log(session.data);
     if (session.data && session.data?.user.id_str) {
       setLoading(true);
       const id_str = session.data?.user.id_str;
-      const username = session.data?.user.username;
+      const username = session.data?.user.handle;
       const bearer_token = session.data?.user.access_token;
 
       try {
@@ -29,6 +30,7 @@ const InternetBedroomPage: React.FC = () => {
 
         if (!error && data.length > 0) {
           setLoading(false);
+          localStorage.setItem("roomData", JSON.stringify(data));
           const room_id = data[0].id;
           router.push(`/bedroom/${username}/${room_id}`);
         } else {

@@ -1,11 +1,13 @@
-// pages/page1.tsx
 "use client";
 import Bedroom from "@/components/Bedroom";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import { useParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 const VersePage: React.FC = () => {
+  const { slug } = useParams();
+
   const [isLoading, setIsLoading] = useState(true);
   const [storedMessage, setStoredMessage] = useState<string | null>(null);
   const [arrOfItems, setArrOfItems] = useState([]);
@@ -16,6 +18,19 @@ const VersePage: React.FC = () => {
 
   // const tweetsData = localStorage.getItem("tweetsData");
   // const likedTweetsData = localStorage.getItem("likedTweetsData");
+
+  useEffect(() => {
+    const roomData = localStorage.getItem("roomData");
+    if (roomData) {
+      const parsedRoomData = JSON.parse(roomData);
+      console.log(
+        parsedRoomData[0]["prompt_response"]["response"]["choices"][0][
+          "message"
+        ]
+      );
+      setArrOfItems(parsedRoomData);
+    }
+  }, []);
 
   const handleBedroomStateChange = (
     elements: any[],

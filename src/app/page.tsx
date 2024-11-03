@@ -14,7 +14,6 @@ const InternetBedroomPage: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   const generateUserBedroom = async () => {
-    console.log(session.data);
     if (session.data && session.data?.user.id_str) {
       setLoading(true);
       const id_str = session.data?.user.id_str;
@@ -47,13 +46,22 @@ const InternetBedroomPage: React.FC = () => {
             liked_tweets: liked_tweets.data,
           });
 
-          const { data, error } = await supabase.from("rooms").insert({
-            author_id: id_str,
-            profile_id: id_str,
-            prompt_response: {
-              response: analyze.data.data,
-            },
-          });
+          const { data, error } = await supabase
+            .from("rooms")
+            .insert({
+              author_id: id_str,
+              profile_id: id_str,
+              prompt_response: {
+                response: analyze.data.data,
+              },
+            })
+            .select();
+
+          if (!!data && !error) {
+            localStorage.setItem("roomData", JSON.stringify(data));
+            const room_id = data[0].id;
+            router.push(`/bedroom/${username}/${room_id}`);
+          }
           setLoading(false);
         }
       } catch {
@@ -65,21 +73,58 @@ const InternetBedroomPage: React.FC = () => {
 
   const generateFriendBedroom = async (friendHandle: string) => {
     if (session.data && session.data?.user.id_str) {
+      setLoading(true);
+
       const id_str = session.data?.user.id_str;
       const bearer_token = session.data?.user.access_token;
+
       const friendId = await axios.get(
         `/api/user_id?user_handle=${friendHandle}&bearer_token=${bearer_token}`
       );
 
-      const tweets = await axios.get(
-        `/api/user_tweets?user_id=${friendId.data.id}&bearer_token=${bearer_token}`
-      );
+      try {
+        const { data, error } = await supabase
+          .from("rooms")
+          .select("*")
+          .eq("profile_id", friendId)
+          .eq("author_id", id_str);
 
-      const liked_tweets = await axios.get(
-        `/api/user_liked_tweets?user_id=${id_str}&bearer_token=${bearer_token}`
-      );
+        if (!error && data.length > 0) {
+          setLoading(false);
+          localStorage.setItem("roomData", JSON.stringify(data));
+          const room_id = data[0].id;
+          router.push(`/bedroom/${friendHandle}/${room_id}`);
+        } else {
+          const tweets = await axios.get(
+            `/api/user_tweets?user_id=${friendId.data.id}&bearer_token=${bearer_token}`
+          );
 
-      router.push("/bedroom");
+          const analyze = await axios.post(`api/analyze_user_tweets`, {
+            tweets: tweets.data,
+            liked_tweets: tweets.data,
+          });
+
+          const { data, error } = await supabase
+            .from("rooms")
+            .insert({
+              author_id: id_str,
+              profile_id: id_str,
+              prompt_response: {
+                response: analyze.data.data,
+              },
+            })
+            .select();
+
+          if (!!data && !error) {
+            localStorage.setItem("roomData", JSON.stringify(data));
+            const room_id = data[0].id;
+            router.push(`/bedroom/${friendHandle}/${room_id}`);
+          }
+          setLoading(false);
+        }
+      } catch {
+        setLoading(false);
+      }
     }
   };
 

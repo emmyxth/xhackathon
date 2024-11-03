@@ -1,13 +1,16 @@
 "use client";
 import Bedroom from "@/components/Bedroom";
+import { supabase } from "@/utils/db";
+import { useSession } from "next-auth/react";
 
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const VersePage: React.FC = () => {
+  const router = useRouter();
   const { slug } = useParams();
-
+  const session = useSession();
   const [arrOfItems, setArrOfItems] = useState([]);
 
   const [bedroomState, setBedroomState] = useState<{
@@ -17,6 +20,40 @@ const VersePage: React.FC = () => {
 
   const findLastBracketIndex = (message: string): number => {
     return message.lastIndexOf("[");
+  };
+
+  const getUserRoomData = async () => {
+    const id_str = session.data?.user.id_str;
+    const { data, error } = await supabase
+      .from("rooms")
+      .select("*")
+      .eq("profile_id", id_str)
+      .eq("author_id", id_str);
+    console.log(error);
+    console.log(data);
+    if (!error && data.length > 0) {
+      const items = getItemsFromRoomData(data);
+      return items;
+    } else {
+      return [];
+    }
+  };
+
+  const getItemsFromRoomData = (roomData: any) => {
+    const parsedMessage =
+      roomData[0]["prompt_response"]["response"]["choices"][0]["message"][
+        "content"
+      ];
+
+    const arrOfItems = JSON.parse(
+      parsedMessage.substring(findLastBracketIndex(parsedMessage))
+    );
+
+    const formattedArrOfItems = arrOfItems.map((item: string) => {
+      const reformatted = item.replace(/\s+/g, "_").toLowerCase();
+      return reformatted;
+    });
+    return formattedArrOfItems;
   };
 
   useEffect(() => {
@@ -38,6 +75,20 @@ const VersePage: React.FC = () => {
       });
 
       setArrOfItems(formattedArrOfItems);
+    } else {
+      if (
+        session.status === "unauthenticated" ||
+        session.status === "loading"
+      ) {
+        router.push("/");
+      } else {
+        const fetchRoomData = async () => {
+          const roomData = await getUserRoomData();
+          const items = getItemsFromRoomData(roomData);
+          localStorage.setArrOfItems(items);
+        };
+        fetchRoomData();
+      }
     }
   }, []);
 
@@ -47,10 +98,6 @@ const VersePage: React.FC = () => {
   ) => {
     setBedroomState({ elements, backgroundColor });
   };
-
-  // if (isLoading) {
-  //   return <AnimatedLoadingText />;
-  // }
 
   return (
     <div className="flex flex-col min-h-screen bg-black">

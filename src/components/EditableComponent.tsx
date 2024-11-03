@@ -1,31 +1,9 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useEffect, useRef, useState, useCallback } from "react";
-import Draggable from "react-draggable";
-import DraggableElement from "./DraggableElement";
-import DetailPanel from "./DetailPanel";
+import React, { useCallback, useEffect, useState } from "react";
 import assets from "../../image_retrieval/assets.json";
-import elementDetails from "../../image_retrieval/items_description.json";
-
-const items = [
-  "shiba_inu_dog_laying_down",
-  "haribo_goldbears_packaging",
-  "flower_shaped_chair",
-  "regal_brown_persian_rug",
-  "american_flag",
-  "teddy_bear",
-  "pilea_plant_in_pot",
-  "blue_lava_lamp",
-  "cinnamoroll_plush_toy",
-  "gumball_machine",
-  "plush_mouse_toy_with_pink_bow",
-  "toy_doll_with_strawberry_helmet",
-  "anime_character_figure",
-  "spiderman_funko_pop_figure",
-  "potted_monstera_plant",
-  "abstract_3d_structure",
-];
+import DraggableElement from "./DraggableElement";
 
 const categoryOrder = [
   "PETS",
@@ -117,11 +95,13 @@ const categoryPositions = {
 interface EditableComponentProps {
   onElementHover: (name: string | null) => void;
   onStateChange: (elements: Element[], backgroundColor: string) => void;
+  items: string[];
 }
 
 const EditableComponent: React.FC<EditableComponentProps> = ({
   onElementHover,
   onStateChange,
+  items,
 }) => {
   const [elements, setElements] = useState<Element[]>([]);
   const [windowDimensions, setWindowDimensions] = useState({

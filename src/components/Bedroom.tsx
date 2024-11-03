@@ -1,6 +1,6 @@
-import React, { useState, useCallback } from "react";
-import EditableComponent from "./EditableComponent";
+import React, { useCallback, useState } from "react";
 import DetailPanel from "./DetailPanel";
+import EditableComponent from "./EditableComponent";
 
 interface BedroomProps {
   onStateChange: (elements: any[], backgroundColor: string) => void;
@@ -8,9 +8,16 @@ interface BedroomProps {
     elements: any[];
     backgroundColor: string;
   } | null;
+  items: string[];
+  user: string;
 }
 
-const Bedroom: React.FC<BedroomProps> = ({ onStateChange, bedroomState }) => {
+const Bedroom: React.FC<BedroomProps> = ({
+  onStateChange,
+  bedroomState,
+  items,
+  user,
+}) => {
   const [hoveredElementName, setHoveredElementName] = useState<string | null>(
     null
   );
@@ -50,12 +57,13 @@ const Bedroom: React.FC<BedroomProps> = ({ onStateChange, bedroomState }) => {
   return (
     <div className="flex flex-col gap-6">
       <h1 style={{ textAlign: "center", fontSize: "2em" }}>
-        <strong>@xyz</strong>'s bedroom
+        <strong>{user}</strong>'s bedroom
       </h1>
       <div className="flex flex-col space-y-8 md:flex-row md:space-y-0 md:gap-16">
         <EditableComponent
           onElementHover={handleElementHover}
           onStateChange={memoizedOnStateChange}
+          items={items}
         />
         <DetailPanel hoveredElementName={hoveredElementName} />
       </div>

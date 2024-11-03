@@ -1,91 +1,190 @@
-import Image from "next/image";
+"use client";
+import AnimatedLoadingText from "@/components/AnimatedLoadingText";
+import { SignIn } from "@/components/Authenticate";
+import { supabase } from "@/utils/db";
+import axios from "axios";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
+import React, { useState } from "react";
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+const InternetBedroomPage: React.FC = () => {
+  const router = useRouter();
+  const session = useSession();
+  const [loading, setLoading] = useState(false);
+
+  const generateUserBedroom = async () => {
+    console.log(session.data);
+    if (session.data && session.data?.user.id_str) {
+      setLoading(true);
+      const id_str = session.data?.user.id_str;
+      const username = session.data?.user.handle;
+      const bearer_token = session.data?.user.access_token;
+
+      try {
+        const { data, error } = await supabase
+          .from("rooms")
+          .select("*")
+          .eq("profile_id", id_str)
+          .eq("author_id", id_str);
+
+        if (!error && data.length > 0) {
+          setLoading(false);
+          localStorage.setItem("roomData", JSON.stringify(data));
+          const room_id = data[0].id;
+          router.push(`/bedroom/${username}/${room_id}`);
+        } else {
+          const tweets = await axios.get(
+            `/api/user_tweets?user_id=${id_str}&bearer_token=${bearer_token}`
+          );
+
+          const liked_tweets = await axios.get(
+            `/api/user_tweets?user_id=${id_str}&bearer_token=${bearer_token}`
+          );
+
+          const analyze = await axios.post(`api/analyze_user_tweets`, {
+            tweets: tweets.data,
+            liked_tweets: liked_tweets.data,
+          });
+
+          const { data, error } = await supabase.from("rooms").insert({
+            author_id: id_str,
+            profile_id: id_str,
+            prompt_response: {
+              response: analyze.data.data,
+            },
+          });
+          setLoading(false);
+        }
+      } catch {
+        // Error toast
+        setLoading(false);
+      }
+    }
+  };
+
+  const generateFriendBedroom = async (friendHandle: string) => {
+    if (session.data && session.data?.user.id_str) {
+      const id_str = session.data?.user.id_str;
+      const bearer_token = session.data?.user.access_token;
+      const friendId = await axios.get(
+        `/api/user_id?user_handle=${friendHandle}&bearer_token=${bearer_token}`
+      );
+
+      const tweets = await axios.get(
+        `/api/user_tweets?user_id=${friendId.data.id}&bearer_token=${bearer_token}`
+      );
+
+      const liked_tweets = await axios.get(
+        `/api/user_liked_tweets?user_id=${id_str}&bearer_token=${bearer_token}`
+      );
+
+      router.push("/bedroom");
+    }
+  };
+
+  if (loading) {
+    return <AnimatedLoadingText />;
+  } else {
+    return (
+      <div className="flex flex-col md:flex-row min-h-screen bg-black text-white relative overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://madeonverse.com/video/sky-30fps-reduced.webp"
+            alt="Animated sky background"
+            className="object-cover w-full h-full"
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
-}
+        {/* Content Wrapper */}
+        <div className="relative z-10 flex flex-col md:flex-row w-full">
+          {/* Left Section (Top on mobile) */}
+          <div className="w-full md:w-1/2 flex flex-col justify-center items-start p-6 md:p-12 bg-black bg-opacity-50">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+              YOUR
+              <br />
+              X
+              <br />
+              BEDROOM
+            </h1>
+            <p className="text-base md:text-lg mb-8">
+              Find out what your bedroom looks like based off your X profile
+            </p>
+
+            {session.status !== "authenticated" ? (
+              <SignIn />
+            ) : (
+              <div className="w-full max-w-md">
+                {session.data && session.data?.user.handle && (
+                  <h1 className="text-2xl font-bold mb-4">
+                    Welcome, @{session.data?.user.handle}{" "}
+                  </h1>
+                )}
+
+                <button
+                  onClick={generateUserBedroom}
+                  className="w-full p-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+                >
+                  Generate My Bedroom
+                </button>
+                <div className="w-full border-t border-gray-500 mt-4"></div>
+                <p className="text-center text-gray-400 mb-4">OR</p>
+                <h1 className="text-xl font-bold mb-4">
+                  Make a room for a friend
+                </h1>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    const target = e.currentTarget;
+                    const friendHandle = (
+                      target.elements[0] as HTMLInputElement
+                    ).value;
+                    generateFriendBedroom(friendHandle);
+                  }}
+                >
+                  <input
+                    id="friendInput"
+                    type="text"
+                    className="w-full p-2 border border-gray-300 rounded mb-4 text-black"
+                    placeholder="Enter any public X handle"
+                  />
+                  <button
+                    type="submit"
+                    className="w-full p-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+                  >
+                    Generate
+                  </button>
+                </form>
+              </div>
+            )}
+          </div>
+
+          {/* Right Section (Bottom on mobile) */}
+          <div className="w-full md:w-1/2 relative h-[50vh] md:h-auto flex flex-col items-center justify-between p-6 md:p-12 bg-black bg-opacity-30">
+            {/* X Logo */}
+            <div className="flex-grow flex items-center justify-center">
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                className="w-32 h-32 md:w-48 md:h-48 text-white"
+              >
+                <g>
+                  <path
+                    fill="currentColor"
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  ></path>
+                </g>
+              </svg>
+            </div>
+            <div className="text-white text-right self-end">
+              <p>powered by</p>
+              <p className="text-xl md:text-2xl font-bold">JECZ</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+};
+
+export default InternetBedroomPage;

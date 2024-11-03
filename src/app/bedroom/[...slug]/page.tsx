@@ -8,27 +8,36 @@ import React, { useEffect, useState } from "react";
 const VersePage: React.FC = () => {
   const { slug } = useParams();
 
-  const [isLoading, setIsLoading] = useState(true);
-  const [storedMessage, setStoredMessage] = useState<string | null>(null);
   const [arrOfItems, setArrOfItems] = useState([]);
+
   const [bedroomState, setBedroomState] = useState<{
     elements: any[];
     backgroundColor: string;
   } | null>(null);
 
-  // const tweetsData = localStorage.getItem("tweetsData");
-  // const likedTweetsData = localStorage.getItem("likedTweetsData");
+  const findLastBracketIndex = (message: string): number => {
+    return message.lastIndexOf("[");
+  };
 
   useEffect(() => {
     const roomData = localStorage.getItem("roomData");
     if (roomData) {
       const parsedRoomData = JSON.parse(roomData);
-      console.log(
+      const parsedMessage =
         parsedRoomData[0]["prompt_response"]["response"]["choices"][0][
           "message"
-        ]
+        ]["content"];
+
+      const arrOfItems = JSON.parse(
+        parsedMessage.substring(findLastBracketIndex(parsedMessage))
       );
-      setArrOfItems(parsedRoomData);
+
+      const formattedArrOfItems = arrOfItems.map((item: string) => {
+        const reformatted = item.replace(/\s+/g, "_").toLowerCase();
+        return reformatted;
+      });
+
+      setArrOfItems(formattedArrOfItems);
     }
   }, []);
 
@@ -46,7 +55,7 @@ const VersePage: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen bg-black">
       <header className="p-4">
-        <Link href={"/hello"}>
+        <Link href={"/"}>
           <h1 className="text-2xl font-bold">My X Bedroom</h1>
         </Link>
       </header>
@@ -55,6 +64,8 @@ const VersePage: React.FC = () => {
         <Bedroom
           onStateChange={handleBedroomStateChange}
           bedroomState={bedroomState}
+          items={arrOfItems}
+          user={slug[0]}
         />
       </main>
       <footer className="p-4 flex justify-between items-center">

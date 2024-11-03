@@ -1,262 +1,312 @@
 {
   "PETS": {
-    "ASSET_1": ["c3po", "/public/assets/petss/C3PO.webp"],
-    "ASSET_2": ["r2d2", "/public/assets/petss/R2D2.webp"],
+    "ASSET_1": [
+      "bearded_dragon_lizard_on_black_background",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/8594954.png"
+    ],
+    "ASSET_2": [
+      "beagle_standing_on_white_background",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/8609475.png"
+    ],
     "ASSET_3": [
-      "brown_rat",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_3.webp"
+      "brown_dachshund_dog_sitting",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/8638025.png"
     ],
     "ASSET_4": [
-      "shiba_inu_dog_laying_down",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_4.webp"
+      "black_and_white_cow",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/pngkey.com-cow-png-175341.png"
     ],
     "ASSET_5": [
-      "ginger_cat_sitting",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_5.webp"
+      "boxer_dog_wearing_backpack",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/pngkey.com-dog-sitting-png-1666024.png"
     ],
     "ASSET_6": [
-      "capybara_sitting",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_6.webp"
+      "brown_dachshund_with_floppy_ear",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/pngkey.com-doge-png-4458314.png"
     ],
     "ASSET_7": [
-      "brown_rabbit",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_7.webp"
+      "cute_gray_hamster",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/pngkey.com-hamster-png-1952912.png"
     ],
     "ASSET_8": [
-      "rottweiler_dog_standing",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_8.webp"
+      "green_lizard_with_spiked_collar",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/pngkey.com-iguana-png-844918.png"
     ],
     "ASSET_9": [
-      "white_cat_sitting",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_9.webp"
+      "llama_standing_side_view",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/pngkey.com-llama-png-1492061.png"
     ],
     "ASSET_10": [
-      "baby_hippo",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_10.webp"
+      "adorable_corgi_sitting",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/pngkey.com-pitbull-png-546644.png"
     ],
     "ASSET_11": [
-      "brown_cocker_spaniel_dog_sitting",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_11.webp"
+      "hooded_cobra_on_white_background",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/pngkey.com-png-image-262594.png"
     ],
     "ASSET_12": [
-      "spotted_horse_running",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_12.webp"
+      "cute_white_and_gray_rabbit",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/pngkey.com-rabbit-png-195327.png"
     ],
     "ASSET_13": [
-      "flamingo_standing_side_view",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_13.webp"
+      "black_pet_rat",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/pngkey.com-rat-png-101161.png"
     ],
     "ASSET_14": [
-      "calico_cat_sitting",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_14.webp"
+      "striped_kitten_sitting",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/vecteezy_ai-generated-cat-clip-art_34928042.png"
     ],
     "ASSET_15": [
-      "cat_sitting_upright_with_leg_up",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/PETS/ASSET_15.webp"
+      "cute_fluffy_bunny_illustration",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/vecteezy_ai-generated-isolated-rabbit-a-cute-and-fluffy-bunny-with_41492714.png"
+    ],
+    "ASSET_17": [
+      "gray_tabby_kitten_sitting",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/vecteezy_cute-young-cat_22718893.png"
+    ],
+    "ASSET_18": [
+      "goldfish_in_fishbowl",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/vecteezy_fish-bowl-with-gold-fish-isolated-on-transparent-background_50704434.png"
+    ],
+    "ASSET_19": [
+      "striped_cat_sitting_with_tongue_out",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/vecteezy_happy-cat-smiling-cat-on-transparent-background_20899514.png"
+    ],
+    "ASSET_20": [
+      "fluffy_white_pomeranian_puppy_sitting",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/vecteezy_illustration-painting-of-cute-dog-isolated-transparent_24673811.png"
+    ],
+    "ASSET_21": [
+      "fluffy_persian_cat_sitting",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/vecteezy_sitting-cat-transparent-background_12893850.png"
+    ],
+    "ASSET_22": [
+      "coiled_snake_with_brown_and_white_scales",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/vecteezy_snake-with_24705082.png"
     ]
   },
   "FOOD": {
     "ASSET_1": [
-      "cup_noodles_container",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_1.webp"
+      "french_fries_in_red_container",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/1.png"
     ],
     "ASSET_2": [
-      "pocky_chocolate_sticks_packaging",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_2.webp"
+      "hamburger_with_cheese_and_veggies",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/10.png"
     ],
     "ASSET_3": [
-      "mean_girls_kalteen_bar",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_3.webp"
+      "slice_of_watermelon_illustration",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/11.png"
     ],
     "ASSET_4": [
-      "miralax_laxative_powder_bottle",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_4.webp"
+      "jar_of_kimchi_illustration",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/12.png"
     ],
     "ASSET_5": [
-      "wing_stop_feast",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_5.webp"
+      "katsu_with_cabbage_on_plate",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/13.png"
     ],
     "ASSET_6": [
-      "open_box_with_six_cookies",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_6.webp"
+      "grilled_fish_on_serving_platter",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/14.png"
     ],
     "ASSET_7": [
-      "chamoy_pickle_kit",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_7.webp"
+      "chocolate_bar_in_heart_wrapped_package",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/15.png"
     ],
     "ASSET_8": [
-      "whey_protein_powder_container",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_8.webp"
+      "watercolor_drawing_of_smore",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/16.png"
     ],
     "ASSET_9": [
-      "haribo_goldbears_packaging",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_9.webp"
+      "`coffee_cup_with_sleeve`",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/17.png"
     ],
     "ASSET_10": [
-      "red_bull_can",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_10.webp"
+      "iced_coffee_with_straw",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/18.png"
     ],
     "ASSET_11": [
-      "iced_matcha_pink_drink",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_11.webp"
+      "iced_matcha_latte",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/19.png"
     ],
     "ASSET_12": [
-      "iced_coffee_in_glass_with_straw",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_12.webp"
+      "sushi_rolls_on_plate_with_chopsticks",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/2.png"
     ],
     "ASSET_13": [
-      "stanley_travel_tumbler_with_straw",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_13.webp"
+      "green_tea_latte_art",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/20.png"
     ],
     "ASSET_14": [
-      "bag_of_takis_fuego_snacks",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_14.webp"
+      "red_tea_cup_with_teabag_and_leaves",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/21.png"
     ],
     "ASSET_15": [
-      "diet_coke_can",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_15.webp"
+      "bubble_tea_with_straw",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/22.png"
     ],
     "ASSET_16": [
-      "cigar_with_smoke",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_16.webp"
+      "dumplings_in_bamboo_steamer",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/23.png"
     ],
     "ASSET_17": [
-      "bud_light_can",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_17.webp"
+      "bowl_of_ramen_with_chopsticks",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/24.png"
     ],
     "ASSET_18": [
-      "kombucha_bottle_synergy",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_18.webp"
+      "plate_of_spaghetti_with_tomato_sauce",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/25.png"
     ],
     "ASSET_19": [
-      "celsius_sparkling_orange_drink_can",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_19.webp"
+      "toasted_sandwich_illustration",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/26.png"
     ],
     "ASSET_20": [
-      "strawberry_garnished_cocktail_drink",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_20.webp"
+      "avocado_toast_with_egg_illustration",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/27.png"
     ],
     "ASSET_21": [
-      "strawberry_smoothie_cup",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_21.webp"
+      "beef_rice_bowl_with_fried_egg_and_chopsticks",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/3.png"
     ],
     "ASSET_22": [
-      "bubble_tea_drink",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/FOOD/ASSET_22.webp"
+      "stack_of_chocolate_chip_cookies",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/4.png"
+    ],
+    "ASSET_23": [
+      "steamed_buns_in_bamboo_basket",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/5.png"
+    ],
+    "ASSET_24": [
+      "strawberry_swiss_roll_illustration",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/6.png"
+    ],
+    "ASSET_25": [
+      "slice_of_strawberry_cake",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/7.png"
+    ],
+    "ASSET_26": [
+      "stack_of_pancakes_with_syrup_and_butter",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/8.png"
+    ],
+    "ASSET_27": [
+      "bowl_of_soup_with_herbs",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/9.png"
     ]
   },
   "DECOR": {
     "ASSET_1": [
-      "spiderman_funko_pop_figure",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_1.webp"
+      "potted_plant_with_large_leaves",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/1.png"
     ],
     "ASSET_2": [
-      "lip_balm_tube",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_2.webp"
+      "potted_plant_illustration",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/10.png"
     ],
     "ASSET_3": [
-      "blue_glass_bong",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_3.webp"
+      "geometric_potted_plant",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/11.png"
     ],
     "ASSET_4": [
-      "rose_quartz_obelisk_with_amethyst_cluster",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_4.webp"
+      "brown_vase_with_greenery",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/12.png"
     ],
     "ASSET_5": [
-      "film_disposable_camera",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_5.webp"
+      "pink_succulent_in_pot",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/13.png"
     ],
     "ASSET_6": [
-      "green_analog_alarm_clock",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_6.webp"
+      "potted_monstera_plant",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/14.png"
     ],
     "ASSET_7": [
-      "plush_mouse_toy_with_pink_bow",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_7.webp"
+      "potted_fern_illustration",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/15.png"
     ],
     "ASSET_8": [
-      "kaws_stormtrooper_figure",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_8.webp"
+      "monstera_plant_in_pot",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/16.png"
     ],
     "ASSET_9": [
-      "yellow_smiley_face_plush_toy",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_9.webp"
+      "terrarium_in_glass_jar",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/17.png"
     ],
     "ASSET_10": [
-      "hello_kitty_figure",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_10.webp"
+      "purple_tablet_on_stand",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/18.png"
     ],
     "ASSET_11": [
-      "teddy_bear",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_11.webp"
+      "open_laptop_display",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/19.png"
     ],
     "ASSET_12": [
-      "anime_character_figure",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_12.webp"
+      "potted_sansevieria_illustration",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/2.png"
     ],
     "ASSET_13": [
-      "stack_of_books",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_13.webp"
+      "rose_gold_laptop_macbook_open",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/20.png"
     ],
     "ASSET_14": [
-      "cinnamoroll_plush_toy",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_14.webp"
+      "flat_screen_monitor_illustration",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/21.png"
     ],
     "ASSET_15": [
-      "toy_doll_with_strawberry_helmet",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_15.webp"
+      "black_over-ear_headphones",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/22.png"
     ],
     "ASSET_16": [
-      "life-like_action_figure",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_16.webp"
+      "vintage_camera_illustration",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/23.png"
     ],
     "ASSET_17": [
-      "bottle_with_red_and_yellow_label",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_17.webp"
+      "sunglasses_icon_black",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/24.png"
     ],
     "ASSET_18": [
-      "jade_roller_tool",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_18.webp"
+      "heart_shaped_sunglasses",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/25.png"
     ],
     "ASSET_19": [
-      "tarot_cards_fan_display",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_19.webp"
+      "black_pixelated_sunglasses",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/26.png"
     ],
     "ASSET_20": [
-      "american_express_platinum_card",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_20.webp"
+      "star_shaped_sunglasses",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/27.png"
     ],
     "ASSET_21": [
-      "cowboy_hat",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_21.webp"
+      "brown_cowboy_hat_illustration",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/28.png"
     ],
     "ASSET_22": [
-      "incense_stick_in_holder_with_smoke",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_22.webp"
+      "potted_plant_with_vines",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/3.png"
     ],
     "ASSET_23": [
-      "album_cover_with_newspaper_collage",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_2/ASSET_23.webp"
+      "potted_monstera_plant",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/4.png"
     ],
     "ASSET_24": [
-      "gumball_machine",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_1.webp"
+      "potted_variegated_plant",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/5.png"
     ],
     "ASSET_25": [
-      "captain_america_shield_makeup_brush",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_2.webp"
+      "potted_succulent_illustration",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/6.png"
     ],
     "ASSET_26": [
-      "pilea_plant_in_pot",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_3.webp"
+      "red_mushrooms_illustration",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/7.png"
     ],
     "ASSET_27": [
-      "potted_monstera_plant",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_4.webp"
+      "potted_sansevieria_plant",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/8.png"
     ],
     "ASSET_28": [
-      "croissant_with_candle",
-      "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/DECOR_1/ASSET_5.webp"
+      "green_potted_plant",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/DECOR/9.png"
     ],
     "ASSET_29": [
       "green_gummy_bear_jar",
@@ -382,13 +432,34 @@
     ]
   },
   "RUG": {
-    "ASSET_1": ["rugs11", "/public/assets/rugs/rugs11.webp"],
-    "ASSET_5": ["pink_square_rug", "/public/assets/rugs/pink_square_rug.webp"],
-    "ASSET_7": ["rugs2", "/public/assets/rugs/rugs2.png"],
-    "ASSET_9": ["rugs4", "/public/assets/rugs/rugs4.webp"],
-    "ASSET_10": ["rugs9", "/public/assets/rugs/rugs9.jpg"],
-    "ASSET_11": ["red_carpet_rug", "/public/assets/rugs/red_carpet_rug.png"],
-    "ASSET_13": ["rugs16", "/public/assets/rugs/rugs16.png"],
+    "ASSET_1": [
+      "rugs11",
+      "/public/assets/rugs/rugs11.webp"
+    ],
+    "ASSET_5": [
+      "pink_square_rug",
+      "/public/assets/rugs/pink_square_rug.webp"
+    ],
+    "ASSET_7": [
+      "rugs2",
+      "/public/assets/rugs/rugs2.png"
+    ],
+    "ASSET_9": [
+      "rugs4",
+      "/public/assets/rugs/rugs4.webp"
+    ],
+    "ASSET_10": [
+      "rugs9",
+      "/public/assets/rugs/rugs9.jpg"
+    ],
+    "ASSET_11": [
+      "red_carpet_rug",
+      "/public/assets/rugs/red_carpet_rug.png"
+    ],
+    "ASSET_13": [
+      "rugs16",
+      "/public/assets/rugs/rugs16.png"
+    ],
     "ASSET_2": [
       "green_checkered_cherry_rug",
       "/public/assets/rugs/green_checkered_cherry_rug.jpg"
@@ -401,33 +472,1099 @@
       "persian_rug_brown",
       "/public/assets/rugs/persian_rug_brown.jpg"
     ],
-    "ASSET_8": ["pink_rug", "/public/assets/rugs/pink_rug.jpg"],
-    "ASSET_12": ["white_brown_rug", "/public/assets/rugs/white_brown_rug.webp"]
+    "ASSET_8": [
+      "pink_rug",
+      "/public/assets/rugs/pink_rug.jpg"
+    ],
+    "ASSET_12": [
+      "white_brown_rug",
+      "/public/assets/rugs/white_brown_rug.webp"
+    ]
   },
   "POSTER": {
-    "ASSET_1": ["doge", "/assets/posters/doge.png"],
-    "ASSET_2": ["trump_bobblehead", "/assets/posters/trump_bobblehead.jpg"],
+    "ASSET_1": [
+      "zugspitze_mountain_poster_art",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/1.png"
+    ],
+    "ASSET_2": [
+      "rock_hand_gesture_with_stars_and_sunburst",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/10.png"
+    ],
     "ASSET_3": [
-      "protestor_shit_hole_trump_street",
-      "/assets/posters/protestor_shit_hole_trump_street.jpg"
+      "nba_logo_silhouette",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/11.png"
     ],
     "ASSET_4": [
-      "trump_cheato_dislike",
-      "/assets/posters/trump_cheato_dislike.jpg"
+      "basketball_player_dribbling_ball",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/12.png"
     ],
-    "ASSET_5": ["maga_cap_trump", "/assets/posters/maga_cap_trump.jpg"],
+    "ASSET_5": [
+      "silhouette_of_baseball_player_with_bat",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/13.png"
+    ],
     "ASSET_6": [
-      "trump_mask_pointing_costume",
-      "/assets/posters/trump_mask_pointing_costume.jpg"
+      "soccer_ball_on_field_background",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/14.png"
     ],
-    "ASSET_7": ["american_flag", "/assets/posters/american_flag.png"],
+    "ASSET_7": [
+      "soccer_ball_on_center_circle",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/15.png"
+    ],
     "ASSET_8": [
-      "contemplative_sketch_art",
-      "/assets/posters/contemplative_sketch_art.jpg"
+      "american_football_player_throwing_ball",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/16.png"
     ],
     "ASSET_9": [
-      "trump_tower_palm_beach",
-      "/assets/posters/trump_tower_palm_beach.jpg"
+      "football_with_the_sport_text",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/17.png"
+    ],
+    "ASSET_10": [
+      "abstract_art_with_hair_silhouettes_and_colorful_shapes",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/2.png"
+    ],
+    "ASSET_11": [
+      "human_brain_anatomy_diagram",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/3.png"
+    ],
+    "ASSET_12": [
+      "wanted_poster_template_with_blank_space",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/4.png"
+    ],
+    "ASSET_13": [
+      "muscular_cartoon_character_flexing",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/5.png"
+    ],
+    "ASSET_14": [
+      "express_with_music_posters",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/6.png"
+    ],
+    "ASSET_15": [
+      "abstract_mountain_landscape_artwork",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/7.png"
+    ],
+    "ASSET_16": [
+      "person_sitting_in_snowy_mountain_landscape_at_sunset",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/8.png"
+    ],
+    "ASSET_17": [
+      "tennis_racket_and_ball_graphic_design",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/9.png"
+    ],
+    "ASSET_18": [
+      "andorra_flag_with_coat_of_arms",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ad.png"
+    ],
+    "ASSET_19": [
+      "flag_of_the_united_arab_emirates",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ae.png"
+    ],
+    "ASSET_20": [
+      "afghanistan_flag_with_crest",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/af.png"
+    ],
+    "ASSET_21": [
+      "antigua_and_barbuda_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ag.png"
+    ],
+    "ASSET_22": [
+      "flag_of_anguilla",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ai.png"
+    ],
+    "ASSET_23": [
+      "albanian_flag_with_double_headed_eagle",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/al.png"
+    ],
+    "ASSET_24": [
+      "armenian_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/am.png"
+    ],
+    "ASSET_25": [
+      "flag_of_angola",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ao.png"
+    ],
+    "ASSET_26": [
+      "antarctica_map_outline",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/aq.png"
+    ],
+    "ASSET_27": [
+      "argentinian_flag_with_sun_design",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ar.png"
+    ],
+    "ASSET_28": [
+      "american_samoa_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/as.png"
+    ],
+    "ASSET_29": [
+      "austrian_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/at.png"
+    ],
+    "ASSET_30": [
+      "australian_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/au.png"
+    ],
+    "ASSET_31": [
+      "aruba_flag_with_red_star_and_yellow_stripes",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/aw.png"
+    ],
+    "ASSET_32": [
+      "\u00e5land_islands_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ax.png"
+    ],
+    "ASSET_33": [
+      "azerbaijan_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/az.png"
+    ],
+    "ASSET_34": [
+      "bosnia_and_herzegovina_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ba.png"
+    ],
+    "ASSET_35": [
+      "barbados_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/bb.png"
+    ],
+    "ASSET_36": [
+      "bangladesh_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/bd.png"
+    ],
+    "ASSET_37": [
+      "belgium_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/be.png"
+    ],
+    "ASSET_38": [
+      "burkina_faso_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/bf.png"
+    ],
+    "ASSET_39": [
+      "bulgaria_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/bg.png"
+    ],
+    "ASSET_40": [
+      "bahrain_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/bh.png"
+    ],
+    "ASSET_41": [
+      "burundi_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/bi.png"
+    ],
+    "ASSET_42": [
+      "benin_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/bj.png"
+    ],
+    "ASSET_43": [
+      "coat_of_arms_of_saint_barthelemy",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/bl.png"
+    ],
+    "ASSET_44": [
+      "flag_of_bermuda",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/bm.png"
+    ],
+    "ASSET_45": [
+      "flag_of_brunei",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/bn.png"
+    ],
+    "ASSET_46": [
+      "bolivian_flag_with_coat_of_arms",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/bo.png"
+    ],
+    "ASSET_47": [
+      "bonaire_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/bq.png"
+    ],
+    "ASSET_48": [
+      "brazil_flag_on_green_background",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/br.png"
+    ],
+    "ASSET_49": [
+      "flag_of_the_bahamas",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/bs.png"
+    ],
+    "ASSET_50": [
+      "bhutan_flag_with_dragon",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/bt.png"
+    ],
+    "ASSET_51": [
+      "norwegian_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/bv.png"
+    ],
+    "ASSET_52": [
+      "botswana_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/bw.png"
+    ],
+    "ASSET_53": [
+      "flag_of_belarus",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/by.png"
+    ],
+    "ASSET_54": [
+      "flag_of_belize",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/bz.png"
+    ],
+    "ASSET_55": [
+      "canadian_flag_with_maple_leaf",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ca.png"
+    ],
+    "ASSET_56": [
+      "flag_of_christmas_island",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/cc.png"
+    ],
+    "ASSET_57": [
+      "democratic_republic_of_the_congo_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/cd.png"
+    ],
+    "ASSET_58": [
+      "central_african_republic_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/cf.png"
+    ],
+    "ASSET_59": [
+      "flag_of_the_republic_of_the_congo",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/cg.png"
+    ],
+    "ASSET_60": [
+      "swiss_flag_on_red_background",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ch.png"
+    ],
+    "ASSET_61": [
+      "ivory_coast_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ci.png"
+    ],
+    "ASSET_62": [
+      "flag_of_the_cook_islands",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ck.png"
+    ],
+    "ASSET_63": [
+      "chile_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/cl.png"
+    ],
+    "ASSET_64": [
+      "cameroon_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/cm.png"
+    ],
+    "ASSET_65": [
+      "chinese_national_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/cn.png"
+    ],
+    "ASSET_66": [
+      "colombian_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/co.png"
+    ],
+    "ASSET_67": [
+      "costa_rica_flag_with_coat_of_arms",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/cr.png"
+    ],
+    "ASSET_68": [
+      "cuban_flag_with_red_triangle_and_white_star",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/cu.png"
+    ],
+    "ASSET_69": [
+      "cape_verde_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/cv.png"
+    ],
+    "ASSET_70": [
+      "curacao_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/cw.png"
+    ],
+    "ASSET_71": [
+      "christmas_island_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/cx.png"
+    ],
+    "ASSET_72": [
+      "cyprus_flag_map_design",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/cy.png"
+    ],
+    "ASSET_73": [
+      "czech_republic_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/cz.png"
+    ],
+    "ASSET_74": [
+      "germany_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/de.png"
+    ],
+    "ASSET_75": [
+      "flag_of_djibouti",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/dj.png"
+    ],
+    "ASSET_76": [
+      "red_background_with_white_cross_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/dk.png"
+    ],
+    "ASSET_77": [
+      "dominica_flag_with_sisserou_parrot",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/dm.png"
+    ],
+    "ASSET_78": [
+      "dominican_republic_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/do.png"
+    ],
+    "ASSET_79": [
+      "flag_of_algeria",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/dz.png"
+    ],
+    "ASSET_80": [
+      "ecuador_national_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ec.png"
+    ],
+    "ASSET_81": [
+      "estonian_flag_three_horizontal_stripes",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ee.png"
+    ],
+    "ASSET_82": [
+      "egypt_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/eg.png"
+    ],
+    "ASSET_83": [
+      "sahrawi_arab_democratic_republic_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/eh.png"
+    ],
+    "ASSET_84": [
+      "flag_of_eritrea",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/er.png"
+    ],
+    "ASSET_85": [
+      "spain_flag_with_coat_of_arms",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/es.png"
+    ],
+    "ASSET_86": [
+      "ethiopia_flag_with_emblem",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/et.png"
+    ],
+    "ASSET_87": [
+      "flag_of_finland",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/fi.png"
+    ],
+    "ASSET_88": [
+      "union_jack_and_fiji_coat_of_arms_on_light_blue_background",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/fj.png"
+    ],
+    "ASSET_89": [
+      "falkland_islands_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/fk.png"
+    ],
+    "ASSET_90": [
+      "flag_of_micronesia",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/fm.png"
+    ],
+    "ASSET_91": [
+      "faroe_islands_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/fo.png"
+    ],
+    "ASSET_92": [
+      "french_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/fr.png"
+    ],
+    "ASSET_93": [
+      "gabon_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ga.png"
+    ],
+    "ASSET_94": [
+      "flag_of_england",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/gb-eng.png"
+    ],
+    "ASSET_95": [
+      "northern_ireland_flag_ulster_banner",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/gb-nir.png"
+    ],
+    "ASSET_96": [
+      "scotland_flag_design",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/gb-sct.png"
+    ],
+    "ASSET_97": [
+      "welsh_flag_with_red_dragon",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/gb-wls.png"
+    ],
+    "ASSET_98": [
+      "union_jack_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/gb.png"
+    ],
+    "ASSET_99": [
+      "grenada_national_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/gd.png"
+    ],
+    "ASSET_100": [
+      "georgia_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ge.png"
+    ],
+    "ASSET_101": [
+      "flag_of_french_guiana",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/gf.png"
+    ],
+    "ASSET_102": [
+      "guernsey_flag_with_cross_design",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/gg.png"
+    ],
+    "ASSET_103": [
+      "ghana_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/gh.png"
+    ],
+    "ASSET_104": [
+      "gibraltar_flag_with_castle_and_key",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/gi.png"
+    ],
+    "ASSET_105": [
+      "greenland_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/gl.png"
+    ],
+    "ASSET_106": [
+      "gambia_flag_with_horizontal_stripes",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/gm.png"
+    ],
+    "ASSET_107": [
+      "guinea_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/gn.png"
+    ],
+    "ASSET_108": [
+      "guadeloupe_flag_with_fleur_de_lis_and_sun_design",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/gp.png"
+    ],
+    "ASSET_109": [
+      "flag_of_equatorial_guinea",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/gq.png"
+    ],
+    "ASSET_110": [
+      "greek_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/gr.png"
+    ],
+    "ASSET_111": [
+      "south_georgia_and_south_sandwich_islands_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/gs.png"
+    ],
+    "ASSET_112": [
+      "guatemala_flag_with_coat_of_arms",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/gt.png"
+    ],
+    "ASSET_113": [
+      "flag_of_guam",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/gu.png"
+    ],
+    "ASSET_114": [
+      "bissau_guinean_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/gw.png"
+    ],
+    "ASSET_115": [
+      "green_triangle_yellow_arrow_red_triangle_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/gy.png"
+    ],
+    "ASSET_116": [
+      "hong_kong_flag_with_bauhinia_flower",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/hk.png"
+    ],
+    "ASSET_117": [
+      "australian_flag_design",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/hm.png"
+    ],
+    "ASSET_118": [
+      "honduras_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/hn.png"
+    ],
+    "ASSET_119": [
+      "croatian_flag_with_coat_of_arms",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/hr.png"
+    ],
+    "ASSET_120": [
+      "haiti_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ht.png"
+    ],
+    "ASSET_121": [
+      "hungary_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/hu.png"
+    ],
+    "ASSET_122": [
+      "red_and_white_horizontal_stripes_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/id.png"
+    ],
+    "ASSET_123": [
+      "irish_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ie.png"
+    ],
+    "ASSET_124": [
+      "flag_of_israel",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/il.png"
+    ],
+    "ASSET_125": [
+      "isle_of_man_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/im.png"
+    ],
+    "ASSET_126": [
+      "flag_of_india",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/in.png"
+    ],
+    "ASSET_127": [
+      "british_indian_ocean_territory_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/io.png"
+    ],
+    "ASSET_128": [
+      "iraq_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/iq.png"
+    ],
+    "ASSET_129": [
+      "iran_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ir.png"
+    ],
+    "ASSET_130": [
+      "iceland_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/is.png"
+    ],
+    "ASSET_131": [
+      "italian_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/it.png"
+    ],
+    "ASSET_132": [
+      "jersey_flag_with_coat_of_arms",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/je.png"
+    ],
+    "ASSET_133": [
+      "jamaica_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/jm.png"
+    ],
+    "ASSET_134": [
+      "flag_of_jordan",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/jo.png"
+    ],
+    "ASSET_135": [
+      "flag_of_japan",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/jp.png"
+    ],
+    "ASSET_136": [
+      "kenya_flag_with_shield_and_spears",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ke.png"
+    ],
+    "ASSET_137": [
+      "kyrgyzstan_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/kg.png"
+    ],
+    "ASSET_138": [
+      "cambodia_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/kh.png"
+    ],
+    "ASSET_139": [
+      "kiribati_flag_with_bird_sun_and_waves",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ki.png"
+    ],
+    "ASSET_140": [
+      "comoros_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/km.png"
+    ],
+    "ASSET_141": [
+      "st_kitts_and_nevis_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/kn.png"
+    ],
+    "ASSET_142": [
+      "north_korea_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/kp.png"
+    ],
+    "ASSET_143": [
+      "flag_of_south_korea",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/kr.png"
+    ],
+    "ASSET_144": [
+      "kuwait_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/kw.png"
+    ],
+    "ASSET_145": [
+      "cayman_islands_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ky.png"
+    ],
+    "ASSET_146": [
+      "kazakhstan_flag_with_sun_and_eagle",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/kz.png"
+    ],
+    "ASSET_147": [
+      "flag_of_laos",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/la.png"
+    ],
+    "ASSET_148": [
+      "lebanon_flag_with_cedar_tree",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/lb.png"
+    ],
+    "ASSET_149": [
+      "blue_background_triangle_design_with_black_white_yellow_shapes",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/lc.png"
+    ],
+    "ASSET_150": [
+      "flag_of_liechtenstein",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/li.png"
+    ],
+    "ASSET_151": [
+      "sri_lanka_national_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/lk.png"
+    ],
+    "ASSET_152": [
+      "flag_of_liberia",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/lr.png"
+    ],
+    "ASSET_153": [
+      "lesotho_national_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ls.png"
+    ],
+    "ASSET_154": [
+      "lithuania_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/lt.png"
+    ],
+    "ASSET_155": [
+      "luxembourg_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/lu.png"
+    ],
+    "ASSET_156": [
+      "latvia_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/lv.png"
+    ],
+    "ASSET_157": [
+      "libya_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ly.png"
+    ],
+    "ASSET_158": [
+      "morocco_flag_with_green_pentagram_on_red_background",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ma.png"
+    ],
+    "ASSET_159": [
+      "red_and_white_horizontal_bicolor_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/mc.png"
+    ],
+    "ASSET_160": [
+      "moldova_flag_with_arms",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/md.png"
+    ],
+    "ASSET_161": [
+      "montenegro_national_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/me.png"
+    ],
+    "ASSET_162": [
+      "french_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/mf.png"
+    ],
+    "ASSET_163": [
+      "madagascar_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/mg.png"
+    ],
+    "ASSET_164": [
+      "blue_flag_with_white_star_and_orange_white_diagonal_stripes",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/mh.png"
+    ],
+    "ASSET_165": [
+      "north_macedonia_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/mk.png"
+    ],
+    "ASSET_166": [
+      "flag_of_mali",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ml.png"
+    ],
+    "ASSET_167": [
+      "myanmar_flag_with_star",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/mm.png"
+    ],
+    "ASSET_168": [
+      "mongolia_national_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/mn.png"
+    ],
+    "ASSET_169": [
+      "macau_flag_with_lotus_and_stars",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/mo.png"
+    ],
+    "ASSET_170": [
+      "northern_mariana_islands_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/mp.png"
+    ],
+    "ASSET_171": [
+      "red_green_black_geometric_pattern",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/mq.png"
+    ],
+    "ASSET_172": [
+      "mauritania_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/mr.png"
+    ],
+    "ASSET_173": [
+      "flag_of_montserrat",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ms.png"
+    ],
+    "ASSET_174": [
+      "flag_of_malta",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/mt.png"
+    ],
+    "ASSET_175": [
+      "flag_of_mauritius",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/mu.png"
+    ],
+    "ASSET_176": [
+      "maldives_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/mv.png"
+    ],
+    "ASSET_177": [
+      "flag_of_malawi",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/mw.png"
+    ],
+    "ASSET_178": [
+      "mexican_flag_with_eagle_and_serpent",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/mx.png"
+    ],
+    "ASSET_179": [
+      "malaysia_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/my.png"
+    ],
+    "ASSET_180": [
+      "mozambique_national_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/mz.png"
+    ],
+    "ASSET_181": [
+      "namibia_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/na.png"
+    ],
+    "ASSET_182": [
+      "new_caledonia_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/nc.png"
+    ],
+    "ASSET_183": [
+      "flag_of_niger",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ne.png"
+    ],
+    "ASSET_184": [
+      "norfolk_island_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/nf.png"
+    ],
+    "ASSET_185": [
+      "nigeria_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ng.png"
+    ],
+    "ASSET_186": [
+      "flag_of_nicaragua",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ni.png"
+    ],
+    "ASSET_187": [
+      "netherlands_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/nl.png"
+    ],
+    "ASSET_188": [
+      "norwegian_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/no.png"
+    ],
+    "ASSET_189": [
+      "flag_of_nepal",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/np.png"
+    ],
+    "ASSET_190": [
+      "flag_of_nauru",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/nr.png"
+    ],
+    "ASSET_191": [
+      "flag_of_niue",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/nu.png"
+    ],
+    "ASSET_192": [
+      "new_zealand_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/nz.png"
+    ],
+    "ASSET_193": [
+      "oman_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/om.png"
+    ],
+    "ASSET_194": [
+      "flag_of_panama",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/pa.png"
+    ],
+    "ASSET_195": [
+      "peru_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/pe.png"
+    ],
+    "ASSET_196": [
+      "polynesia_flag_with_canoe_and_sun",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/pf.png"
+    ],
+    "ASSET_197": [
+      "papua_new_guinea_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/pg.png"
+    ],
+    "ASSET_198": [
+      "philippines_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ph.png"
+    ],
+    "ASSET_199": [
+      "pakistan_flag_with_crescent_and_star",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/pk.png"
+    ],
+    "ASSET_200": [
+      "poland_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/pl.png"
+    ],
+    "ASSET_201": [
+      "sailing_ship_on_saint_pierre_and_miquelon_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/pm.png"
+    ],
+    "ASSET_202": [
+      "flag_of_the_pitcairn_islands",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/pn.png"
+    ],
+    "ASSET_203": [
+      "puerto_rico_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/pr.png"
+    ],
+    "ASSET_204": [
+      "palestinian_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ps.png"
+    ],
+    "ASSET_205": [
+      "portugal_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/pt.png"
+    ],
+    "ASSET_206": [
+      "flag_of_palau",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/pw.png"
+    ],
+    "ASSET_207": [
+      "flag_of_paraguay",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/py.png"
+    ],
+    "ASSET_208": [
+      "qatar_flag_with_zigzag_pattern",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/qa.png"
+    ],
+    "ASSET_209": [
+      "blue_background_with_red_triangle_and_yellow_shapes",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/re.png"
+    ],
+    "ASSET_210": [
+      "romanian_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ro.png"
+    ],
+    "ASSET_211": [
+      "serbia_flag_with_coat_of_arms",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/rs.png"
+    ],
+    "ASSET_212": [
+      "russian_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ru.png"
+    ],
+    "ASSET_213": [
+      "rwanda_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/rw.png"
+    ],
+    "ASSET_214": [
+      "saudi_arabia_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/sa.png"
+    ],
+    "ASSET_215": [
+      "solomon_islands_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/sb.png"
+    ],
+    "ASSET_216": [
+      "seychelles_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/sc.png"
+    ],
+    "ASSET_217": [
+      "flag_of_sudan",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/sd.png"
+    ],
+    "ASSET_218": [
+      "sweden_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/se.png"
+    ],
+    "ASSET_219": [
+      "singapore_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/sg.png"
+    ],
+    "ASSET_220": [
+      "flag_of_saint_helena",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/sh.png"
+    ],
+    "ASSET_221": [
+      "slovenian_flag_with_coat_of_arms",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/si.png"
+    ],
+    "ASSET_222": [
+      "norwegian_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/sj.png"
+    ],
+    "ASSET_223": [
+      "slovakia_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/sk.png"
+    ],
+    "ASSET_224": [
+      "horizontal_stripes_green_white_blue_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/sl.png"
+    ],
+    "ASSET_225": [
+      "flag_of_san_marino",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/sm.png"
+    ],
+    "ASSET_226": [
+      "senegal_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/sn.png"
+    ],
+    "ASSET_227": [
+      "somalia_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/so.png"
+    ],
+    "ASSET_228": [
+      "flag_of_suriname",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/sr.png"
+    ],
+    "ASSET_229": [
+      "blue_triangle_south_sudan_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ss.png"
+    ],
+    "ASSET_230": [
+      "flag_of_sao_tome_and_principe",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/st.png"
+    ],
+    "ASSET_231": [
+      "flag_of_el_salvador",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/sv.png"
+    ],
+    "ASSET_232": [
+      "sint_maarten_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/sx.png"
+    ],
+    "ASSET_233": [
+      "flag_of_syria",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/sy.png"
+    ],
+    "ASSET_234": [
+      "eswatini_flag_with_shield_and_spears",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/sz.png"
+    ],
+    "ASSET_235": [
+      "turks_and_caicos_islands_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/tc.png"
+    ],
+    "ASSET_236": [
+      "romanian_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/td.png"
+    ],
+    "ASSET_237": [
+      "french_southern_and_antarctic_lands_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/tf.png"
+    ],
+    "ASSET_238": [
+      "togo_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/tg.png"
+    ],
+    "ASSET_239": [
+      "flag_of_thailand",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/th.png"
+    ],
+    "ASSET_240": [
+      "flag_of_tajikistan",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/tj.png"
+    ],
+    "ASSET_241": [
+      "yellow_canoe_on_blue_background_with_stars",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/tk.png"
+    ],
+    "ASSET_242": [
+      "flag_of_timor_leste",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/tl.png"
+    ],
+    "ASSET_243": [
+      "turkmenistan_flag_with_carpet_pattern",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/tm.png"
+    ],
+    "ASSET_244": [
+      "tunisian_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/tn.png"
+    ],
+    "ASSET_245": [
+      "tonga_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/to.png"
+    ],
+    "ASSET_246": [
+      "turkey_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/tr.png"
+    ],
+    "ASSET_247": [
+      "trinidad_and_tobago_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/tt.png"
+    ],
+    "ASSET_248": [
+      "union_jack_with_yellow_stars_on_blue_background",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/tv.png"
+    ],
+    "ASSET_249": [
+      "taiwan_flag_with_blue_sky_and_white_sun",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/tw.png"
+    ],
+    "ASSET_250": [
+      "tanzania_flag_with_diagonal_stripes",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/tz.png"
+    ],
+    "ASSET_251": [
+      "ukraine_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ua.png"
+    ],
+    "ASSET_252": [
+      "uganda_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ug.png"
+    ],
+    "ASSET_253": [
+      "united_states_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/um.png"
+    ],
+    "ASSET_254": [
+      "usa_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/us.png"
+    ],
+    "ASSET_255": [
+      "uruguay_flag_with_sun_design",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/uy.png"
+    ],
+    "ASSET_256": [
+      "uzbekistan_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/uz.png"
+    ],
+    "ASSET_257": [
+      "vatican_city_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/va.png"
+    ],
+    "ASSET_258": [
+      "flag_of_saint_vincent_and_the_grenadines",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/vc.png"
+    ],
+    "ASSET_259": [
+      "venezuela_flag_with_stars",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ve.png"
+    ],
+    "ASSET_260": [
+      "british_virgin_islands_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/vg.png"
+    ],
+    "ASSET_261": [
+      "united_states_virgin_islands_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/vi.png"
+    ],
+    "ASSET_262": [
+      "vietnam_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/vn.png"
+    ],
+    "ASSET_263": [
+      "flag_of_vanuatu",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/vu.png"
+    ],
+    "ASSET_264": [
+      "french_polynesia_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/wf.png"
+    ],
+    "ASSET_265": [
+      "flag_of_samoa",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ws.png"
+    ],
+    "ASSET_266": [
+      "flag_of_kosovo",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/xk.png"
+    ],
+    "ASSET_267": [
+      "yemen_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/ye.png"
+    ],
+    "ASSET_268": [
+      "mayotte_coat_of_arms_with_seahorses",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/yt.png"
+    ],
+    "ASSET_269": [
+      "south_african_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/za.png"
+    ],
+    "ASSET_270": [
+      "zambia_flag_with_eagle",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/zm.png"
+    ],
+    "ASSET_271": [
+      "zimbabwe_flag",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/POSTER/zw.png"
     ]
   },
   "GIF": {
@@ -498,6 +1635,162 @@
     "ASSET_17": [
       "disco_ball_spinning",
       "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTY5eWw4N2FsbmY2NDJ3ems2YjR0em1jYm9samlzdXB4OXQwZ2dxeSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/7rzbxdu0ZEXLy/giphy.gif"
+    ]
+  },
+  "CHAIRS": {
+    "ASSET_1": [
+      "cream_round_chair_illustration",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/1.png"
+    ],
+    "ASSET_2": [
+      "rocking_chair_with_blanket",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/10.png"
+    ],
+    "ASSET_3": [
+      "wicker_chair_with_wooden_legs",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/11.png"
+    ],
+    "ASSET_4": [
+      "emerald_green_armchair",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/12.png"
+    ],
+    "ASSET_5": [
+      "brown_leather_chair",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/13.png"
+    ],
+    "ASSET_6": [
+      "red_tufted_accent_chair",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/14.png"
+    ],
+    "ASSET_7": [
+      "pink_modern_armchair",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/15.png"
+    ],
+    "ASSET_8": [
+      "yellow_modern_chair",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/16.png"
+    ],
+    "ASSET_9": [
+      "orange_mesh_office_chair",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/17.png"
+    ],
+    "ASSET_10": [
+      "green_upholstered_armchair",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/18.png"
+    ],
+    "ASSET_11": [
+      "brown_leather_recliner_chair",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/19.png"
+    ],
+    "ASSET_12": [
+      "pink_office_chair",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/2.png"
+    ],
+    "ASSET_13": [
+      "purple_modern_egg_chair",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/20.png"
+    ],
+    "ASSET_14": [
+      "wicker_chair_with_cushion",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/3.png"
+    ],
+    "ASSET_15": [
+      "yellow_modern_chair",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/4.png"
+    ],
+    "ASSET_16": [
+      "leaf_pattern_chair_illustration",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/5.png"
+    ],
+    "ASSET_17": [
+      "orange_office_chair_on_wheels",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/6.png"
+    ],
+    "ASSET_18": [
+      "blue_foldable_camping_chair",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/7.png"
+    ],
+    "ASSET_19": [
+      "red_director_chair",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/8.png"
+    ],
+    "ASSET_20": [
+      "pink_modern_chair",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/9.png"
+    ]
+  },
+  "RUGS": {
+    "ASSET_1": [
+      "beige_checkered_rug_with_tasseled_edges",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/RUGS/1.png"
+    ],
+    "ASSET_2": [
+      "orange_white_checkered_oval_pattern",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/RUGS/10.png"
+    ],
+    "ASSET_3": [
+      "brown_blanket_with_fringe_edges",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/RUGS/11.png"
+    ],
+    "ASSET_4": [
+      "a_white_blanket_with_grey_fringe",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/RUGS/12.png"
+    ],
+    "ASSET_5": [
+      "wavy_wooden_plank_silhouette",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/RUGS/13.png"
+    ],
+    "ASSET_6": [
+      "round_woven_rug",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/RUGS/14.png"
+    ],
+    "ASSET_7": [
+      "rectangular_area_rug_with_striped_pattern",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/RUGS/15.png"
+    ],
+    "ASSET_8": [
+      "striped_white_rug_with_fringe",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/RUGS/16.png"
+    ],
+    "ASSET_9": [
+      "smiling_flower_cookie_illustration",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/RUGS/2.png"
+    ],
+    "ASSET_10": [
+      "brown_blanket_with_fringes",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/RUGS/3.png"
+    ],
+    "ASSET_11": [
+      "illustration_of_a_pink_rectangular_rug",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/RUGS/4.png"
+    ],
+    "ASSET_12": [
+      "blue_illustrated_rug_with_fringe",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/RUGS/5.png"
+    ],
+    "ASSET_13": [
+      "abstract_colorful_oval_shape",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/RUGS/6.png"
+    ],
+    "ASSET_14": [
+      "ornamental_yellow_rug_with_tassels",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/RUGS/7.png"
+    ],
+    "ASSET_15": [
+      "cloud_shape_on_white_background",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/RUGS/8.png"
+    ],
+    "ASSET_16": [
+      "bavarian_flag_in_oval_shape",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/RUGS/9.png"
+    ],
+    "ASSET_17": [
+      "colorful_geometric_pattern_pyramid",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/RUGS/pngkey.com-carpet-png-1042309.png"
+    ],
+    "ASSET_18": [
+      "woven_black_fabric_texture",
+      "https://myxbedroompics.s3.us-east-2.amazonaws.com/RUGS/pngkey.com-rug-png-389920.png"
     ]
   }
 }

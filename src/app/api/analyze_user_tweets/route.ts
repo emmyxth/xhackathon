@@ -30,123 +30,182 @@ export async function POST(request: Request) {
 
       1. PETS
         - Albino Burmese python
-        - Cockroach
-        - Brown rat
-        - Shiba Inu dog
-        - Ginger cat
-        - Capybara
-        - Brown rabbit
-        - Rottweiler dog
-        - White cat
-        - Baby hippo
-        - Brown cocker spaniel dog
-        - Spotted horse
-        - Flamingo
-        - Calico cat
-        - Cat sitting upright
+        - Bearded dragon lizard
+        - Beagle
+        - Brown dachshund
+        - Black and white cow
+        - Boxer dog with backpack
+        - Brown dachshund with floppy ear
+        - Gray hamster
+        - Green lizard with spiked collar
+        - Llama
+        - Corgi
+        - Hooded cobra
+        - White and gray rabbit
+        - Black pet rat
+        - Striped kitten
+        - Fluffy bunny
+        - Gray tabby kitten
+        - Goldfish in fishbowl
+        - Striped cat with tongue out
+        - White pomeranian puppy
+        - Persian cat
+        - Coiled snake
 
       2. FOOD
-        - Cup noodles
-        - Pocky chocolate sticks
-        - Mean Girls Kalteen bar
-        - Miralax laxative powder
-        - Wing Stop feast
-        - Box of cookies
-        - Chamoy pickle kit
-        - Whey protein powder
-        - Haribo Goldbears
-        - Red Bull can
-        - Iced matcha pink drink
+        - French fries
+        - Hamburger
+        - Watermelon slice
+        - Jar of kimchi
+        - Katsu with cabbage
+        - Grilled fish
+        - Chocolate heart
+        - S'more
+        - Coffee cup
         - Iced coffee
-        - Stanley travel tumbler
-        - Takis Fuego snacks
-        - Diet Coke can
-        - Cigar
-        - Bud Light can
-        - Kombucha bottle
-        - Celsius sparkling orange drink
-        - Strawberry garnished cocktail
-        - Strawberry smoothie
+        - Iced matcha latte
+        - Sushi rolls
+        - Green tea latte
+        - Red tea
         - Bubble tea
+        - Dumplings
+        - Bowl of ramen
+        - Spaghetti
+        - Toasted sandwich
+        - Avocado toast
+        - Beef rice bowl
+        - Chocolate chip cookies
+        - Steamed buns
+        - Strawberry swiss roll
+        - Strawberry cake slice
+        - Stack of pancakes
+        - Bowl of soup
 
       3. DECOR
-
-        - Spiderman Funko Pop figure
-        - Lip balm tube
-        - Blue glass bong
-        - Rose quartz obelisk with amethyst cluster
-        - Film disposable camera
-        - Green analog alarm clock
-        - Plush mouse toy
-        - KAWS Stormtrooper figure
-        - Yellow smiley face plush toy
-        - Hello Kitty figure
-        - Teddy bear
-        - Anime character figure
-        - Stack of books
-        - Cinnamoroll plush toy
-        - Toy doll with strawberry helmet
-        - Life-like action figure
-        - Bottle with red and yellow label
-        - Jade roller tool
-        - Tarot cards
-        - American Express Platinum card
-        - Cowboy hat
-        - Incense stick in holder
-        - Album cover with newspaper collage
-        - Gumball machine
-        - Captain America shield makeup brush
-        - Pilea plant in pot
+        - Potted plant with large leaves
+        - Potted plant illustration
+        - Geometric potted plant
+        - Brown vase with greenery
+        - Pink succulent
         - Potted monstera plant
-        - Croissant with candle
+        - Potted fern
+        - Monstera plant
+        - Terrarium
+        - Purple tablet
+        - Open laptop
+        - Potted sansevieria
+        - Rose gold laptop
+        - Flat screen monitor
+        - Black headphones
+        - Vintage camera
+        - Black sunglasses
+        - Heart shaped sunglasses
+        - Pixelated sunglasses
+        - Star shaped sunglasses
+        - Brown cowboy hat
+        - Potted plant with vines
+        - Monstera plant
+        - Variegated plant
+        - Succulent
+        - Red mushrooms
+        - Sansevieria plant
+        - Green potted plant
         - Green gummy bear jar
         - Orange mushroom lamp
         - Blue lava lamp
-        - Potted succulent plants
-        - Cartoon-style white wrench
+        - Potted succulents
+        - Cartoon white wrench
         - Pink tulips in vase
         - Blue table lamp
         - Sunglasses with blue lenses
         - Pink classic car
         - ZYN nicotine pouches
         - Lava lamp
-        - Leica compact camera
-        - Chimamanda Ngozi Adichie book cover
-        - Ceramic cactus plant pot
+        - Leica camera
+        - Chimamanda Ngozi Adichie book
+        - Ceramic cactus pot
         - Red woven scarf
-        - Red lipstick tube
+        - Red lipstick
 
       4. CHAIR
         - Red modern chair
         - Wooden modern chair
-        - Flower-shaped chair
+        - Flower shaped chair
         - Orange translucent chair
         - Office chair
         - Gaming chair
         - Cream sherpa armchair
         - Fluffy round bean bag
         - Pink modern chair
-        - Egg-shaped chair
+        - Egg shaped chair
         - Green modern chair
         - Green leather modular sofa
         - Wood and cane chair
         - Wooden chair
 
-      5. RUG
-        - Doge
+      5. CHAIRS (Additional category)
+        - Cream round chair
+        - Rocking chair with blanket
+        - Wicker chair with wooden legs
+        - Emerald green armchair
+        - Brown leather chair
+        - Red tufted accent chair
+        - Pink modern armchair
+        - Yellow modern chair
+        - Orange mesh office chair
+        - Green upholstered armchair
+        - Brown leather recliner
+        - Pink office chair
+        - Purple modern egg chair
+        - Wicker chair with cushion
+        - Yellow modern chair
+        - Leaf pattern chair
+        - Orange office chair on wheels
+        - Blue foldable camping chair
+        - Red director chair
+        - Pink modern chair
 
-      6. POSTER
-        - Doge
-        - Trump Bobblehead
-        - Protestor Shit Hole Trump Street
-        - Trump Cheato Dislike
-        - MAGA Cap Trump
-        - Trump Mask Pointing Costume
-        - American Flag
-        - Contemplative Sketch Art
-        - Trump Tower Palm Beach
+      6. RUG/RUGS
+        - Beige checkered rug
+        - Orange white checkered oval
+        - Brown blanket with fringe
+        - White blanket with grey fringe
+        - Wavy wooden plank
+        - Round woven rug
+        - Rectangular striped area rug
+        - Striped white rug
+        - Smiling flower cookie
+        - Brown blanket with fringes
+        - Pink rectangular rug
+        - Blue illustrated rug
+        - Abstract colorful oval
+        - Ornamental yellow rug
+        - Cloud shape
+        - Bavarian flag oval
+        - Geometric pattern pyramid
+        - Woven black fabric
 
-      7. GIF
+      7. POSTER
+        - Zugspitze mountain art
+        - Rock hand gesture
+        - NBA logo
+        - Basketball player
+        - Baseball player silhouette
+        - Soccer ball on field
+        - Soccer ball center circle
+        - Football player
+        - Football with text
+        - Abstract hair art
+        - Brain anatomy
+        - Wanted poster template
+        - Muscular cartoon character
+        - Express with music
+        - Abstract mountain landscape
+        - Person in snowy mountains
+        - Tennis racket and ball
+        - Various country flags (Andorra, UAE, Afghanistan, Antigua and Barbuda, Anguilla)
+
+      8. GIF
         - Abstract 3D structure
         - Cluster of moving eyeballs
         - Wireframe head model
@@ -200,7 +259,7 @@ export async function POST(request: Request) {
 
     Specifically, explain your reasoning under a title called REASONING but ensure the output in your final line is a list of 1 PET, 1 FOOD, 1 CHAIR, 1 RUG, 10 DECOR, 1 GIF. Format it like this: 
       ["PETS", "FOOD", "CHAIR”, “RUG”, “DECOR”, “DECOR”, “DECOR”, “DECOR”, “DECOR”, “DECOR”, “DECOR”, “DECOR”, “DECOR”, “DECOR”, “GIF”]
-    
+
     `
 
     const options = {

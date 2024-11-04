@@ -132,8 +132,8 @@ const InternetBedroomPage: React.FC = () => {
     return <AnimatedLoadingText />;
   } else {
     return (
-      <div className="flex flex-col lg:flex-row min-h-screen bg-black text-white relative overflow-hidden">
-        {/* Animated Background */}
+      <div className="min-h-screen relative overflow-hidden flex items-center">
+        {/* Animated Background - Always visible */}
         <div className="absolute inset-0 z-0">
           <img
             src="https://madeonverse.com/video/sky-30fps-reduced.webp"
@@ -141,82 +141,84 @@ const InternetBedroomPage: React.FC = () => {
             className="object-cover w-full h-full"
           />
         </div>
+
         {/* Content Wrapper */}
-        <div className="relative z-10 flex flex-col lg:flex-row w-full">
-          {/* Left Section (Top on mobile/tablet) */}
-          <div className="w-full lg:w-1/2 flex flex-col justify-center items-start p-12 lg:p-24 bg-black items-center justify-center">
-            <h1 className="text-4xl lg:text-6xl font-bold mb-8 minecraft-font text-center flex flex-col gap-6">
-              <span>YOUR</span>
-              <span>X</span>
-              <span>BEDROOM</span>
-            </h1>
-            <p className="text-base lg:text-lg mb-8">
-              Find out what your bedroom looks like based off your X profile
-            </p>
+        <div className="relative z-10 flex flex-col lg:flex-row w-full min-h-screen lg:min-h-0 h-screen">
+          {/* Left Section - Black background only on desktop */}
+          <div className="w-full lg:w-1/2 flex flex-col justify-center items-center p-8 lg:p-24 lg:bg-black text-black lg:text-white min-h-screen lg:min-h-0">
+            <div className="flex flex-col items-center max-w-4xl w-full flex-1 lg:flex-initial justify-center">
+              <h1 className="text-5xl lg:text-6xl font-bold mb-8 lg:mb-6 minecraft-font text-center flex flex-col gap-6 lg:gap-4">
+                <span>YOUR</span>
+                <span>X</span>
+                <span>BEDROOM</span>
+              </h1>
+              <p className="text-[20px] lg:text-[24px] mb-8 lg:mb-6 text-center max-w-xs lg:max-w-md mx-auto">
+                Find out what your bedroom looks like based off your X profile
+              </p>
 
-            {session.status !== "authenticated" ? (
-              <SignIn />
-            ) : (
-              <div className="w-full max-w-4xl flex flex-col lg:flex-row lg:items-start lg:gap-8">
-                {/* Left side - Generate My Bedroom */}
-                <div className="w-full lg:w-1/2 text-center mb-8 lg:mb-0 flex flex-col justify-between h-full">
-                  {session.data && session.data?.user.handle && (
-                    <h1 className="text-2xl font-bold mb-4">
-                      Welcome, @{session.data?.user.handle}{" "}
-                    </h1>
-                  )}
-                  <div className="flex-grow"></div>
-                  <button
-                    onClick={generateUserBedroom}
-                    className="w-full px-6 py-4 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors"
-                  >
-                    Create Bedroom
-                  </button>
-                </div>
-
-                {/* Divider for mobile/tablet */}
-                <div className="lg:hidden">
-                  <p className="text-center text-gray-400 my-4">OR</p>
-                </div>
-
-                {/* Vertical divider for desktop */}
-                <div className="hidden lg:block border-r border-gray-500 h-full" />
-
-                {/* Right side - Friend's Room */}
-                <div className="w-full lg:w-1/2 text-center flex flex-col justify-between h-full">
-                  <form
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      const target = e.currentTarget;
-                      const friendHandle = (
-                        target.elements[0] as HTMLInputElement
-                      ).value;
-                      generateFriendBedroom(friendHandle);
-                    }}
-                    className="flex-grow flex flex-col justify-center"
-                  >
-                    <input
-                      id="friendInput"
-                      type="text"
-                      className="w-full p-2 rounded mb-4 text-black bg-gray-200"
-                      placeholder="Enter any public X handle"
-                    />
-                    <div className="flex-grow"></div>
+              {session.status !== "authenticated" ? (
+                <SignIn />
+              ) : (
+                <div className="w-full flex flex-col lg:flex-row lg:items-start lg:gap-8">
+                  {/* Left side - Generate My Bedroom */}
+                  <div className="w-full lg:w-1/2 text-center mb-8 lg:mb-0 flex flex-col justify-between items-center">
+                    {session.data && session.data?.user.handle && (
+                      <h1 className="text-2xl lg:text-2xl font-bold mb-6 lg:mb-4">
+                        Welcome, @{session.data?.user.handle}{" "}
+                      </h1>
+                    )}
                     <button
-                      type="submit"
-                      className="w-full px-6 py-4 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors"
+                      onClick={generateUserBedroom}
+                      className="w-48 lg:w-full px-4 py-3 lg:px-6 lg:py-4 bg-black lg:bg-blue-500 text-white rounded-full hover:bg-gray-800 lg:hover:bg-blue-600 transition-colors text-sm lg:text-base"
                     >
-                      Generate
+                      Create Bedroom
                     </button>
-                  </form>
+                  </div>
+
+                  {/* Divider for mobile/tablet */}
+                  <div className="lg:hidden">
+                    <p className="text-center text-gray-600 mb-6 font-bold">
+                      OR
+                    </p>
+                  </div>
+
+                  {/* Vertical divider for desktop */}
+                  <div className="hidden lg:block border-r border-gray-500 h-full" />
+
+                  {/* Right side - Friend's Room */}
+                  <div className="w-full lg:w-1/2 text-center flex flex-col justify-between items-center">
+                    <form
+                      onSubmit={(e) => {
+                        e.preventDefault();
+                        const target = e.currentTarget;
+                        const friendHandle = (
+                          target.elements[0] as HTMLInputElement
+                        ).value;
+                        generateFriendBedroom(friendHandle);
+                      }}
+                      className="flex flex-col gap-4 w-full items-center"
+                    >
+                      <input
+                        id="friendInput"
+                        type="text"
+                        className="w-64 lg:w-full p-2 rounded text-black bg-gray-200 text-sm lg:text-base"
+                        placeholder="Enter any public X handle"
+                      />
+                      <button
+                        type="submit"
+                        className="w-48 lg:w-full px-4 py-3 lg:px-6 lg:py-4 bg-black lg:bg-blue-500 text-white rounded-full hover:bg-gray-800 lg:hover:bg-blue-600 transition-colors text-sm lg:text-base"
+                      >
+                        Generate
+                      </button>
+                    </form>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
 
-          {/* Right Section (Bottom on mobile/tablet) */}
-          <div className="w-full lg:w-1/2 relative h-[50vh] lg:h-auto flex flex-col items-center justify-between p-6 lg:p-12 bg-black bg-opacity-30">
-            {/* X Logo */}
+          {/* Right Section - Only visible on desktop */}
+          <div className="hidden lg:flex w-full lg:w-1/2 relative flex-col items-center justify-between p-6 lg:p-12 bg-black bg-opacity-30">
             <div className="flex-grow flex items-center justify-center">
               <svg
                 viewBox="0 0 24 24"

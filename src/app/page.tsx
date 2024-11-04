@@ -132,7 +132,7 @@ const InternetBedroomPage: React.FC = () => {
     return <AnimatedLoadingText />;
   } else {
     return (
-      <div className="flex flex-col md:flex-row min-h-screen bg-black text-white relative overflow-hidden">
+      <div className="flex flex-col lg:flex-row min-h-screen bg-black text-white relative overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 z-0">
           <img
@@ -142,24 +142,24 @@ const InternetBedroomPage: React.FC = () => {
           />
         </div>
         {/* Content Wrapper */}
-        <div className="relative z-10 flex flex-col md:flex-row w-full">
-          {/* Left Section (Top on mobile) */}
-          <div className="w-full md:w-1/2 flex flex-col justify-center items-start p-12 md:p-24 bg-black items-center justify-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-8 minecraft-font text-center flex flex-col gap-6">
+        <div className="relative z-10 flex flex-col lg:flex-row w-full">
+          {/* Left Section (Top on mobile/tablet) */}
+          <div className="w-full lg:w-1/2 flex flex-col justify-center items-start p-12 lg:p-24 bg-black items-center justify-center">
+            <h1 className="text-4xl lg:text-6xl font-bold mb-8 minecraft-font text-center flex flex-col gap-6">
               <span>YOUR</span>
               <span>X</span>
               <span>BEDROOM</span>
             </h1>
-            <p className="text-base md:text-lg mb-8">
+            <p className="text-base lg:text-lg mb-8">
               Find out what your bedroom looks like based off your X profile
             </p>
 
             {session.status !== "authenticated" ? (
               <SignIn />
             ) : (
-              <div className="w-full max-w-4xl flex flex-col md:flex-row md:items-start md:gap-8">
+              <div className="w-full max-w-4xl flex flex-col lg:flex-row lg:items-start lg:gap-8">
                 {/* Left side - Generate My Bedroom */}
-                <div className="w-full md:w-1/2 text-center mb-8 md:mb-0 flex flex-col justify-between h-full">
+                <div className="w-full lg:w-1/2 text-center mb-8 lg:mb-0 flex flex-col justify-between h-full">
                   {session.data && session.data?.user.handle && (
                     <h1 className="text-2xl font-bold mb-4">
                       Welcome, @{session.data?.user.handle}{" "}
@@ -170,23 +170,20 @@ const InternetBedroomPage: React.FC = () => {
                     onClick={generateUserBedroom}
                     className="w-full px-6 py-4 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors"
                   >
-                    Generate My Bedroom
+                    Create Bedroom
                   </button>
                 </div>
 
-                {/* Divider for mobile */}
-                <div className="md:hidden">
+                {/* Divider for mobile/tablet */}
+                <div className="lg:hidden">
                   <p className="text-center text-gray-400 my-4">OR</p>
                 </div>
 
                 {/* Vertical divider for desktop */}
-                <div className="hidden md:block border-r border-gray-500 h-full" />
+                <div className="hidden lg:block border-r border-gray-500 h-full" />
 
                 {/* Right side - Friend's Room */}
-                <div className="w-full md:w-1/2 text-center flex flex-col justify-between h-full">
-                  {/* <h1 className="text-xl font-bold mb-4">
-                    Make a room for a friend
-                  </h1> */}
+                <div className="w-full lg:w-1/2 text-center flex flex-col justify-between h-full">
                   <form
                     onSubmit={(e) => {
                       e.preventDefault();
@@ -217,14 +214,14 @@ const InternetBedroomPage: React.FC = () => {
             )}
           </div>
 
-          {/* Right Section (Bottom on mobile) */}
-          <div className="w-full md:w-1/2 relative h-[50vh] md:h-auto flex flex-col items-center justify-between p-6 md:p-12 bg-black bg-opacity-30">
+          {/* Right Section (Bottom on mobile/tablet) */}
+          <div className="w-full lg:w-1/2 relative h-[50vh] lg:h-auto flex flex-col items-center justify-between p-6 lg:p-12 bg-black bg-opacity-30">
             {/* X Logo */}
             <div className="flex-grow flex items-center justify-center">
               <svg
                 viewBox="0 0 24 24"
                 aria-hidden="true"
-                className="w-32 h-32 md:w-48 md:h-48 text-white"
+                className="w-32 h-32 lg:w-48 lg:h-48 text-white"
               >
                 <g>
                   <path
@@ -236,7 +233,7 @@ const InternetBedroomPage: React.FC = () => {
             </div>
             <div className="text-white text-right self-end">
               <p>powered by</p>
-              <p className="text-xl md:text-2xl font-bold">Roomify</p>
+              <p className="text-xl lg:text-2xl font-bold">Roomify</p>
             </div>
           </div>
         </div>

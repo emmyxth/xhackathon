@@ -144,13 +144,11 @@ const InternetBedroomPage: React.FC = () => {
         {/* Content Wrapper */}
         <div className="relative z-10 flex flex-col md:flex-row w-full">
           {/* Left Section (Top on mobile) */}
-          <div className="w-full md:w-1/2 flex flex-col justify-center items-start p-6 md:p-12 bg-black bg-opacity-50">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              YOUR
-              <br />
-              X
-              <br />
-              BEDROOM
+          <div className="w-full md:w-1/2 flex flex-col justify-center items-start p-12 md:p-24 bg-black items-center justify-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-8 minecraft-font text-center flex flex-col gap-6">
+              <span>YOUR</span>
+              <span>X</span>
+              <span>BEDROOM</span>
             </h1>
             <p className="text-base md:text-lg mb-8">
               Find out what your bedroom looks like based off your X profile
@@ -159,47 +157,62 @@ const InternetBedroomPage: React.FC = () => {
             {session.status !== "authenticated" ? (
               <SignIn />
             ) : (
-              <div className="w-full max-w-md">
-                {session.data && session.data?.user.handle && (
-                  <h1 className="text-2xl font-bold mb-4">
-                    Welcome, @{session.data?.user.handle}{" "}
-                  </h1>
-                )}
-
-                <button
-                  onClick={generateUserBedroom}
-                  className="w-full p-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
-                >
-                  Generate My Bedroom
-                </button>
-                <div className="w-full border-t border-gray-500 mt-4"></div>
-                <p className="text-center text-gray-400 mb-4">OR</p>
-                <h1 className="text-xl font-bold mb-4">
-                  Make a room for a friend
-                </h1>
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    const target = e.currentTarget;
-                    const friendHandle = (
-                      target.elements[0] as HTMLInputElement
-                    ).value;
-                    generateFriendBedroom(friendHandle);
-                  }}
-                >
-                  <input
-                    id="friendInput"
-                    type="text"
-                    className="w-full p-2 border border-gray-300 rounded mb-4 text-black"
-                    placeholder="Enter any public X handle"
-                  />
+              <div className="w-full max-w-4xl flex flex-col md:flex-row md:items-start md:gap-8">
+                {/* Left side - Generate My Bedroom */}
+                <div className="w-full md:w-1/2 text-center mb-8 md:mb-0 flex flex-col justify-between h-full">
+                  {session.data && session.data?.user.handle && (
+                    <h1 className="text-2xl font-bold mb-4">
+                      Welcome, @{session.data?.user.handle}{" "}
+                    </h1>
+                  )}
+                  <div className="flex-grow"></div>
                   <button
-                    type="submit"
-                    className="w-full p-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+                    onClick={generateUserBedroom}
+                    className="w-full px-6 py-4 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors"
                   >
-                    Generate
+                    Generate My Bedroom
                   </button>
-                </form>
+                </div>
+
+                {/* Divider for mobile */}
+                <div className="md:hidden">
+                  <p className="text-center text-gray-400 my-4">OR</p>
+                </div>
+
+                {/* Vertical divider for desktop */}
+                <div className="hidden md:block border-r border-gray-500 h-full" />
+
+                {/* Right side - Friend's Room */}
+                <div className="w-full md:w-1/2 text-center flex flex-col justify-between h-full">
+                  {/* <h1 className="text-xl font-bold mb-4">
+                    Make a room for a friend
+                  </h1> */}
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      const target = e.currentTarget;
+                      const friendHandle = (
+                        target.elements[0] as HTMLInputElement
+                      ).value;
+                      generateFriendBedroom(friendHandle);
+                    }}
+                    className="flex-grow flex flex-col justify-center"
+                  >
+                    <input
+                      id="friendInput"
+                      type="text"
+                      className="w-full p-2 rounded mb-4 text-black bg-gray-200"
+                      placeholder="Enter any public X handle"
+                    />
+                    <div className="flex-grow"></div>
+                    <button
+                      type="submit"
+                      className="w-full px-6 py-4 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors"
+                    >
+                      Generate
+                    </button>
+                  </form>
+                </div>
               </div>
             )}
           </div>
@@ -223,7 +236,7 @@ const InternetBedroomPage: React.FC = () => {
             </div>
             <div className="text-white text-right self-end">
               <p>powered by</p>
-              <p className="text-xl md:text-2xl font-bold">JECZ</p>
+              <p className="text-xl md:text-2xl font-bold">Roomify</p>
             </div>
           </div>
         </div>

@@ -242,9 +242,13 @@ const InternetBedroomPage: React.FC = () => {
           </div>
 
           {/* Right Section - Only visible on desktop */}
-          <div className="hidden lg:flex w-full lg:w-1/2 relative flex-col items-center justify-between p-6 lg:p-12 bg-black bg-opacity-30">
-            <div className="flex-grow flex items-center justify-center">
-              <svg
+          <div className="hidden lg:flex w-full lg:w-1/2 relative flex-col items-center justify-between lg:p-12 bg-black bg-opacity-30">
+            <div className="flex-grow flex items-center justify-center w-full h-full">
+              <img
+                src="/hero-x-decorated.svg"
+                className="w-full h-full object-contain" // Adjusted class to make image take more space
+              />
+              {/* <svg
                 viewBox="0 0 24 24"
                 aria-hidden="true"
                 className="w-32 h-32 lg:w-48 lg:h-48 text-white"
@@ -255,7 +259,7 @@ const InternetBedroomPage: React.FC = () => {
                     d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
                   ></path>
                 </g>
-              </svg>
+              </svg> */}
             </div>
             <div className="text-white text-right self-end">
               <p>powered by</p>

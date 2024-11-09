@@ -5,13 +5,27 @@ import { supabase } from "@/utils/db";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-
 import React, { useState } from "react";
+
+const ErrorOverlay = ({ message }: { message: string }) => (
+  <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
+    <div className="bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg">
+      {message}
+    </div>
+  </div>
+);
 
 const InternetBedroomPage: React.FC = () => {
   const router = useRouter();
   const session = useSession();
   const [loading, setLoading] = useState(false);
+  const [showError, setShowError] = useState(false);
+
+  // Function to show error for 3 seconds
+  const showErrorMessage = () => {
+    setShowError(true);
+    setTimeout(() => setShowError(false), 3000);
+  };
 
   const generateUserBedroom = async () => {
     if (session.data && session.data?.user.id_str) {
@@ -65,7 +79,6 @@ const InternetBedroomPage: React.FC = () => {
           setLoading(false);
         }
       } catch {
-        // Error toast
         setLoading(false);
       }
     }
@@ -78,9 +91,17 @@ const InternetBedroomPage: React.FC = () => {
       const id_str = session.data?.user.id_str;
       const bearer_token = session.data?.user.access_token;
 
-      const friendId = await axios.get(
-        `/api/user_id?user_handle=${friendHandle}&bearer_token=${bearer_token}`
-      );
+      var friendId = null;
+      try {
+        friendId = await axios.get(
+          `/api/user_id?user_handle=${friendHandle}&bearer_token=${bearer_token}`
+        );
+      } catch (e) {
+        console.log("User ID not Found");
+        setLoading(false);
+        showErrorMessage();
+        return;
+      }
 
       try {
         const { data, error } = await supabase
@@ -89,7 +110,7 @@ const InternetBedroomPage: React.FC = () => {
           .eq("profile_id", friendId)
           .eq("author_id", id_str);
 
-        if (!error && data.length > 0) {
+        if (!error && data.length > 0 && friendId) {
           setLoading(false);
           localStorage.setItem("roomData", JSON.stringify(data));
           const room_id = data[0].id;
@@ -133,6 +154,9 @@ const InternetBedroomPage: React.FC = () => {
   } else {
     return (
       <div className="min-h-screen relative overflow-hidden flex items-center">
+        {/* Error Alert Overlay */}
+        {showError && <ErrorOverlay message="Please input a valid X handle" />}
+
         {/* Animated Background - Always visible */}
         <div className="absolute inset-0 z-0">
           <img

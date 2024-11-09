@@ -23,6 +23,7 @@ const Bedroom: React.FC<BedroomProps> = ({
   );
 
   const handleElementHover = (name: string | null) => {
+    console.log("Hovered Element", name);
     setHoveredElementName(name);
   };
 

@@ -2,6 +2,7 @@
 import Bedroom from "@/components/Bedroom";
 import { supabase } from "@/utils/db";
 import { useSession } from "next-auth/react";
+import TeamProfiles from "../../../components/TeamProfiles";
 
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
@@ -116,7 +117,8 @@ const VersePage: React.FC = () => {
         />
       </main>
       <footer className="p-4 flex justify-between items-center">
-        <span>Powered by JECZ</span>
+        {/* <span>Powered by JECZ</span> */}
+        <TeamProfiles />
       </footer>
     </div>
   );

@@ -8,7 +8,7 @@ interface BedroomProps {
     elements: any[];
     backgroundColor: string;
   } | null;
-  items: string[];
+  items: { category: string; object: string; reasoning: string }[];
   user: string;
 }
 
@@ -66,7 +66,7 @@ const Bedroom: React.FC<BedroomProps> = ({
           onStateChange={memoizedOnStateChange}
           items={items}
         />
-        <DetailPanel hoveredElementName={hoveredElementName} />
+        <DetailPanel hoveredElementName={hoveredElementName} items={items} />
       </div>
       <button
         className="px-4 py-2 bg-black border border-white text-white rounded-full mr-2 w-[60%] sm:w-[20%] self-center hover:bg-white hover:text-black"

@@ -131,6 +131,8 @@ const InternetBedroomPage: React.FC = () => {
             liked_tweets: tweets.data,
           });
 
+          console.log(analyze);
+
           const { data: newRoom, error: insertError } = await supabase
             .from("rooms")
             .insert({

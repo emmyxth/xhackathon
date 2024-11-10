@@ -45,16 +45,9 @@ const VersePage: React.FC = () => {
   };
 
   const getItemsFromRoomData = (roomData: any) => {
-    const parsedMessage =
-      roomData[0]["prompt_response"]["response"]["choices"][0]["message"][
-        "content"
-      ];
-
-    const firstBracketIndex = parsedMessage.indexOf("[");
-    const lastBracketIndex = parsedMessage.lastIndexOf("]");
-    const arrOfItems = JSON.parse(
-      parsedMessage.substring(firstBracketIndex, lastBracketIndex + 1)
-    );
+    const parsedRoomData = JSON.parse(roomData);
+    const arrOfItems = parsedRoomData[0]["prompt_response"]["response"];
+    setArrOfItems(arrOfItems);
     return arrOfItems;
   };
 
@@ -64,17 +57,7 @@ const VersePage: React.FC = () => {
 
     if (roomData && roomDataUser && roomDataUser == slug[0]) {
       const parsedRoomData = JSON.parse(roomData);
-      const parsedMessage =
-        parsedRoomData[0]["prompt_response"]["response"]["choices"][0][
-          "message"
-        ]["content"];
-
-      const firstBracketIndex = parsedMessage.indexOf("[");
-      const lastBracketIndex = parsedMessage.lastIndexOf("]");
-      const arrOfItems = JSON.parse(
-        parsedMessage.substring(firstBracketIndex, lastBracketIndex + 1)
-      );
-
+      const arrOfItems = parsedRoomData[0]["prompt_response"]["response"];
       setArrOfItems(arrOfItems);
     } else {
       if (

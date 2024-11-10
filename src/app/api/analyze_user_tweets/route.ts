@@ -1,8 +1,11 @@
-import { https } from "follow-redirects";
-import { NextResponse } from "next/server";
+import OpenAI from "openai";
 const convertTweetsToString = (tweets: string[]) => {
   return tweets.join('\n');
 }
+
+const client = new OpenAI({
+  apiKey: process.env['OPENAI_API_KEY'], // This is the default and can be omitted
+});
 
 export async function POST(request: Request) {
   try {
@@ -603,33 +606,23 @@ export async function POST(request: Request) {
       "temperature": 0
     })
 
-    return new Promise<Response>((resolve, reject) => {
-      const req = https.request(options, (res) => {
-        let chunks: Buffer[] = [];
+    const {data: completion, response } = await client.chat.completions.create({
+      messages: [{ role: 'user', content: thePrompt }],
+      model: 'gpt-3.5-turbo',
+    }).withResponse();
 
-        res.on('data', (chunk: Buffer) => {
-          chunks.push(chunk);
-        });
 
-        res.on('end', () => {
-          const body = Buffer.concat(chunks);
-          resolve(NextResponse.json({ data: JSON.parse(body.toString()) }));
-        });
+    const content = completion.choices[0].message.content
+    if (!response.ok) {
+      return Response.json({ error: 'An error occurred' }, { status: 500 });
+    }
 
-        res.on('error', (error) => {
-          console.error(error);
-          reject(NextResponse.json({ error: error.message }, { status: 500 }));
-        });
-      });
+    if (!!content) {
+      return Response.json({ data: JSON.parse(content.toString())})
+    } else {
+      return Response.json({ error: 'An error occurred' }, { status: 500 });
+    }
 
-      req.on('error', (error) => {
-        console.error(error);
-        reject(NextResponse.json({ error: error.message }, { status: 500 }));
-      });
-
-      req.write(postData);
-      req.end();
-    });
   } catch (error) {
     // Error handling
     return Response.json({ error: 'An error occurred' }, { status: 500 });

@@ -29,7 +29,7 @@ const TeamProfiles = () => {
   ];
 
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex tems-center gap-3">
       <span className="text-sm text-gray-400">Created by</span>
       <div className="flex -space-x-2">
         {teamMembers.map((member, index) => (

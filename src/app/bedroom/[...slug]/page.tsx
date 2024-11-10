@@ -123,7 +123,7 @@ const VersePage: React.FC = () => {
         </button>
       </header>
 
-      <main className="flex-grow flex flex-col md:flex-row gap-12 items-center justify-center md:space-y-0 space-y-4 p-4">
+      <main className="flex-grow flex flex-col lg:flex-row gap-12 items-center justify-center lg:space-y-0 space-y-4 p-4">
         <Bedroom
           onStateChange={handleBedroomStateChange}
           bedroomState={bedroomState}
@@ -131,7 +131,7 @@ const VersePage: React.FC = () => {
           user={slug[0]}
         />
       </main>
-      <footer className="p-4 flex justify-between items-center">
+      <footer className="p-4 flex sm:justify-between justify-center items-center ">
         {/* <span>Powered by JECZ</span> */}
         <TeamProfiles />
       </footer>

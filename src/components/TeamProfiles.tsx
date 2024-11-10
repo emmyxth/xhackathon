@@ -20,6 +20,12 @@ const TeamProfiles = () => {
       link: "https://x.com/zanesabbagh",
       image: "/assets/profiles/zane.jpg",
     },
+    {
+      name: "Jin",
+      handle: "@thisisjinkim",
+      link: "https://x.com/thisisjinkim",
+      image: "/assets/profiles/jin.jpg",
+    },
   ];
 
   return (

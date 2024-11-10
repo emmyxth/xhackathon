@@ -112,7 +112,7 @@ const VersePage: React.FC = () => {
           <h1 className="text-2xl font-bold">My X Bedroom</h1>
         </Link>
         <button
-          className="px-4 py-2 bg-red-600 border border-white text-white rounded-full float-right"
+          className="px-4 py-2 bg-white border border-white text-black rounded-full float-right"
           onClick={() => {
             signOut();
             localStorage.removeItem("roomData");

@@ -3,7 +3,7 @@ import { Volume2, VolumeX } from "lucide-react";
 
 const AudioControlButton = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const toggleAudio = () => {
     if (audioRef.current) {

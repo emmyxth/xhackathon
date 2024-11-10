@@ -1,11 +1,11 @@
 "use client";
 import Bedroom from "@/components/Bedroom";
 import { supabase } from "@/utils/db";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import TeamProfiles from "../../../components/TeamProfiles";
 
 import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
+import { redirect, useParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const VersePage: React.FC = () => {
@@ -107,16 +107,16 @@ const VersePage: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-black">
-      <header className="p-4">
+      <header className="p-4 flex flex-row justify-between">
         <Link href={"/"}>
           <h1 className="text-2xl font-bold">My X Bedroom</h1>
         </Link>
         <button
           className="px-4 py-2 bg-red-600 border border-white text-white rounded-full float-right"
           onClick={() => {
-            // Add your logout logic here
-            console.log("Logging out...");
-            // Example: redirect to logout endpoint or clear session
+            signOut();
+            localStorage.removeItem("roomData");
+            redirect("/");
           }}
         >
           Log Out

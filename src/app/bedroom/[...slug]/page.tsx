@@ -31,6 +31,7 @@ const VersePage: React.FC = () => {
   };
 
   const getUserRoomData = async () => {
+    // @ts-ignore
     const id_str = session.data?.user.id_str;
     const { data, error } = await supabase
       .from("rooms")

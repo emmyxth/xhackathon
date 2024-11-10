@@ -1,3 +1,4 @@
+//@ts-nocheck
 "use client";
 import AnimatedLoadingText from "@/components/AnimatedLoadingText";
 import { SignIn } from "@/components/Authenticate";

@@ -52,18 +52,14 @@ const VersePage: React.FC = () => {
         "content"
       ];
 
+    const firstBracketIndex = parsedMessage.indexOf("[");
+    const lastBracketIndex = parsedMessage.lastIndexOf("]");
+    console.log("First bracket index:", firstBracketIndex);
+    console.log("Last bracket index:", lastBracketIndex);
     const arrOfItems = JSON.parse(
-      parsedMessage.substring(findLastBracketIndex(parsedMessage))
+      parsedMessage.substring(firstBracketIndex, lastBracketIndex + 1)
     );
-
-    console.log("HERE");
-    console.log(arrOfItems);
-
-    const formattedArrOfItems = arrOfItems.map((item: string) => {
-      const reformatted = item.replace(/\s+/g, "_").toLowerCase();
-      return reformatted;
-    });
-    return formattedArrOfItems;
+    return arrOfItems;
   };
 
   useEffect(() => {
@@ -76,8 +72,12 @@ const VersePage: React.FC = () => {
           "message"
         ]["content"];
 
+      const firstBracketIndex = parsedMessage.indexOf("[");
+      const lastBracketIndex = parsedMessage.lastIndexOf("]");
+      console.log("First bracket index:", firstBracketIndex);
+      console.log("Last bracket index:", lastBracketIndex);
       const arrOfItems = JSON.parse(
-        parsedMessage.substring(7, parsedMessage.length - 4)
+        parsedMessage.substring(firstBracketIndex, lastBracketIndex + 1)
       );
 
       setArrOfItems(arrOfItems);
@@ -91,7 +91,7 @@ const VersePage: React.FC = () => {
         const fetchRoomData = async () => {
           const roomData = await getUserRoomData();
           const items = getItemsFromRoomData(roomData);
-          localStorage.setArrOfItems(items);
+          setArrOfItems(items);
         };
         fetchRoomData();
       }

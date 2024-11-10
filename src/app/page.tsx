@@ -43,6 +43,7 @@ const InternetBedroomPage: React.FC = () => {
 
         if (!error && data.length > 0) {
           localStorage.setItem("roomData", JSON.stringify(data));
+          localStorage.setItem("roomDataUser", username);
           const room_id = data[0].id;
           router.push(`/bedroom/${username}/${room_id}`);
         } else {
@@ -72,6 +73,7 @@ const InternetBedroomPage: React.FC = () => {
 
           if (!!data && !error) {
             localStorage.setItem("roomData", JSON.stringify(data));
+            localStorage.setItem("roomDataUser", username);
             const room_id = data[0].id;
             router.push(`/bedroom/${username}/${room_id}`);
           }
@@ -112,6 +114,7 @@ const InternetBedroomPage: React.FC = () => {
 
         if (!roomError && existingRoom.length > 0) {
           localStorage.setItem("roomData", JSON.stringify(existingRoom));
+          localStorage.setItem("roomDataUser", friendHandle);
           const room_id = existingRoom[0].id;
           router.push(`/bedroom/${friendHandle}/${room_id}`);
         } else {
@@ -137,6 +140,7 @@ const InternetBedroomPage: React.FC = () => {
 
           if (!!newRoom && !insertError) {
             localStorage.setItem("roomData", JSON.stringify(newRoom));
+            localStorage.setItem("roomDataUser", friendHandle);
             const room_id = newRoom[0].id;
             router.push(`/bedroom/${friendHandle}/${room_id}`);
           } else {

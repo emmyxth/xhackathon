@@ -64,8 +64,10 @@ const VersePage: React.FC = () => {
 
   useEffect(() => {
     const roomData = localStorage.getItem("roomData");
+    const roomDataUser = localStorage.getItem("roomDataUser");
+
     console.log(roomData);
-    if (roomData) {
+    if (roomData && roomDataUser && roomDataUser == slug[0]) {
       const parsedRoomData = JSON.parse(roomData);
       const parsedMessage =
         parsedRoomData[0]["prompt_response"]["response"]["choices"][0][
@@ -90,8 +92,14 @@ const VersePage: React.FC = () => {
       } else {
         const fetchRoomData = async () => {
           const roomData = await getUserRoomData();
-          const items = getItemsFromRoomData(roomData);
-          setArrOfItems(items);
+          if (Array.isArray(roomData) && roomData.length > 0) {
+            const items = getItemsFromRoomData(roomData);
+            localStorage.setItem("roomData", JSON.stringify(roomData));
+            localStorage.setItem("roomDataUser", slug[0]);
+            setArrOfItems(items);
+          } else {
+            router.push("/");
+          }
         };
         fetchRoomData();
       }
@@ -116,6 +124,7 @@ const VersePage: React.FC = () => {
           onClick={() => {
             signOut();
             localStorage.removeItem("roomData");
+            localStorage.removeItem("roomDataUser");
             redirect("/");
           }}
         >

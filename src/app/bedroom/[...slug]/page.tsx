@@ -36,8 +36,6 @@ const VersePage: React.FC = () => {
       .select("*")
       .eq("profile_id", id_str)
       .eq("author_id", id_str);
-    console.log(error);
-    console.log(data);
     if (!error && data.length > 0) {
       const items = getItemsFromRoomData(data);
       return items;
@@ -54,8 +52,6 @@ const VersePage: React.FC = () => {
 
     const firstBracketIndex = parsedMessage.indexOf("[");
     const lastBracketIndex = parsedMessage.lastIndexOf("]");
-    console.log("First bracket index:", firstBracketIndex);
-    console.log("Last bracket index:", lastBracketIndex);
     const arrOfItems = JSON.parse(
       parsedMessage.substring(firstBracketIndex, lastBracketIndex + 1)
     );
@@ -66,7 +62,6 @@ const VersePage: React.FC = () => {
     const roomData = localStorage.getItem("roomData");
     const roomDataUser = localStorage.getItem("roomDataUser");
 
-    console.log(roomData);
     if (roomData && roomDataUser && roomDataUser == slug[0]) {
       const parsedRoomData = JSON.parse(roomData);
       const parsedMessage =
@@ -76,8 +71,6 @@ const VersePage: React.FC = () => {
 
       const firstBracketIndex = parsedMessage.indexOf("[");
       const lastBracketIndex = parsedMessage.lastIndexOf("]");
-      console.log("First bracket index:", firstBracketIndex);
-      console.log("Last bracket index:", lastBracketIndex);
       const arrOfItems = JSON.parse(
         parsedMessage.substring(firstBracketIndex, lastBracketIndex + 1)
       );

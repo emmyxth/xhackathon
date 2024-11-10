@@ -23,7 +23,6 @@ const Bedroom: React.FC<BedroomProps> = ({
   );
 
   const handleElementHover = (name: string | null) => {
-    console.log("Hovered Element", name);
     setHoveredElementName(name);
   };
 
@@ -37,7 +36,6 @@ const Bedroom: React.FC<BedroomProps> = ({
   const generateShareableURL = () => {
     if (bedroomState) {
       const encodedState = btoa(JSON.stringify(bedroomState));
-      console.log("bed state", bedroomState);
       return `${window.location.origin}${window.location.pathname}?state=${encodedState}`;
     }
     return "";

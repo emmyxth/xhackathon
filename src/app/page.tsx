@@ -1,6 +1,7 @@
 "use client";
 import AnimatedLoadingText from "@/components/AnimatedLoadingText";
 import { SignIn } from "@/components/Authenticate";
+import TeamProfiles from "@/components/TeamProfiles";
 import { supabase } from "@/utils/db";
 import axios from "axios";
 import { signOut, useSession } from "next-auth/react";
@@ -280,8 +281,7 @@ const InternetBedroomPage: React.FC = () => {
             />
           </div>
           <div className="text-white text-right self-end">
-            <p>powered by</p>
-            <p className="text-xl lg:text-2xl font-bold">Roomify</p>
+            <TeamProfiles />
           </div>
         </div>
       </div>

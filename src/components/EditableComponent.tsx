@@ -164,7 +164,6 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
       windowDimensions.width &&
       windowDimensions.height
     ) {
-      console.log(items);
       items.forEach((item, index) => addElement(item, index));
       setElementsInitialized(true);
     }
@@ -182,7 +181,6 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
     index: number
   ) => {
     let category = item["category"];
-    console.log(category);
     const assetCategory = assets[category as keyof typeof assets];
     const asset = Object.values(assetCategory).find(
       ([name]) => name === item.object
@@ -198,14 +196,9 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
     const [name, src] = asset;
     const type =
       src.split(".").pop()?.toLowerCase() === "gif" ? "gif" : "image";
-    console.log("type:", type);
     setElements((prevElements) => {
       const position =
         categoryPositions[category as keyof typeof categoryPositions];
-
-      if (!position) {
-        console.log("POSITION NOT", category);
-      }
 
       const newElement: Element = {
         id: `${item.object}-${index}`,
@@ -219,7 +212,6 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
       return [...prevElements, newElement];
     });
   };
-  console.log(elements);
 
   useEffect(() => {
     onStateChange(elements, backgroundColor);

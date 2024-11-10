@@ -21,14 +21,12 @@ const handler = NextAuth({
       // Persist the OAuth access_token and or the user id to the token right after signin
       if (account) {
         token.accessToken = account.access_token
-        console.log(account)
         token.username = profile?.data.username ?? null
         token.id_str = profile?.data.id ?? null
       }
       return token
     },
     async session({session, token}) {
-      console.log(token)
       session.user.handle = token.username as string
       session.user.id_str = token.id_str as string
       session.user.access_token = token.accessToken as string

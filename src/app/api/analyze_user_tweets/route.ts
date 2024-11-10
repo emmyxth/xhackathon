@@ -613,7 +613,6 @@ export async function POST(request: Request) {
 
         res.on('end', () => {
           const body = Buffer.concat(chunks);
-          console.log(body.toString());
           resolve(NextResponse.json({ data: JSON.parse(body.toString()) }));
         });
 

@@ -23,10 +23,6 @@ const DetailPanel: React.FC<DetailPanelProps> = ({
       )
     : null;
 
-  console.log("Here");
-  console.log(hoveredElementName);
-  console.log(hoveredElement);
-
   const formatName = (name: string) => {
     return name
       .split("_")

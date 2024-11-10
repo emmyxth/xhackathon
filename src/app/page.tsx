@@ -185,12 +185,12 @@ const InternetBedroomPage: React.FC = () => {
         {/* Left Section */}
         <div className="w-full lg:w-1/2 flex flex-col justify-center items-center p-8 lg:p-24 lg:bg-black text-black lg:text-white min-h-screen lg:min-h-0">
           <div className="flex flex-col items-center max-w-4xl w-full flex-1 lg:flex-initial justify-center sm:pt-12">
-            <h1 className="text-5xl lg:text-6xl font-bold mb-8 lg:mb-6 minecraft-font text-center flex flex-col gap-6 lg:gap-4">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 lg:mb-6 minecraft-font text-center flex flex-col gap-4 sm:gap-4 lg:gap-4">
               <span>YOUR</span>
               <span>X</span>
               <span>BEDROOM</span>
             </h1>
-            <p className="text-[20px] lg:text-[24px] mb-8 lg:mb-6 text-center max-w-xs lg:max-w-md mx-auto">
+            <p className="text-[20px] lg:text-[24px] mb-4 sm:mb-6 lg:mb-6 text-center max-w-xs lg:max-w-md mx-auto">
               Find out what your bedroom looks like based off your X profile
             </p>
 
@@ -254,7 +254,7 @@ const InternetBedroomPage: React.FC = () => {
                 </div>
 
                 <button
-                  className="px-4 py-2 bg-white border border-white text-black rounded-full items-center w-1/4 mt-4 hover:bg-black hover:text-white"
+                  className="px-4 py-2 bg-white border border-white text-black rounded-full items-center w-[100px] mt-4 hover:bg-black hover:text-white"
                   onClick={() => {
                     signOut();
                     localStorage.removeItem("roomData");

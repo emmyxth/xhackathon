@@ -94,6 +94,9 @@ const InternetBedroomPage: React.FC = () => {
       showError("Please enter a valid X handle");
       return;
     }
+    if (friendHandle.startsWith("@")) {
+      friendHandle = friendHandle.substring(1);
+    }
 
     if (session.data && session.data?.user.id_str) {
       setLoading(true);

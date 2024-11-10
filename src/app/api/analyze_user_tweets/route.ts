@@ -603,7 +603,7 @@ export async function POST(request: Request) {
       "temperature": 0
     })
 
-    return new Promise((resolve, reject) => {
+    return new Promise<Response>((resolve, reject) => {
       const req = https.request(options, (res) => {
         let chunks: Buffer[] = [];
 

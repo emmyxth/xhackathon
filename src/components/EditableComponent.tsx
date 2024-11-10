@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useCallback, useEffect, useState } from "react";
-import assets from "../../image_retrieval/assets.json";
+import assets from "../../aws_image_retrieval/aws_assets.json";
 import DraggableElement from "./DraggableElement";
 
 const categoryOrder = [
@@ -60,6 +60,7 @@ interface Element {
   id: string;
   type: string;
   src: string;
+  reasoning: string;
   category: string;
   initialX: number;
   initialY: number;
@@ -95,7 +96,7 @@ const categoryPositions = {
 interface EditableComponentProps {
   onElementHover: (name: string | null) => void;
   onStateChange: (elements: Element[], backgroundColor: string) => void;
-  items: string[];
+  items: { category: string; object: string; reasoning: string }[];
 }
 
 const EditableComponent: React.FC<EditableComponentProps> = ({
@@ -163,6 +164,7 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
       windowDimensions.width &&
       windowDimensions.height
     ) {
+      console.log(items);
       items.forEach((item, index) => addElement(item, index));
       setElementsInitialized(true);
     }
@@ -175,11 +177,16 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
     }
   }, [elementsInitialized]);
 
-  const addElement = (item: string, index: number) => {
-    let category = categoryOrder[index];
+  const addElement = (
+    item: { category: string; object: string; reasoning: string },
+    index: number
+  ) => {
+    let category = item["category"];
+    console.log(category);
     const assetCategory = assets[category as keyof typeof assets];
-    console.log("AssetCatgeory: ", assetCategory, item);
-    const asset = Object.values(assetCategory).find(([name]) => name === item);
+    const asset = Object.values(assetCategory).find(
+      ([name]) => name === item.object
+    );
 
     if (!asset) return;
     if (category === "DECOR") {
@@ -188,7 +195,6 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
     } else if (category == "POSTER") {
       category = "POSTER1";
     }
-    console.log("category: ", category, "item:", item);
     const [name, src] = asset;
     const type =
       src.split(".").pop()?.toLowerCase() === "gif" ? "gif" : "image";
@@ -202,9 +208,10 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
       }
 
       const newElement: Element = {
-        id: `${item}-${index}`,
+        id: `${item.object}-${index}`,
         type,
         src,
+        reasoning: item.reasoning,
         category,
         initialX: position.x,
         initialY: position.y,
@@ -212,6 +219,7 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
       return [...prevElements, newElement];
     });
   };
+  console.log(elements);
 
   useEffect(() => {
     onStateChange(elements, backgroundColor);

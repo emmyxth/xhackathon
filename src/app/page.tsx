@@ -3,7 +3,7 @@ import AnimatedLoadingText from "@/components/AnimatedLoadingText";
 import { SignIn } from "@/components/Authenticate";
 import { supabase } from "@/utils/db";
 import axios from "axios";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
@@ -42,7 +42,6 @@ const InternetBedroomPage: React.FC = () => {
           .eq("author_id", id_str);
 
         if (!error && data.length > 0) {
-          setLoading(false);
           localStorage.setItem("roomData", JSON.stringify(data));
           const room_id = data[0].id;
           router.push(`/bedroom/${username}/${room_id}`);
@@ -167,6 +166,7 @@ const InternetBedroomPage: React.FC = () => {
         </div> */}
         <div className="absolute inset-0 z-0">
           {/* Desktop Background - only visible on lg screens */}
+          {/* Desktop Background - only visible on lg screens */}
           <img
             src="https://madeonverse.com/video/sky-30fps-reduced.webp"
             alt="Animated sky background"
@@ -200,59 +200,73 @@ const InternetBedroomPage: React.FC = () => {
               {session.status !== "authenticated" ? (
                 <SignIn />
               ) : (
-                <div className="w-full flex flex-col lg:flex-row lg:items-start lg:gap-8">
-                  {/* Left side - Generate My Bedroom */}
-                  <div className="w-full lg:w-1/2 text-center mb-8 lg:mb-0 flex flex-col justify-between items-center">
-                    {session.data && session.data?.user.handle && (
-                      <h1 className="text-2xl lg:text-2xl font-bold mb-6 lg:mb-4">
-                        Welcome, @{session.data?.user.handle}{" "}
-                      </h1>
-                    )}
-                    <button
-                      onClick={generateUserBedroom}
-                      className="w-48 lg:w-full px-4 py-3 lg:px-6 lg:py-4 bg-black lg:bg-blue-500 text-white rounded-full hover:bg-gray-800 lg:hover:bg-blue-600 transition-colors text-sm lg:text-base"
-                    >
-                      Create Bedroom
-                    </button>
-                  </div>
-
-                  {/* Divider for mobile/tablet */}
-                  <div className="lg:hidden">
-                    <p className="text-center text-gray-600 mb-6 font-bold">
-                      OR
-                    </p>
-                  </div>
-
-                  {/* Vertical divider for desktop */}
-                  <div className="hidden lg:block border-r border-gray-500 h-full" />
-
-                  {/* Right side - Friend's Room */}
-                  <div className="w-full lg:w-1/2 text-center mb-8 lg:mb-0 flex flex-col justify-center items-center">
-                    <form
-                      onSubmit={(e) => {
-                        e.preventDefault();
-                        const target = e.currentTarget;
-                        const friendHandle = (
-                          target.elements[0] as HTMLInputElement
-                        ).value;
-                        generateFriendBedroom(friendHandle);
-                      }}
-                      className="flex flex-col gap-9 w-full items-center h-full"
-                    >
-                      <input
-                        id="friendInput"
-                        type="text"
-                        className="w-64 lg:w-full p-2 rounded text-black bg-gray-200 text-sm lg:text-base"
-                        placeholder="Enter any public X handle"
-                      />
+                <div className="w-full flex flex-col gap-8 items-center">
+                  <div className="w-full flex flex-col lg:flex-row lg:items-start lg:gap-8">
+                    {/* Left side - Generate My Bedroom */}
+                    <div className="w-full lg:w-1/2 text-center mb-8 lg:mb-0 flex flex-col justify-between items-center">
+                      {session.data && session.data?.user.handle && (
+                        <h1 className="text-2xl lg:text-2xl font-bold mb-6 lg:mb-4">
+                          Welcome, @{session.data?.user.handle}{" "}
+                        </h1>
+                      )}
                       <button
-                        type="submit"
-                        className="w-48 lg:w-full px-4 py-3 lg:px-6 lg:py-4 bg-black lg:bg-blue-500 text-white rounded-full hover:bg-gray-800 lg:hover:bg-blue-600 transition-colors text-sm lg:text-base mt-auto"
+                        onClick={generateUserBedroom}
+                        className="w-48 lg:w-full px-4 py-3 lg:px-6 lg:py-4 bg-black lg:bg-blue-500 text-white rounded-full hover:bg-gray-800 lg:hover:bg-blue-600 transition-colors text-sm lg:text-base"
                       >
-                        Generate
+                        Create Bedroom
                       </button>
-                    </form>
+                    </div>
+
+                    {/* Divider for mobile/tablet */}
+                    <div className="lg:hidden">
+                      <p className="text-center text-gray-600 mb-6 font-bold">
+                        OR
+                      </p>
+                    </div>
+
+                    {/* Vertical divider for desktop */}
+                    <div className="hidden lg:block border-r border-gray-500 h-full" />
+
+                    {/* Right side - Friend's Room */}
+                    <div className="w-full lg:w-1/2 text-center flex flex-col justify-between items-center">
+                      <form
+                        onSubmit={(e) => {
+                          e.preventDefault();
+                          const target = e.currentTarget;
+                          const friendHandle = (
+                            target.elements[0] as HTMLInputElement
+                          ).value;
+                          generateFriendBedroom(friendHandle);
+                        }}
+                        className="flex flex-col gap-4 w-full items-center"
+                      >
+                        <input
+                          id="friendInput"
+                          type="text"
+                          className="w-64 lg:w-full p-2 rounded text-black bg-gray-200 text-sm lg:text-base"
+                          placeholder="Enter any public X handle"
+                        />
+                        <button
+                          type="submit"
+                          className="w-48 lg:w-full px-4 py-3 lg:px-6 lg:py-4 bg-black lg:bg-blue-500 text-white rounded-full hover:bg-gray-800 lg:hover:bg-blue-600 transition-colors text-sm lg:text-base"
+                        >
+                          Generate
+                        </button>
+                      </form>
+                    </div>
                   </div>
+
+                  <button
+                    className="px-4 py-2 bg-white border border-white text-black rounded-full items-center w-1/4 mt-4 hover:bg-black hover:text-white"
+                    onClick={() => {
+                      // Add your logout logic here
+                      signOut();
+                      localStorage.removeItem("roomData");
+                      // Example: redirect to logout endpoint or clear session
+                    }}
+                  >
+                    Log Out
+                  </button>
                 </div>
               )}
             </div>

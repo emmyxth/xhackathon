@@ -1,5 +1,4 @@
 import React from "react";
-import elementDetails from "../../image_retrieval/items_description.json";
 
 interface ElementDetail {
   name: string;
@@ -10,12 +9,23 @@ interface ElementDetail {
 
 interface DetailPanelProps {
   hoveredElementName: string | null;
+  items: { category: string; object: string; reasoning: string }[];
 }
 
-const DetailPanel: React.FC<DetailPanelProps> = ({ hoveredElementName }) => {
+const DetailPanel: React.FC<DetailPanelProps> = ({
+  hoveredElementName,
+  items,
+}) => {
   const hoveredElement = hoveredElementName
-    ? elementDetails.find((el) => el.name === hoveredElementName)
+    ? items.find(
+        (i: { category: string; object: string; reasoning: string }) =>
+          i.object === hoveredElementName
+      )
     : null;
+
+  console.log("Here");
+  console.log(hoveredElementName);
+  console.log(hoveredElement);
 
   const formatName = (name: string) => {
     return name
@@ -29,11 +39,9 @@ const DetailPanel: React.FC<DetailPanelProps> = ({ hoveredElementName }) => {
       {hoveredElement ? (
         <div className="text-black h-full flex flex-col">
           <h2 className="text-2xl font-bold mb-4">
-            {formatName(hoveredElement.name)}
+            {formatName(hoveredElement.object)}
           </h2>
-          <p className="text-gray-700 flex-grow">
-            {hoveredElement.description}
-          </p>
+          <p className="text-gray-700 flex-grow">{hoveredElement.reasoning}</p>
         </div>
       ) : (
         <div className="h-full flex items-center justify-center">

@@ -1,18 +1,24 @@
 "use client";
 import Bedroom from "@/components/Bedroom";
 import { supabase } from "@/utils/db";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import TeamProfiles from "../../../components/TeamProfiles";
 
 import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
+import { redirect, useParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const VersePage: React.FC = () => {
   const router = useRouter();
   const { slug } = useParams();
   const session = useSession();
-  const [arrOfItems, setArrOfItems] = useState([]);
+  const [arrOfItems, setArrOfItems] = useState<
+    {
+      category: string;
+      object: string;
+      reasoning: string;
+    }[]
+  >([]);
 
   const [bedroomState, setBedroomState] = useState<{
     elements: any[];
@@ -50,6 +56,9 @@ const VersePage: React.FC = () => {
       parsedMessage.substring(findLastBracketIndex(parsedMessage))
     );
 
+    console.log("HERE");
+    console.log(arrOfItems);
+
     const formattedArrOfItems = arrOfItems.map((item: string) => {
       const reformatted = item.replace(/\s+/g, "_").toLowerCase();
       return reformatted;
@@ -59,6 +68,7 @@ const VersePage: React.FC = () => {
 
   useEffect(() => {
     const roomData = localStorage.getItem("roomData");
+    console.log(roomData);
     if (roomData) {
       const parsedRoomData = JSON.parse(roomData);
       const parsedMessage =
@@ -67,15 +77,10 @@ const VersePage: React.FC = () => {
         ]["content"];
 
       const arrOfItems = JSON.parse(
-        parsedMessage.substring(findLastBracketIndex(parsedMessage))
+        parsedMessage.substring(7, parsedMessage.length - 4)
       );
 
-      const formattedArrOfItems = arrOfItems.map((item: string) => {
-        const reformatted = item.replace(/\s+/g, "_").toLowerCase();
-        return reformatted;
-      });
-
-      setArrOfItems(formattedArrOfItems);
+      setArrOfItems(arrOfItems);
     } else {
       if (
         session.status === "unauthenticated" ||
@@ -102,10 +107,20 @@ const VersePage: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-black">
-      <header className="p-4">
+      <header className="p-4 flex flex-row justify-between">
         <Link href={"/"}>
           <h1 className="text-2xl font-bold">My X Bedroom</h1>
         </Link>
+        <button
+          className="px-4 py-2 bg-red-600 border border-white text-white rounded-full float-right"
+          onClick={() => {
+            signOut();
+            localStorage.removeItem("roomData");
+            redirect("/");
+          }}
+        >
+          Log Out
+        </button>
       </header>
 
       <main className="flex-grow flex flex-col md:flex-row gap-12 items-center justify-center md:space-y-0 space-y-4 p-4">

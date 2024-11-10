@@ -7,6 +7,7 @@ import axios from "axios";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import AudioControlButton from "../components/AudioControlButton";
 
 const ErrorOverlay = ({ message }: { message: string }) => (
   <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
@@ -259,6 +260,7 @@ const InternetBedroomPage: React.FC = () => {
                       </button>
                     </form>
                   </div>
+                  <div className=""></div>
                 </div>
 
                 <button
@@ -276,14 +278,17 @@ const InternetBedroomPage: React.FC = () => {
         </div>
 
         {/* Right Section - Only visible on desktop */}
-        <div className="hidden lg:flex w-full lg:w-1/2 relative flex-col items-center justify-between lg:p-12 bg-black bg-opacity-30 h-full">
+        <div className="hidden lg:flex w-full lg:w-1/2 relative flex-col items-center justify-between lg:p-12 bg-black bg-opacity-30 h-full ">
+          <div className="absolute top-5 right-5">
+            <AudioControlButton />
+          </div>
           <div className="flex-grow flex items-center justify-center w-full h-full">
             <img
               src="/hero-x-decorated.svg"
               className="w-full h-full object-contain"
             />
           </div>
-          <div className="text-white text-right self-end">
+          <div className="flex text-white text-right self-end gap-2 mb-2 pb-4">
             <TeamProfiles />
           </div>
         </div>

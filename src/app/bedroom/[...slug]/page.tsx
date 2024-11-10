@@ -3,6 +3,7 @@ import Bedroom from "@/components/Bedroom";
 import { supabase } from "@/utils/db";
 import { signOut, useSession } from "next-auth/react";
 import TeamProfiles from "../../../components/TeamProfiles";
+import AudioControlButton from "../../../components/AudioControlButton";
 
 import Link from "next/link";
 import { redirect, useParams, useRouter } from "next/navigation";
@@ -136,6 +137,9 @@ const VersePage: React.FC = () => {
       <footer className="p-4 flex sm:justify-between justify-center items-center ">
         {/* <span>Powered by JECZ</span> */}
         <TeamProfiles />
+        <div className="fixed bottom-4 right-4 z-50">
+          <AudioControlButton />
+        </div>
       </footer>
     </div>
   );

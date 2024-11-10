@@ -498,7 +498,7 @@ export async function POST(request: Request) {
       - Should classic cartoons or movies be remade?  
       - What’s the weirdest or funniest meme you’ve seen lately?  
 
-    Make this a JSON readable output with no newlines or whitespace. Return your result in an array of 1 PET, 1 FOOD, 1 CHAIR, 1 RUG, 10 DECOR, 1 GIF. Format it like this, with each element being a json that describes the category, object itself (<OBJECT>), and why you picked that object in <REASONING>. Describe the user in second person (e.g you, yours):
+    Make this a JSON readable output with no newlines or whitespace. Return your result in an array of 1 PET, 1 FOOD, 1 CHAIR, 1 RUG, 10 DECOR, 1 GIF. Decor must have maximum 2 plants. Format it like this, with each element being a json that describes the category, object itself (<OBJECT>), and why you picked that object in <REASONING>. Describe the user in second person (e.g you, yours):
 
     [
       {

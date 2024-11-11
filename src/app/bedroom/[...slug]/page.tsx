@@ -2,8 +2,8 @@
 import Bedroom from "@/components/Bedroom";
 import { supabase } from "@/utils/db";
 import { signOut, useSession } from "next-auth/react";
-import TeamProfiles from "../../../components/TeamProfiles";
 import AudioControlButton from "../../../components/AudioControlButton";
+import TeamProfiles from "../../../components/TeamProfiles";
 
 import Link from "next/link";
 import { redirect, useParams, useRouter } from "next/navigation";
@@ -60,12 +60,7 @@ const VersePage: React.FC = () => {
 
     if (roomData && roomDataUser && roomDataUser == slug[0]) {
       const parsedRoomData = JSON.parse(roomData);
-      const strArrOfItems =
-        parsedRoomData[0]["prompt_response"]["response"]["choices"][0][
-          "message"
-        ]["content"];
-      const arrOfItems = JSON.parse(strArrOfItems);
-      console.log("arrOfItems", arrOfItems);
+      const arrOfItems = parsedRoomData[0]["prompt_response"]["response"];
       setArrOfItems(arrOfItems);
     } else {
       if (

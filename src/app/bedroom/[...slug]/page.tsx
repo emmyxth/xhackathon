@@ -49,6 +49,7 @@ const VersePage: React.FC = () => {
   const getItemsFromRoomData = (roomData: any) => {
     const parsedRoomData = JSON.parse(roomData);
     const arrOfItems = parsedRoomData[0]["prompt_response"]["response"];
+    console.log("ArrOfItems:", arrOfItems);
     setArrOfItems(arrOfItems);
     return arrOfItems;
   };
@@ -59,7 +60,12 @@ const VersePage: React.FC = () => {
 
     if (roomData && roomDataUser && roomDataUser == slug[0]) {
       const parsedRoomData = JSON.parse(roomData);
-      const arrOfItems = parsedRoomData[0]["prompt_response"]["response"];
+      const strArrOfItems =
+        parsedRoomData[0]["prompt_response"]["response"]["choices"][0][
+          "message"
+        ]["content"];
+      const arrOfItems = JSON.parse(strArrOfItems);
+      console.log("arrOfItems", arrOfItems);
       setArrOfItems(arrOfItems);
     } else {
       if (
@@ -74,7 +80,7 @@ const VersePage: React.FC = () => {
             const items = getItemsFromRoomData(roomData);
             localStorage.setItem("roomData", JSON.stringify(roomData));
             localStorage.setItem("roomDataUser", slug[0]);
-            setArrOfItems(items);
+            // setArrOfItems(items);
           } else {
             router.push("/");
           }

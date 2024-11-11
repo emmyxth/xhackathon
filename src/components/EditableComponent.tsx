@@ -164,8 +164,13 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
       windowDimensions.width &&
       windowDimensions.height
     ) {
-      items.forEach((item, index) => addElement(item, index));
-      setElementsInitialized(true);
+      console.log(items);
+      if (Array.isArray(items)) {
+        items.forEach((item, index) => addElement(item, index));
+        setElementsInitialized(true);
+      } else {
+        console.error("Expected 'items' to be an array, but got:", items);
+      }
     }
   }, [windowDimensions, elementsInitialized]);
 

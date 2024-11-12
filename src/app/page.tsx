@@ -1,17 +1,34 @@
+//@ts-nocheck
 "use client";
 import AnimatedLoadingText from "@/components/AnimatedLoadingText";
 import { SignIn } from "@/components/Authenticate";
+import TeamProfiles from "@/components/TeamProfiles";
 import { supabase } from "@/utils/db";
 import axios from "axios";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-
 import React, { useState } from "react";
+import AudioControlButton from "../components/AudioControlButton";
+
+const ErrorOverlay = ({ message }: { message: string }) => (
+  <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
+    <div className="bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg">
+      {message}
+    </div>
+  </div>
+);
 
 const InternetBedroomPage: React.FC = () => {
   const router = useRouter();
   const session = useSession();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  // Function to show error for 3 seconds
+  const showError = (message: string) => {
+    setError(message);
+    setTimeout(() => setError(null), 3000);
+  };
 
   const generateUserBedroom = async () => {
     if (session.data && session.data?.user.id_str) {
@@ -28,8 +45,8 @@ const InternetBedroomPage: React.FC = () => {
           .eq("author_id", id_str);
 
         if (!error && data.length > 0) {
-          setLoading(false);
           localStorage.setItem("roomData", JSON.stringify(data));
+          localStorage.setItem("roomDataUser", username);
           const room_id = data[0].id;
           router.push(`/bedroom/${username}/${room_id}`);
         } else {
@@ -59,44 +76,56 @@ const InternetBedroomPage: React.FC = () => {
 
           if (!!data && !error) {
             localStorage.setItem("roomData", JSON.stringify(data));
+            localStorage.setItem("roomDataUser", username);
             const room_id = data[0].id;
             router.push(`/bedroom/${username}/${room_id}`);
           }
-          setLoading(false);
         }
-      } catch {
-        // Error toast
+      } catch (err) {
+        showError(
+          "Failed to generate bedroom. Check your handle and try again."
+        );
+      } finally {
         setLoading(false);
       }
     }
   };
 
   const generateFriendBedroom = async (friendHandle: string) => {
+    if (!friendHandle.trim()) {
+      showError("Please enter a valid X handle");
+      return;
+    }
+    if (friendHandle.startsWith("@")) {
+      friendHandle = friendHandle.substring(1);
+    }
+
     if (session.data && session.data?.user.id_str) {
       setLoading(true);
-
       const id_str = session.data?.user.id_str;
       const bearer_token = session.data?.user.access_token;
 
-      const friendId = await axios.get(
-        `/api/user_id?user_handle=${friendHandle}&bearer_token=${bearer_token}`
-      );
-
       try {
-        const { data, error } = await supabase
+        const friendIdResponse = await axios.get(
+          `/api/user_id?user_handle=${friendHandle}&bearer_token=${bearer_token}`
+        );
+
+        const friendId = friendIdResponse.data.id;
+
+        const { data: existingRoom, error: roomError } = await supabase
           .from("rooms")
           .select("*")
           .eq("profile_id", friendId)
           .eq("author_id", id_str);
 
-        if (!error && data.length > 0) {
-          setLoading(false);
-          localStorage.setItem("roomData", JSON.stringify(data));
-          const room_id = data[0].id;
+        if (!roomError && existingRoom.length > 0) {
+          localStorage.setItem("roomData", JSON.stringify(existingRoom));
+          localStorage.setItem("roomDataUser", friendHandle);
+          const room_id = existingRoom[0].id;
           router.push(`/bedroom/${friendHandle}/${room_id}`);
         } else {
           const tweets = await axios.get(
-            `/api/user_tweets?user_id=${friendId.data.id}&bearer_token=${bearer_token}`
+            `/api/user_tweets?user_id=${friendId}&bearer_token=${bearer_token}`
           );
 
           const analyze = await axios.post(`api/analyze_user_tweets`, {
@@ -104,25 +133,35 @@ const InternetBedroomPage: React.FC = () => {
             liked_tweets: tweets.data,
           });
 
-          const { data, error } = await supabase
+          console.log(analyze);
+
+          const { data: newRoom, error: insertError } = await supabase
             .from("rooms")
             .insert({
               author_id: id_str,
-              profile_id: id_str,
+              profile_id: friendId,
               prompt_response: {
                 response: analyze.data.data,
               },
             })
             .select();
 
-          if (!!data && !error) {
-            localStorage.setItem("roomData", JSON.stringify(data));
-            const room_id = data[0].id;
+          if (!!newRoom && !insertError) {
+            localStorage.setItem("roomData", JSON.stringify(newRoom));
+            localStorage.setItem("roomDataUser", friendHandle);
+            const room_id = newRoom[0].id;
             router.push(`/bedroom/${friendHandle}/${room_id}`);
+          } else {
+            throw new Error("Failed to create room");
           }
-          setLoading(false);
         }
-      } catch {
+      } catch (err) {
+        if (axios.isAxiosError(err) && err.response?.status === 404) {
+          showError(`@${friendHandle} doesn't exist on X`);
+        } else {
+          showError("Failed to generate bedroom. Please try again.");
+        }
+      } finally {
         setLoading(false);
       }
     }
@@ -130,41 +169,53 @@ const InternetBedroomPage: React.FC = () => {
 
   if (loading) {
     return <AnimatedLoadingText />;
-  } else {
-    return (
-      <div className="min-h-screen relative overflow-hidden flex items-center">
-        {/* Animated Background - Always visible */}
-        <div className="absolute inset-0 z-0">
+  }
+
+  return (
+    <div className="min-h-screen relative overflow-hidden flex items-center">
+      {/* Error Alert Overlay */}
+      {error && <ErrorOverlay message={error} />}
+
+      {/* Animated Background */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://madeonverse.com/video/sky-30fps-reduced.webp"
+          alt="Animated sky background"
+          className="hidden lg:block object-cover w-full h-full"
+        />
+        <div className="lg:hidden w-full h-full">
           <img
-            src="https://madeonverse.com/video/sky-30fps-reduced.webp"
-            alt="Animated sky background"
+            src="/mobile-hero-background.gif"
+            alt="Mobile background pattern"
             className="object-cover w-full h-full"
           />
         </div>
+      </div>
 
-        {/* Content Wrapper */}
-        <div className="relative z-10 flex flex-col lg:flex-row w-full min-h-screen lg:min-h-0 h-screen">
-          {/* Left Section - Black background only on desktop */}
-          <div className="w-full lg:w-1/2 flex flex-col justify-center items-center p-8 lg:p-24 lg:bg-black text-black lg:text-white min-h-screen lg:min-h-0">
-            <div className="flex flex-col items-center max-w-4xl w-full flex-1 lg:flex-initial justify-center">
-              <h1 className="text-5xl lg:text-6xl font-bold mb-8 lg:mb-6 minecraft-font text-center flex flex-col gap-6 lg:gap-4">
-                <span>YOUR</span>
-                <span>X</span>
-                <span>BEDROOM</span>
-              </h1>
-              <p className="text-[20px] lg:text-[24px] mb-8 lg:mb-6 text-center max-w-xs lg:max-w-md mx-auto">
-                Find out what your bedroom looks like based off your X profile
-              </p>
+      {/* Content Wrapper */}
+      <div className="relative z-10 flex flex-col lg:flex-row w-full min-h-screen lg:min-h-0 h-screen">
+        {/* Left Section */}
+        <div className="w-full lg:w-1/2 flex flex-col justify-center items-center p-8 lg:p-24 lg:bg-black text-black lg:text-white min-h-screen lg:min-h-0">
+          <div className="flex flex-col items-center max-w-4xl w-full flex-1 lg:flex-initial justify-center sm:pt-12">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 lg:mb-6 minecraft-font text-center flex flex-col gap-4 sm:gap-4 lg:gap-4">
+              <span>YOUR</span>
+              <span>X</span>
+              <span>BEDROOM</span>
+            </h1>
+            <p className="text-[20px] lg:text-[24px] mb-4 sm:mb-6 lg:mb-6 text-center max-w-xs lg:max-w-md mx-auto">
+              Find out what your bedroom looks like based off your X profile
+            </p>
 
-              {session.status !== "authenticated" ? (
-                <SignIn />
-              ) : (
+            {session.status !== "authenticated" ? (
+              <SignIn />
+            ) : (
+              <div className="w-full flex flex-col gap-8 items-center">
                 <div className="w-full flex flex-col lg:flex-row lg:items-start lg:gap-8">
                   {/* Left side - Generate My Bedroom */}
                   <div className="w-full lg:w-1/2 text-center mb-8 lg:mb-0 flex flex-col justify-between items-center">
                     {session.data && session.data?.user.handle && (
                       <h1 className="text-2xl lg:text-2xl font-bold mb-6 lg:mb-4">
-                        Welcome, @{session.data?.user.handle}{" "}
+                        Welcome, @{session.data?.user.handle}
                       </h1>
                     )}
                     <button
@@ -212,36 +263,41 @@ const InternetBedroomPage: React.FC = () => {
                       </button>
                     </form>
                   </div>
+                  <div className=""></div>
                 </div>
-              )}
-            </div>
-          </div>
 
-          {/* Right Section - Only visible on desktop */}
-          <div className="hidden lg:flex w-full lg:w-1/2 relative flex-col items-center justify-between p-6 lg:p-12 bg-black bg-opacity-30">
-            <div className="flex-grow flex items-center justify-center">
-              <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                className="w-32 h-32 lg:w-48 lg:h-48 text-white"
-              >
-                <g>
-                  <path
-                    fill="currentColor"
-                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-                  ></path>
-                </g>
-              </svg>
-            </div>
-            <div className="text-white text-right self-end">
-              <p>powered by</p>
-              <p className="text-xl lg:text-2xl font-bold">Roomify</p>
-            </div>
+                <button
+                  className="px-4 py-2 bg-white border border-white text-black rounded-full items-center w-[100px] mt-4 hover:bg-black hover:text-white"
+                  onClick={() => {
+                    signOut();
+                    localStorage.removeItem("roomData");
+                  }}
+                >
+                  Log Out
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Right Section - Only visible on desktop */}
+        <div className="hidden lg:flex w-full lg:w-1/2 relative flex-col items-center justify-between lg:p-12 bg-black bg-opacity-30 h-full ">
+          <div className="absolute top-5 right-5">
+            <AudioControlButton />
+          </div>
+          <div className="flex-grow flex items-center justify-center w-full h-full">
+            <img
+              src="/hero-x-decorated.svg"
+              className="w-full h-full object-contain"
+            />
+          </div>
+          <div className="flex text-white text-right self-end gap-2 mb-2 pb-4">
+            <TeamProfiles />
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 };
 
 export default InternetBedroomPage;

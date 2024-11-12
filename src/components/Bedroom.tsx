@@ -8,7 +8,7 @@ interface BedroomProps {
     elements: any[];
     backgroundColor: string;
   } | null;
-  items: string[];
+  items: { category: string; object: string; reasoning: string }[];
   user: string;
 }
 
@@ -36,7 +36,6 @@ const Bedroom: React.FC<BedroomProps> = ({
   const generateShareableURL = () => {
     if (bedroomState) {
       const encodedState = btoa(JSON.stringify(bedroomState));
-      console.log("bed state", bedroomState);
       return `${window.location.origin}${window.location.pathname}?state=${encodedState}`;
     }
     return "";
@@ -59,16 +58,16 @@ const Bedroom: React.FC<BedroomProps> = ({
       <h1 style={{ textAlign: "center", fontSize: "2em" }}>
         <strong>{user}</strong>'s bedroom
       </h1>
-      <div className="flex flex-col space-y-8 md:flex-row md:space-y-0 md:gap-16">
+      <div className="flex flex-col space-y-8 lg:flex-row lg:space-y-0 lg:gap-16">
         <EditableComponent
           onElementHover={handleElementHover}
           onStateChange={memoizedOnStateChange}
           items={items}
         />
-        <DetailPanel hoveredElementName={hoveredElementName} />
+        <DetailPanel hoveredElementName={hoveredElementName} items={items} />
       </div>
       <button
-        className="px-4 py-2 bg-black border border-white text-white rounded-full mr-2 w-[60%] sm:w-[20%] self-center hover:bg-white hover:text-black"
+        className="px-6 py-2 bg-black border border-white text-white rounded-full mr-2 self-center hover:bg-white hover:text-black"
         onClick={copyShareableURL}
       >
         Copy link

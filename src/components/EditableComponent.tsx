@@ -60,6 +60,7 @@ interface Element {
   id: string;
   type: string;
   src: string;
+  reasoning: string;
   category: string;
   initialX: number;
   initialY: number;
@@ -74,18 +75,18 @@ interface ElementDetail {
 // Define positions for each category
 const categoryPositions = {
   PETS: { x: -20, y: 280 },
-  FOOD: { x: 220, y: 210 },
-  SHELF1: { x: 30, y: 25 },
-  SHELF2: { x: 30, y: -65 },
-  SHELF3: { x: -30, y: 25 },
-  SHELF4: { x: -30, y: -65 },
+  FOOD: { x: 200, y: 240 },
+  SHELF1: { x: 30, y: 85 },
+  SHELF2: { x: 30, y: -5 },
+  SHELF3: { x: -30, y: 85 },
+  SHELF4: { x: -30, y: -5 },
   CHAIR: { x: 200, y: 220 },
-  RUG: { x: 200, y: 300 },
-  POSTER1: { x: 180, y: 0 },
-  TABLE1: { x: 110, y: 130 },
-  TABLE2: { x: 10, y: 130 },
-  TABLE3: { x: 70, y: 130 },
-  TABLE4: { x: 140, y: 130 },
+  RUG: { x: 80, y: 370 },
+  POSTER1: { x: 180, y: 40 },
+  TABLE1: { x: 110, y: 180 },
+  TABLE2: { x: 10, y: 180 },
+  TABLE3: { x: 70, y: 180 },
+  TABLE4: { x: 140, y: 180 },
   GROUND1: { x: 110, y: 260 },
   GROUND2: { x: 150, y: 350 },
   CEILING: { x: 100, y: 100 },
@@ -95,7 +96,7 @@ const categoryPositions = {
 interface EditableComponentProps {
   onElementHover: (name: string | null) => void;
   onStateChange: (elements: Element[], backgroundColor: string) => void;
-  items: string[];
+  items: { category: string; object: string; reasoning: string }[];
 }
 
 const EditableComponent: React.FC<EditableComponentProps> = ({
@@ -163,8 +164,13 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
       windowDimensions.width &&
       windowDimensions.height
     ) {
-      items.forEach((item, index) => addElement(item, index));
-      setElementsInitialized(true);
+      console.log(items);
+      if (Array.isArray(items)) {
+        items.forEach((item, index) => addElement(item, index));
+        setElementsInitialized(true);
+      } else {
+        console.error("Expected 'items' to be an array, but got:", items);
+      }
     }
   }, [windowDimensions, elementsInitialized]);
 
@@ -175,11 +181,15 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
     }
   }, [elementsInitialized]);
 
-  const addElement = (item: string, index: number) => {
-    let category = categoryOrder[index];
+  const addElement = (
+    item: { category: string; object: string; reasoning: string },
+    index: number
+  ) => {
+    let category = item["category"];
     const assetCategory = assets[category as keyof typeof assets];
-    console.log("AssetCatgeory: ", assetCategory, item);
-    const asset = Object.values(assetCategory).find(([name]) => name === item);
+    const asset = Object.values(assetCategory).find(
+      ([name]) => name === item.object
+    );
 
     if (!asset) return;
     if (category === "DECOR") {
@@ -188,23 +198,18 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
     } else if (category == "POSTER") {
       category = "POSTER1";
     }
-    console.log("category: ", category, "item:", item);
     const [name, src] = asset;
     const type =
       src.split(".").pop()?.toLowerCase() === "gif" ? "gif" : "image";
-    console.log("type:", type);
     setElements((prevElements) => {
       const position =
         categoryPositions[category as keyof typeof categoryPositions];
 
-      if (!position) {
-        console.log("POSITION NOT", category);
-      }
-
       const newElement: Element = {
-        id: `${item}-${index}`,
+        id: `${item.object}-${index}`,
         type,
         src,
+        reasoning: item.reasoning,
         category,
         initialX: position.x,
         initialY: position.y,

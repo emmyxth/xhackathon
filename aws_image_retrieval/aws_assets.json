@@ -1,5 +1,5 @@
 {
-  "CHAIRS": {
+  "CHAIR": {
     "ASSET_1": [
       "cream_round_chair_illustration",
       "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/1.png"
@@ -1367,7 +1367,7 @@
       "https://myxbedroompics.s3.us-east-2.amazonaws.com/PETS/vecteezy_snake-with_24705082.png"
     ]
   },
-  "RUGS": {
+  "RUG": {
     "ASSET_1": [
       "beige_checkered_rug_with_tasseled_edges",
       "https://myxbedroompics.s3.us-east-2.amazonaws.com/RUGS/1.png"
@@ -1475,7 +1475,7 @@
       "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/16.png"
     ],
     "ASSET_9": [
-      "`coffee_cup_with_sleeve`",
+      "coffee_cup_with_sleeve",
       "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/17.png"
     ],
     "ASSET_10": [
@@ -1549,6 +1549,184 @@
     "ASSET_27": [
       "bowl_of_soup_with_herbs",
       "https://myxbedroompics.s3.us-east-2.amazonaws.com/FOOD/9.png"
+    ]
+  },
+  "GIF": {
+    "ASSET_1": [
+      "starry_night_sky",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWhtaHVvbnBmNG9qanRjZmo2ZGRzNDd1NDh1dnE2amhwd3c5MThuNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/sWFYgYFjHGugleQdO7/giphy.gif"
+    ],
+    "ASSET_2": [
+      "green_heart_on_pink_background",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnJkMGJsaDRlN2JueWtkYzN1cTN0NjNvenB2OHZvaDFsOXdhN3pyOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/kjDQ00nkmCrCezmje0/giphy.gif"
+    ],
+    "ASSET_3": [
+      "animated_peeling_banana_gif",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjFkcDYyZWl3ZXM3d2pscWFnM2w5MDJuOTF4ZTFyODBkMHdieTNobSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/1s0P1OJ1pGIYQryEGI/giphy.gif"
+    ],
+    "ASSET_4": [
+      "multicolored_stars_on_black_background",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2QwcXBrZXUyNWZtOXl5ZXppc2N4bGc0ZjY5d2h3eXVxZDJ0N3YxcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/xUOwGfV7UYp0E6cb1m/giphy.gif"
+    ],
+    "ASSET_5": [
+      "pink_heart_shaped_gemstone",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExa3JrNnA4YTRtcXRjdnMydGlicHNobGFkanEzOWRiYjh5a2sxZnp4aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/lgPVnjdVYshd8MfhYR/giphy.gif"
+    ],
+    "ASSET_6": [
+      "yellow_stars_on_black_background",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHFod3F4YXk0cTJtNDRlYzh2cjR1d2hzaHJ6ZHNhNDl0emptd2c3NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/2wh869bOyjfvQboXCO/giphy.gif"
+    ],
+    "ASSET_7": [
+      "red_starburst_shape",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3MwYzMxZWVkd3ZyaGhtYXJnZmswaDJ1ejQ0OXR4aWk3bDBidTFnMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Rkz15ULyT8CWVYR75m/giphy.gif"
+    ],
+    "ASSET_8": [
+      "starry_night_sky",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3h3cW5iOWtrZzc1aHFrM3NsbHFnbGZwdXhnd3J3N2RpN3hja2syMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/h7uTwqEHysbd2lhyDP/giphy.gif"
+    ],
+    "ASSET_9": [
+      "pink_and_blue_hearts_on_teal_background",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXhnbXQ2c3cwaWQxMzc5MmVhNjZkdHQ2cGlrdTJoN2d1NTVsdzF1NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/xBoSZ8VksO4W9d7fjH/giphy.gif"
+    ],
+    "ASSET_10": [
+      "pixel_hearts_pattern",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDhqaDNzaWZ0cXF0a3gxM244anp6aWxlMXFrcmtqdnBmd2Z0bHBkdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/lLIBKKEx4MYms/giphy.gif"
+    ],
+    "ASSET_11": [
+      "fluffy_yellow_duckling_illustration",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExa3dpMTdydnY0bTB1YWp5M3RlazVhamJydzF3Y3hyemZtcGdkbHRyNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/PcR2V54LA266l2W471/giphy.gif"
+    ],
+    "ASSET_12": [
+      "animated_rotating_heart",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDRraTVxZDJjNHNjYjF6a2lsdnZuNDNiNXhzdmdmNGRqcTlmMnBtYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/G6XXArf18bLkh1lveY/giphy.gif"
+    ],
+    "ASSET_13": [
+      "blue_flower_with_cloud_petals",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2EyYjg2dXFmZGlmZmY3cXkyZ21ydGYybnJuNzN6cWowMmY1dXZ3aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/J3FrWGjUA0KzTFYAry/giphy.gif"
+    ],
+    "ASSET_14": [
+      "shimmering_pastel_star_glow",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXFsYjczazI0cTBoZnM0emRlOG00ZHF6dTJmOGE5NGpoaWtxOTJlcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/88hQmbBidKbZ4Z63sX/giphy.gif"
+    ],
+    "ASSET_15": [
+      "golden_heart_shape",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnpiNWx6MzFpZHNqa3B6Z29ncGdla2J4bXNhMTZhcG5iNjd2emkyMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/QFl1fvLUy1Jfby0wgC/giphy.gif"
+    ],
+    "ASSET_16": [
+      "two_yellow_stars_on_red_background",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXp2YW1qdWRyZ2t1NnFyYWJ0MmZ4cmV2anZkZDUxbGFwYm13eDU2aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/RtnhWRcOVTWg875gn0/giphy.gif"
+    ],
+    "ASSET_17": [
+      "blue_circle_on_white_background",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3gyMWwwMHFuMjliNjl2amttazRqOGxiOTZ3eGR3cnJqNWI2eWN0bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/ZulpOnHeBNR0dXepAn/giphy.gif"
+    ],
+    "ASSET_18": [
+      "candy_canes_with_green_bow",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmZtb29kcG15MzR5dmR5ZmN0bGhicnZnbThyaHVmYnhnNG5tZTdxNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/N6b1RdWyagnHzaPvtz/giphy.gif"
+    ],
+    "ASSET_19": [
+      "orange_slice_on_brown_background",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnRxaWljcXNsajEwc2JtZ2FkcGFvMnZqcDRmOTFlcjR6MmQ5NDBjeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pUjFF6SVlR5OeKEqCY/giphy.gif"
+    ],
+    "ASSET_20": [
+      "large_shiny_strawberry",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGJ0bjdwZjBnNXllNXhiMHQ1dXZramRld3hxbHp1ZGZyM25tc21vOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/d2Sor6kd4bug3J3Srk/giphy.gif"
+    ],
+    "ASSET_21": [
+      "green_star_shape",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTlkdmRsdzgzb3F0NXEyYTNwcmowend1M2RjYnBubjFrY2l2ajB0diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Qw1qVhsbb0iKAwqzhD/giphy.gif"
+    ],
+    "ASSET_22": [
+      "blue_flower_shape",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjZvc3IzZGd4cGRxaDA0M252MXZyM2U1ZjM3ZzgwZzk4cG1vMDJuMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/NzTFHsYV9YKWIGWbiJ/giphy.gif"
+    ],
+    "ASSET_23": [
+      "purple_glossy_heart_shape",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxamYzN2kxbTBpeXoxcXo0eTZnMHJmMTk4bWx3d254eTd4aXBtNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/paRIgo52DH480XNz9s/giphy.gif"
+    ],
+    "ASSET_24": [
+      "i'm_perfect_star_gif",
+      "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2FlZjV5cDZzZ2JicWUzY2xtZ20zd2Iyazd4am91OGVydW04eHg3MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/L0Nzhw8LO6q8JHio5g/giphy.gif"
+    ],
+    "ASSET_25": [
+      "raised_red_fist",
+      "https://i.gifer.com/VfW.gif"
+    ],
+    "ASSET_26": [
+      "cute_character_with_mushroom_hat",
+      "https://i.gifer.com/Z6W2.gif"
+    ],
+    "ASSET_27": [
+      "star_and_circular_sparkle_symbols",
+      "https://i.gifer.com/XZ5V.gif"
+    ],
+    "ASSET_28": [
+      "clouds_in_sky",
+      "https://i.gifer.com/3F3I.gif"
+    ],
+    "ASSET_29": [
+      "fluffy_cartoon_clouds",
+      "https://i.gifer.com/3klZ.gif"
+    ],
+    "ASSET_30": [
+      "cute_pink_bird_cartoon",
+      "https://i.gifer.com/6oa.gif"
+    ],
+    "ASSET_31": [
+      "blue_butterfly_on_blue_background",
+      "https://i.gifer.com/6pkB.gif"
+    ],
+    "ASSET_32": [
+      "shiny_geometric_shape_with_rainbow_colors",
+      "https://i.gifer.com/33Ho.gif"
+    ],
+    "ASSET_33": [
+      "stack_of_hundred_dollar_bills",
+      "https://i.gifer.com/2r6D.gif"
+    ],
+    "ASSET_34": [
+      "white_dove_in_flight",
+      "https://i.gifer.com/T0NA.gif"
+    ],
+    "ASSET_35": [
+      "spinning_light_bulb_gif",
+      "https://i.gifer.com/ZQ6K.gif"
+    ],
+    "ASSET_36": [
+      "pixel_art_fire_flame",
+      "https://i.gifer.com/5Mz4.gif"
+    ],
+    "ASSET_37": [
+      "yellow_audio_equalizer_bars",
+      "https://i.gifer.com/Z23b.gif"
+    ],
+    "ASSET_38": [
+      "shiny_rotating_disco_ball",
+      "https://i.gifer.com/XVny.gif"
+    ],
+    "ASSET_39": [
+      "flying_money_emoji",
+      "https://i.gifer.com/xt.gif"
+    ],
+    "ASSET_40": [
+      "vibrant_firework_explosion",
+      "https://i.gifer.com/Z9pp.gif"
+    ],
+    "ASSET_41": [
+      "yellow_stars_with_trails_on_black_background",
+      "https://i.gifer.com/ZUiY.gif"
+    ],
+    "ASSET_42": [
+      "rotating_globe_pacific_view",
+      "https://i.gifer.com/PcOY.gif"
+    ],
+    "ASSET_43": [
+      "fluffy_blue_cloud_shape",
+      "https://i.gifer.com/Pch.gif"
+    ],
+    "ASSET_44": [
+      "glowing_butterflies_in_the_dark",
+      "https://i.gifer.com/33KT.gif"
     ]
   }
 }

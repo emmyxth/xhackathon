@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useCallback, useEffect, useState } from "react";
-import assets from "../../image_retrieval/assets.json";
+import assets from "../app/assets.json";
 import DraggableElement from "./DraggableElement";
 
 const categoryOrder = [

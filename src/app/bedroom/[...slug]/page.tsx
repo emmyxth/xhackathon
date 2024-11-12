@@ -49,7 +49,6 @@ const VersePage: React.FC = () => {
   const getItemsFromRoomData = (roomData: any) => {
     const parsedRoomData = JSON.parse(roomData);
     const arrOfItems = parsedRoomData[0]["prompt_response"]["response"];
-    console.log("ArrOfItems:", arrOfItems);
     setArrOfItems(arrOfItems);
     return arrOfItems;
   };

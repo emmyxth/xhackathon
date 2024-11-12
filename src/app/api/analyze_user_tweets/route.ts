@@ -1,4 +1,6 @@
 import OpenAI from "openai";
+
+
 const convertTweetsToString = (tweets: string[]) => {
   return tweets.join('\n');
 }

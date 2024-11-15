@@ -182,14 +182,17 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
   }, [elementsInitialized]);
 
   const addElement = (
-    item: { category: string; object: string; reasoning: string },
+    item: { object: string; category: string; reasoning: string },
     index: number
   ) => {
     let category = item["category"];
+    console.log(category);
     const assetCategory = assets[category as keyof typeof assets];
+    console.log(assetCategory);
     const asset = Object.values(assetCategory).find(
       ([name]) => name === item.object
     );
+    console.log(asset);
 
     if (!asset) return;
     if (category === "DECOR") {

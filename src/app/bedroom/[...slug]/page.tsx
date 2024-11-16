@@ -62,10 +62,7 @@ const VersePage: React.FC = () => {
       const arrOfItems = parsedRoomData[0]["prompt_response"]["response"];
       setArrOfItems(arrOfItems);
     } else {
-      if (
-        session.status === "unauthenticated" ||
-        session.status === "loading"
-      ) {
+      if (session.status === "unauthenticated") {
         router.push("/");
       } else {
         const fetchRoomData = async () => {

@@ -515,7 +515,7 @@ export async function POST(request: Request) {
       - Should classic cartoons or movies be remade?  
       - What’s the weirdest or funniest meme you’ve seen lately?  
 
-    Make this a JSON readable output with no newlines or whitespace. Your array must have exactly 1 PET, 1 FOOD, 1 CHAIR, 1 RUG, 9 DECORs, 1 POSTER, 1 GIF. Format it like this, with each element being a json that describes the category, object itself (<OBJECT>), and why you picked that object in <REASONING> using the context of a tweet posted or liked. Describe the user in second person (e.g you, yours). Use a slightly sassy tone, referencing specific tweets or liked tweets that the user has. There MUST be exactly 15 elements in this array, and it should look like this:
+    Make this a JSON readable output with no newlines or whitespace. Your array must have exactly 1 PET, 1 FOOD, 1 CHAIR, 1 RUG, 9 DECORs, 1 POSTER, 1 GIF. Format it like this, with each element being a json that describes the category, object itself (<OBJECT>), and why you picked that object in <REASONING> using the context of a tweet posted or liked. Describe the user in second person (e.g you, yours). Use a slightly sassy tone, referencing specific tweets or liked tweets that the user has. There MUST be 15 elements in this array, and it should look like this:
 
     [
       {

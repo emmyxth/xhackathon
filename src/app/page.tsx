@@ -119,6 +119,7 @@ const InternetBedroomPage: React.FC = () => {
    * If any errors occur during these processes, appropriate error messages are displayed.
    */
   const generateFriendBedroom = async (friendHandle: string) => {
+    // console.log("friendHandle", friendHandle);
     if (!friendHandle.trim()) {
       showError("Please enter a valid X handle");
       return;
@@ -136,6 +137,8 @@ const InternetBedroomPage: React.FC = () => {
         const friendIdResponse = await axios.get(
           `/api/user_id?user_handle=${friendHandle}&bearer_token=${bearer_token}`
         );
+
+        console.log("friendIdResponse", friendIdResponse);
 
         const friendId = friendIdResponse.data.id;
 
@@ -185,8 +188,8 @@ const InternetBedroomPage: React.FC = () => {
       } catch (err) {
         if (axios.isAxiosError(err) && err.response?.status === 404) {
           showError(`@${friendHandle} doesn't exist on X`);
-        } else {
-          showError("Failed to generate bedroom. Please try again.");
+        } else if (axios.isAxiosError(err) && err.response?.status === 500) {
+          showError(`@${friendHandle} may not be public. Please try again.`);
         }
       } finally {
         setLoading(false);

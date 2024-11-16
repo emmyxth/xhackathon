@@ -431,56 +431,6 @@
       "https://discz-production-s3-bucket.s3.amazonaws.com/spotify-bedroom/CHAIRS/ASSET_14.webp"
     ]
   },
-  "RUG": {
-    "ASSET_1": [
-      "rugs11",
-      "/public/assets/rugs/rugs11.webp"
-    ],
-    "ASSET_5": [
-      "pink_square_rug",
-      "/public/assets/rugs/pink_square_rug.webp"
-    ],
-    "ASSET_7": [
-      "rugs2",
-      "/public/assets/rugs/rugs2.png"
-    ],
-    "ASSET_9": [
-      "rugs4",
-      "/public/assets/rugs/rugs4.webp"
-    ],
-    "ASSET_10": [
-      "rugs9",
-      "/public/assets/rugs/rugs9.jpg"
-    ],
-    "ASSET_11": [
-      "red_carpet_rug",
-      "/public/assets/rugs/red_carpet_rug.png"
-    ],
-    "ASSET_13": [
-      "rugs16",
-      "/public/assets/rugs/rugs16.png"
-    ],
-    "ASSET_2": [
-      "green_checkered_cherry_rug",
-      "/public/assets/rugs/green_checkered_cherry_rug.jpg"
-    ],
-    "ASSET_3": [
-      "regal_brown_persian_rug",
-      "/public/assets/rugs/regal_brown_persian_rug.png"
-    ],
-    "ASSET_4": [
-      "persian_rug_brown",
-      "/public/assets/rugs/persian_rug_brown.jpg"
-    ],
-    "ASSET_8": [
-      "pink_rug",
-      "/public/assets/rugs/pink_rug.jpg"
-    ],
-    "ASSET_12": [
-      "white_brown_rug",
-      "/public/assets/rugs/white_brown_rug.webp"
-    ]
-  },
   "POSTER": {
     "ASSET_1": [
       "zugspitze_mountain_poster_art",
@@ -1815,7 +1765,7 @@
       "https://myxbedroompics.s3.us-east-2.amazonaws.com/CHAIRS/9.png"
     ]
   },
-  "RUGS": {
+  "RUG": {
     "ASSET_1": [
       "beige_checkered_rug_with_tasseled_edges",
       "https://myxbedroompics.s3.us-east-2.amazonaws.com/RUGS/1.png"

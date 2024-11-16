@@ -166,6 +166,7 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
     ) {
       // console.log(items);
       if (Array.isArray(items)) {
+        console.log(items);
         items.forEach((item, index) => addElement(item, index));
         setElementsInitialized(true);
       } else {
@@ -185,6 +186,7 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
     item: { object: string; category: string; reasoning: string },
     index: number
   ) => {
+    console.log(item);
     let category = item["category"];
     // console.log(category);
     const assetCategory = assets[category as keyof typeof assets];

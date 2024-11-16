@@ -143,20 +143,7 @@ export async function POST(request: Request) {
       - green_leather_modular_sofa
       - wood_and_cane_chair
       - wooden_chair
-      5: RUG
-      - rugs11
-      - pink_square_rug
-      - rugs2
-      - rugs4
-      - rugs9
-      - red_carpet_rug
-      - rugs16
-      - green_checkered_cherry_rug
-      - regal_brown_persian_rug
-      - persian_rug_brown
-      - pink_rug
-      - white_brown_rug
-      6: POSTER
+      5: POSTER
       - zugspitze_mountain_poster_art
       - rock_hand_gesture_with_stars_and_sunburst
       - nba_logo_silhouette
@@ -428,7 +415,7 @@ export async function POST(request: Request) {
       - south_african_flag
       - zambia_flag_with_eagle
       - zimbabwe_flag
-      7: GIF
+      6: GIF
       - abstract_geometric_structure
       - animated_cluster_of_eyeballs
       - wireframe_head_model
@@ -470,7 +457,7 @@ export async function POST(request: Request) {
       - blue_flower_shape
       - purple_shiny_heart
       - pink_star_i'm_perfect_text
-      8: CHAIRS
+      7: CHAIRS
       - cream_round_chair_illustration
       - rocking_chair_with_blanket
       - wicker_chair_with_wooden_legs
@@ -491,7 +478,7 @@ export async function POST(request: Request) {
       - blue_foldable_camping_chair
       - red_director_chair
       - pink_modern_chair
-      9: RUGS
+      8: RUG
       - beige_checkered_rug_with_tasseled_edges
       - orange_white_checkered_oval_pattern
       - brown_blanket_with_fringe_edges
@@ -544,7 +531,7 @@ export async function POST(request: Request) {
       - Should classic cartoons or movies be remade?  
       - What’s the weirdest or funniest meme you’ve seen lately?  
 
-    Make this a JSON readable output with no newlines or whitespace. Return your result in an array of 1 PET, 1 FOOD, 1 CHAIR, 1 RUG, 9 DECOR, 1 POSTER, 1 GIF. Format it like this, with each element being a json that describes the category, object itself (<OBJECT>), and why you picked that object in <REASONING> using the context of a tweet posted or liked. Describe the user in second person (e.g you, yours). Use a slightly sassy tone, referencing specific tweets or liked tweets that the user has:
+    Make this a JSON readable output with no newlines or whitespace. Your array must have exactly 1 PET, 1 FOOD, 1 CHAIR, 1 RUG, 9 DECORs, 1 POSTER, 1 GIF. Format it like this, with each element being a json that describes the category, object itself (<OBJECT>), and why you picked that object in <REASONING> using the context of a tweet posted or liked. Describe the user in second person (e.g you, yours). Use a slightly sassy tone, referencing specific tweets or liked tweets that the user has:
 
     [
       {
@@ -623,7 +610,6 @@ export async function POST(request: Request) {
         "reasoning": <REASONING>
       },    
     ]
-
     `
 
     const options = {

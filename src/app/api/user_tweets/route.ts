@@ -27,13 +27,13 @@ export async function GET(request: Request) {
       }
     });
 
+    const status = res.status
     const tweets = res.data
     const tweetData = tweets.data
     const justText = tweetData.map((tweet: any) => tweet.text)
 
-    return Response.json({ justText })
+    return new Response(JSON.stringify({ justText }), { status: 200, headers: { 'Content-Type': 'application/json' } });
   } catch (error) {
-    return Response.error()
   }
-  
-}
+    return new Response(JSON.stringify({ error: 'An error occurred' }))
+  }

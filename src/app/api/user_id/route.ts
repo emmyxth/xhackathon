@@ -20,7 +20,6 @@ export async function GET(request: Request) {
 
     return Response.json({ id })
   } catch (error) {
-    console.log(Response.error())
     return Response.error()
   }
   

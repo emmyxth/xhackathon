@@ -70,7 +70,6 @@ const VersePage: React.FC = () => {
       } else {
         const fetchRoomData = async () => {
           const roomData = await getUserRoomData();
-          console.log("roomData: ", roomData);
           if (Array.isArray(roomData) && roomData.length > 0) {
             const items = getItemsFromRoomData(roomData);
             localStorage.setItem("roomData", JSON.stringify(roomData));

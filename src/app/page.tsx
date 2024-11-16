@@ -55,7 +55,6 @@ const InternetBedroomPage: React.FC = () => {
           .eq("author_id", id_str);
 
         if (!error && data.length > 0) {
-          console.log("roomData: ", data);
           localStorage.setItem("roomData", JSON.stringify(data));
           localStorage.setItem("roomDataUser", username);
           const room_id = data[0].id;
@@ -98,7 +97,7 @@ const InternetBedroomPage: React.FC = () => {
         }
       } catch (err) {
         showError(
-          "Failed to generate bedroom. Check your handle and try again."
+          "Failed to generate bedroom. Check your handle and try again. You may need to log out and reauthenticate as well."
         );
       } finally {
         setLoading(false);
@@ -138,8 +137,6 @@ const InternetBedroomPage: React.FC = () => {
           `/api/user_id?user_handle=${friendHandle}&bearer_token=${bearer_token}`
         );
 
-        console.log("friendIdResponse", friendIdResponse);
-
         const friendId = friendIdResponse.data.id;
 
         const { data: existingRoom, error: roomError } = await supabase
@@ -162,8 +159,6 @@ const InternetBedroomPage: React.FC = () => {
             tweets: tweets.data,
             liked_tweets: tweets.data,
           });
-
-          console.log(analyze);
 
           const { data: newRoom, error: insertError } = await supabase
             .from("rooms")

@@ -106,7 +106,7 @@ const VersePage: React.FC = () => {
             redirect("/");
           }}
         >
-          Log Out Now
+          Log Out
         </button>
       </header>
 

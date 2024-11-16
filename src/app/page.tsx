@@ -30,6 +30,16 @@ const InternetBedroomPage: React.FC = () => {
     setTimeout(() => setError(null), 3000);
   };
 
+  /**
+   * Generates a user's bedroom visualization based on their session data.
+   *
+   * This function checks if the user session is valid and retrieves the user's ID, handle, and access token.
+   * It then checks if a room already exists for this user in the database.
+   * If a room exists, it stores the room data in local storage and navigates to the room page.
+   * If no room exists, it fetches the user's tweets and liked tweets, analyzes them to generate room data,
+   * inserts the new room data into the database, stores it in local storage, and redirects the user to the new room page.
+   * If any errors occur during these processes, an error message is displayed.
+   */
   const generateUserBedroom = async () => {
     if (session.data && session.data?.user.id_str) {
       setLoading(true);
@@ -45,6 +55,7 @@ const InternetBedroomPage: React.FC = () => {
           .eq("author_id", id_str);
 
         if (!error && data.length > 0) {
+          console.log("roomData: ", data);
           localStorage.setItem("roomData", JSON.stringify(data));
           localStorage.setItem("roomDataUser", username);
           const room_id = data[0].id;
@@ -74,6 +85,10 @@ const InternetBedroomPage: React.FC = () => {
             })
             .select();
 
+          if (error) {
+            showError(error);
+          }
+
           if (!!data && !error) {
             localStorage.setItem("roomData", JSON.stringify(data));
             localStorage.setItem("roomDataUser", username);
@@ -90,7 +105,19 @@ const InternetBedroomPage: React.FC = () => {
       }
     }
   };
-
+  /**
+   * Generates a friend's bedroom visualization based on their X handle.
+   *
+   * @param {string} friendHandle - The X handle of the friend whose bedroom is to be generated.
+   *
+   * This function validates the input handle and removes any leading '@' character.
+   * If the user session is valid, it retrieves the friend's user ID using the handle.
+   * It checks if a room already exists for this friend and the current user.
+   * If a room exists, it stores the room data in local storage and navigates to the room page.
+   * If no room exists, it fetches the friend's tweets and analyzes them to generate room data.
+   * The new room data is inserted into the database, stored in local storage, and the user is redirected to the new room page.
+   * If any errors occur during these processes, appropriate error messages are displayed.
+   */
   const generateFriendBedroom = async (friendHandle: string) => {
     if (!friendHandle.trim()) {
       showError("Please enter a valid X handle");

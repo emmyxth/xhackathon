@@ -164,7 +164,7 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
       windowDimensions.width &&
       windowDimensions.height
     ) {
-      console.log(items);
+      // console.log(items);
       if (Array.isArray(items)) {
         items.forEach((item, index) => addElement(item, index));
         setElementsInitialized(true);
@@ -186,13 +186,13 @@ const EditableComponent: React.FC<EditableComponentProps> = ({
     index: number
   ) => {
     let category = item["category"];
-    console.log(category);
+    // console.log(category);
     const assetCategory = assets[category as keyof typeof assets];
-    console.log(assetCategory);
+    // console.log(assetCategory);
     const asset = Object.values(assetCategory).find(
       ([name]) => name === item.object
     );
-    console.log(asset);
+    // console.log(asset);
 
     if (!asset) return;
     if (category === "DECOR") {

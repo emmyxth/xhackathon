@@ -7,8 +7,23 @@ import { supabase } from "@/utils/db";
 import axios from "axios";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AudioControlButton from "../components/AudioControlButton";
+import { getRedisClient } from "../../redis";
+
+const COUNTER_NAMESPACE = "counter";
+
+export const incrementCount = async (increment = 1) => {
+  const client = getRedisClient();
+  try {
+    const newCount = await client.incrBy(`${COUNTER_NAMESPACE}`, increment);
+    console.log("newCount:", newCount);
+    return newCount;
+  } catch (error) {
+    console.error(error);
+    return 0;
+  }
+};
 
 const ErrorOverlay = ({ message }: { message: string }) => (
   <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
@@ -29,6 +44,10 @@ const InternetBedroomPage: React.FC = () => {
     setError(message);
     setTimeout(() => setError(null), 3000);
   };
+
+  useEffect(() => {
+    incrementCount(1);
+  }, []);
 
   /**
    * Generates a user's bedroom visualization based on their session data.

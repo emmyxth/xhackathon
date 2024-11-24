@@ -25,6 +25,8 @@ export const incrementCount = async (increment = 1) => {
   }
 };
 
+const COUNTER_NAMESPACE = "counter";
+
 const ErrorOverlay = ({ message }: { message: string }) => (
   <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
     <div className="bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg">

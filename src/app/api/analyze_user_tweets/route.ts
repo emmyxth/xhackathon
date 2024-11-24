@@ -627,7 +627,9 @@ export async function POST(request: Request) {
       messages: [{ role: 'user', content: thePrompt }],
       model: 'gpt-3.5-turbo',
     }).withResponse();
-
+    
+    console.log(response)
+    console.log(completion)
     const content = completion.choices[0].message.content
     if (!response.ok) {
       return Response.json({ error: 'An error occurred' }, { status: 500 });

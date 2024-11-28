@@ -26,18 +26,12 @@ const VersePage: React.FC = () => {
     backgroundColor: string;
   } | null>(null);
 
-  const findLastBracketIndex = (message: string): number => {
-    return message.lastIndexOf("[");
-  };
-
   const getUserRoomData = async () => {
     // @ts-ignore
-    const id_str = session.data?.user.id_str;
     const { data, error } = await supabase
       .from("rooms")
       .select("*")
-      .eq("profile_id", id_str)
-      .eq("author_id", id_str);
+      .eq("id", slug[1]);
     if (!error && data.length > 0) {
       const items = getItemsFromRoomData(data);
       return items;
@@ -47,9 +41,7 @@ const VersePage: React.FC = () => {
   };
 
   const getItemsFromRoomData = (roomData: any) => {
-    const parsedRoomData = JSON.parse(roomData);
-    const arrOfItems = parsedRoomData[0]["prompt_response"]["response"];
-    setArrOfItems(arrOfItems);
+    const arrOfItems = roomData[0]["prompt_response"]["response"];
     return arrOfItems;
   };
 
@@ -57,28 +49,30 @@ const VersePage: React.FC = () => {
     const roomData = localStorage.getItem("roomData");
     const roomDataUser = localStorage.getItem("roomDataUser");
 
-    if (roomData && roomDataUser && roomDataUser == slug[0]) {
-      const parsedRoomData = JSON.parse(roomData);
-      const arrOfItems = parsedRoomData[0]["prompt_response"]["response"];
-      setArrOfItems(arrOfItems);
-    } else {
-      if (session.status === "unauthenticated") {
-        router.push("/");
-      } else {
-        const fetchRoomData = async () => {
-          const roomData = await getUserRoomData();
-          if (Array.isArray(roomData) && roomData.length > 0) {
-            const items = getItemsFromRoomData(roomData);
-            localStorage.setItem("roomData", JSON.stringify(roomData));
-            localStorage.setItem("roomDataUser", slug[0]);
-            // setArrOfItems(items);
-          } else {
-            router.push("/");
-          }
-        };
-        fetchRoomData();
-      }
-    }
+    const fetchRoomData = async () => {
+      const items = await getUserRoomData();
+      setArrOfItems(items);
+    };
+    fetchRoomData();
+
+    // if (roomData && roomDataUser && roomDataUser == slug[0]) {
+    //   const parsedRoomData = JSON.parse(roomData);
+    //   const arrOfItems = parsedRoomData[0]["prompt_response"]["response"];
+    //   setArrOfItems(arrOfItems);
+    // } else {
+    //   const fetchRoomData = async () => {
+    //     const roomData = await getUserRoomData();
+    //     if (Array.isArray(roomData) && roomData.length > 0) {
+    //       const items = getItemsFromRoomData(roomData);
+    //       localStorage.setItem("roomData", JSON.stringify(roomData));
+    //       localStorage.setItem("roomDataUser", slug[0]);
+    //       // setArrOfItems(items);
+    //     } else {
+    //       router.push("/");
+    //     }
+    //   };
+    //   fetchRoomData();
+    // }
   }, []);
 
   const handleBedroomStateChange = (
@@ -87,6 +81,10 @@ const VersePage: React.FC = () => {
   ) => {
     setBedroomState({ elements, backgroundColor });
   };
+
+  if (session.status === "unauthenticated") {
+    router.push("/");
+  }
 
   return (
     <div className="flex flex-col min-h-screen bg-black">
@@ -108,12 +106,14 @@ const VersePage: React.FC = () => {
       </header>
 
       <main className="flex-grow flex flex-col lg:flex-row gap-12 items-center justify-center lg:space-y-0 space-y-4 p-4">
-        <Bedroom
-          onStateChange={handleBedroomStateChange}
-          bedroomState={bedroomState}
-          items={arrOfItems}
-          user={slug[0]}
-        />
+        {arrOfItems.length > 0 && (
+          <Bedroom
+            onStateChange={handleBedroomStateChange}
+            bedroomState={bedroomState}
+            items={arrOfItems}
+            user={slug[0]}
+          />
+        )}
       </main>
       <footer className="p-4 flex sm:justify-between justify-center items-center ">
         {/* <span>Powered by JECZ</span> */}
